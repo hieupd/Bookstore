@@ -48,7 +48,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         .swiper-container {
             width: 100%;
             height: 400px;
-            margin-bottom: : 0.5em;
+            margin-bottom: 0.5em;
             margin-top: 0.5em;
             background-color: #F7F7F9;
         }
@@ -264,7 +264,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 </div>
                             </div>
                             <div class="text-center">
-                            <div class="item-name"><h4 style="width: 250px; height: 40px;"><a href="single">{{$Books[$i+1]->book_name}}đ</a></h4></div>
+                            <div class="item-name"><h4 style="width: 250px; height: 40px;"><a href="single">{{$Books[$i+1]->book_name}}</a></h4></div>
                             <p>{{$Books[$i+1]->book_author}}</p>
                             <div class="new-collections-grid1-left simpleCart_shelfItem">
                                 <p>
@@ -299,10 +299,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <div class="swiper-slide">
                             <div class="new-collections-grid1 animated wow slideInUp" data-wow-delay=".5s">
                                 <div class="new-collections-grid1-image">
-                                    <a href="single.html" class="product-image"><img style="width: 176.36px;height: 235.15px" src="/upload/book_image/{{$book->book_image}}" alt=" "
+                                    <a href="/Product/singleproduct/{{$book->book_id}}" class="product-image"><img style="width: 176.36px;height: 235.15px" src="/upload/book_image/{{$book->book_image}}" alt=" "
                                                                                      class="img-responsive"/></a>
                                     <div class="new-collections-grid1-image-pos">
-                                        <a href="single.html">Xem nhanh</a>
+                                        <a href="/Product/singleproduct/{{$book->book_id}}">Xem nhanh</a>
                                     </div>
                                     <div class="new-collections-grid1-right">
                                         <div class="rating">
@@ -353,7 +353,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     </div>
                                 </div>
                                 <h5><a style="height: 15px" href="single.html">{{$book->book_name}}</a></h5>
-                                <p style="margin-top: 0.5em">{{$book->book_author}}</p>
+                                <p style="margin-top: 1em">{{$book->book_author}}</p>
                                 <div class="new-collections-grid1-left simpleCart_shelfItem">
                                     <p>
                                         @if($book->book_sale > 0)
@@ -495,6 +495,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                 @endfor
                                             @endif
                                         @endforeach
+                                        @if($status == 0)
+                                            @for($j = 0 ; $j < 5 ; $j++)
+                                                <div class="rating-left">
+                                                    <img src="images/1.png" alt=" " class="img-responsive"/>
+                                                </div>
+                                            @endfor
+                                        @endif
                                         <div class="clearfix"></div>
                                     </div>
                                 </div>
