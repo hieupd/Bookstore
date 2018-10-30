@@ -315,7 +315,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <h2><a href="/">Book Store <span>shop anywhere</span></a></h2>
         </div>
         <div class="copy-right animated wow slideInUp" data-wow-delay=".5s">
-            <p>&copy 2016 Book Store. All rights reserved | Design by Nhom 7</a></p>
+            <p>&copy 2016 Book Store. All rights reserved | Design by Nhom 7</p>
         </div>
     </div>
 </div>
