@@ -33,6 +33,11 @@ Route::get('/RemoveCart/{id}', 'CartController@RemoveCart');
 Route::post('/Updatecart', 'CartController@UpdateCart');
 // get book_info
 Route::get('/Product/singleproduct/{book_id}', 'BookController@getBookinfo');
+
+//updateinfo
+Route::get('/info','ClientController@showinfo');
+//Route::post('/info','ClientController@updateinfo')
+
 Route::middleware(['permison', 'auth'])->group(function () {
     //index
     Route::get('/admin/dashboard', 'AdminController@index')->name('dashboard');
