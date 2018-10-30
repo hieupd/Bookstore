@@ -89,6 +89,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <h3 class="animated wow zoomIn" data-wow-delay=".5s">Sách Bán Chạy Nhất</h3>
             <p class="est animated wow zoomIn" data-wow-delay=".5s">Toàn bộ sách mới đã được chúng tôi cập nhật lên website.
                 Kính mời quý độc giả có thể tham khảo </p>
+            @if($Books!=null)
             <div class="new-collections-grids">
                 @for($i = 0 ; $i < 8 ;$i= $i+2)
                     <div class="col-md-3 new-collections-grid">
@@ -235,6 +236,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                 @endfor
             </div>
+            @else
+                <br>
+                <H2 style="text-align: center">Không có dữ liệu trong cơ sở</H2>
+            @endif
         </div>
     </div>
     <div class="new-collections">
@@ -381,6 +386,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                 @endfor
             </div>
+
             @else
                 <br>
                 <H2 style="text-align: center">Không có dữ liệu trong cơ sở</H2>
