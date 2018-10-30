@@ -16,7 +16,7 @@ Auth::routes();
 //checklogin
 Route::post('/checklogin', 'LoginController@check')->name('logincheck');
 //
-Route::get('/home', 'BookController@getListBook');
+Route::get('/home', 'BookController@getListBook')->name('home');
 //client
 Route::get('/Product/Category/{category_id}', 'BookController@getLbookbyCategory');
 //get list book on index page
