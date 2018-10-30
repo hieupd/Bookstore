@@ -20,7 +20,7 @@
                         <li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>+84961098497</li>
                         <li><i class="glyphicon glyphicon-user" aria-hidden="true"></i><a href="/">{{Auth::user()->user_name}}</a>
                         </li>
-                        <li><i class="glyphicon glyphicon-book" aria-hidden="true"></i><a href="/">Quản lý tài khoản</a>
+                        <li><i class="glyphicon glyphicon-book" aria-hidden="true"></i><a href="/info">Thông tin tài khoản</a>
                         </li>
                         <li><i class="glyphicon glyphicon-upload" aria-hidden="true"></i><a href="/">Tải sách</a>
                         </li>

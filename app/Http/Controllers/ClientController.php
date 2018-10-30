@@ -38,4 +38,8 @@ class ClientController extends Controller
     {
         return view('webadmin.account.login');
     }
+    function showinfo()
+    {
+        return view('webclient.userinfo');
+    }
 }
