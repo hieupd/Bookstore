@@ -238,7 +238,11 @@ class BookController extends Controller
     public function getListBook()
     {
         $book =bt_book::all()->take(8);
+        if($book->count() == 0)
+            $book = null;
         $LNewsbooks = bt_book::orderBy('book_id','desc')->take(8)->get();
+        if($LNewsbooks->count() == 0)
+            $LNewsbooks = null;
         $rating = DB::table('bt_rates')->select(DB::raw('book_id,AVG(book_rating) as rating'))->groupBy('book_id')->get();
         return view('webclient.index',['Books'=>$book,'LNewsBook'=>$LNewsbooks,'Rating'=>$rating]);
     }
