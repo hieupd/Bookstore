@@ -202,4 +202,5 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <button type="reset" class="btn btn-default" onclick="Redirect();">Hủy</button>
         </form>
     </div>
+    <script type="text/javascript" language="javascript" src="/ckeditor/ckeditor.js" ></script>
 @endsection
