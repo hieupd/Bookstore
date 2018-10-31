@@ -15,7 +15,8 @@ class BookController extends Controller
     public function getAddBook()
     {
         $type = bt_type::all();
-        return view('webadmin.book.addbook',['Type'=>$type]);
+        $category = bt_category::all();
+        return view('webadmin.book.addbook',['Type'=>$type,'Category'=>$category]);
     }
     public function GetListBooks()
     {
@@ -34,6 +35,8 @@ class BookController extends Controller
                 'txtbook_page' => 'required|integer',
                 'txtbook_quantity' => 'integer',
                 'txtbook_price' => 'required|integer',
+                'sl_CL'=>'required',
+                'sl_TL'=>'required',
             ],
             [
                 'txtbook_name.required' => 'Bạn chưa nhập tên sách !',
@@ -53,6 +56,8 @@ class BookController extends Controller
                 'txtbook_quantity.integer' => 'Sô lượng sách chỉ được nhập số !',
                 'txtbook_price.required' => 'Bạn chưa nhập số đơn giá!',
                 'txtbook_price.integer' => 'Đơn giá chỉ được nhập số !',
+                'sl_CL.required'=>'Vui lòng chọn danh mục !',
+                'sl_TL.required'=>'Vui lòng chọn thể loại !',
 
 
             ]);
@@ -117,6 +122,8 @@ class BookController extends Controller
                 'txtbook_page' => 'required|integer',
                 'txtbook_quantity' => 'integer',
                 'txtbook_price' => 'required|integer',
+                'sl_CL'=>'required',
+                'sl_TL'=>'required',
             ],
             [
                 'txtbook_name.required' => 'Bạn chưa nhập tên sách !',
@@ -136,6 +143,8 @@ class BookController extends Controller
                 'txtbook_quantity.integer' => 'Sô lượng sách chỉ được nhập số !',
                 'txtbook_price.required' => 'Bạn chưa nhập số đơn giá!',
                 'txtbook_price.integer' => 'Đơn giá chỉ được nhập số !',
+                'sl_CL.required'=>'Vui lòng chọn danh mục !',
+                'sl_TL.required'=>'Vui lòng chọn thể loại !',
 
 
             ]);
@@ -240,7 +249,7 @@ class BookController extends Controller
         $book =bt_book::all()->take(8);
         if($book->count() < 8 )
             $book = null;
-        $LNewsbooks = bt_book::orderBy('book_id','desc')->take(8)->get();
+        $LNewsbooks = bt_book::orderBy('book_id','desc')->take(15)->get();
         if($LNewsbooks->count() < 8)
             $LNewsbooks = null;
         $rating = DB::table('bt_rates')->select(DB::raw('book_id,AVG(book_rating) as rating'))->groupBy('book_id')->get();
