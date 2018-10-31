@@ -204,13 +204,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="products-right-grids-bottom">
                     @foreach($Books as $book)
                     <div class="col-md-4">
-                        <div class="new-collections-grid1 products-right-grid1 animated wow slideInUp" data-wow-delay=".5s">
-                            <div class="new-collections-grid1-image">
+                        <div class="new-collections-grid123 products-right-grid1 animated wow slideInUp" data-wow-delay=".5s">
+                            <div class="new-collections-grid123-image">
                                 <a href="single.blade.php" class="product-image"><img style=" width:175.99px; height: 252.14px;" src="/upload/book_image/{{$book->book_image}}" alt=" " class="img-responsive"></a>
-                                <div class="new-collections-grid1-image-pos products-right-grids-pos">
+                                <div class="new-collections-grid123-image-pos products-right-grids-pos">
                                     <a href="/Product/singleproduct/{{$book->book_id}}">Xem nhanh</a>
                                 </div>
-                                <div class="new-collections-grid1-right">
+                                <div class="new-collections-grid123-right">
                                     <div class="rating">
                                         @php
                                             $status = 0;
