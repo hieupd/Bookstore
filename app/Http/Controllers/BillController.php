@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
+use Request;
+//use Illuminate\Http\Request;
 use App\bt_bill;
 use App\bt_book;
 use Cart;
@@ -11,16 +11,20 @@ class BillController extends Controller
 {
     public function getBillmanager()
     {
-        $bills = bt_bill::join('bt_books','bt_bills.book_id','=','bt_books.book_id')->join('bt_members','bt_bills.member_id','=','bt_members.member_id')->get();;
+        $bills = bt_bill::join('users','bt_bills.member_id','=','users.id')->get();;
         return view('webadmin.bill.bill',['Bills'=>$bills]);
     }
-    public function getupdateBillmanager(Request $request, $id)
+    public function getupdateBillmanager( $id)
     {
-        $bill = bt_bill::where('bill_id','=',$id)->first();
-        $bill::where('bill_id','=',$id)->update([
-            'bill_status' => $request->slcbill_status,
-        ]);
-        return redirect('/admin/dashboard/billmanager')->with('Thongbao','Cập nhập hóa đơn thành công ! ');
+        if(Request::ajax())
+        {
+            $billstatus = Request::get('billstatus');
+            $bill = bt_bill::where('bill_id','=',$id)->first();
+            $bill::where('bill_id','=',$id)->update([
+                'bill_status' => $billstatus,
+            ]);
+            return "Success";
+        }
     }
 
     public function getDeleteBill($id)
