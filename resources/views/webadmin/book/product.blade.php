@@ -44,9 +44,20 @@
 
 			<!-- ace settings handler -->
 			<script src="/js/ace-extra.min.js"></script>
-
+            <style>
+                .new-collections-grid1-left p a,.occasion-cart a{
+                    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+                    font-size: 10px;
+                    color: #D8703F;
+                    margin: 0.5em;
+                    text-decoration: none;
+                    text-transform: uppercase;
+                    padding: .5em 1em;
+                    border: 1px solid;
+                    font-weight: bold;
+                }
+            </style>
 			<!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
-
     <script src="/js/html5shiv.min.js"></script>
     <script src="/js/respond.min.js"></script>
 @endsection
@@ -102,17 +113,36 @@
         <div id="ImageContent" style="display: none">
             <div class="row">
                 @foreach($bookimage as $b)
-                     <div class="col-md-2 new-collections-grid" style="margin-bottom:15px;">
+                     <div class="col-md-2 new-collections-grid" style="border: #F7F7F9 solid 0.1em ;padding-bottom: 0.5em;padding-left: 1.5em">
                         <div class="new-collections-grid1 animated wow slideInUp" data-wow-delay=".5s">
-                            <div class="new-collections-grid1-image">
+                            <div class="new-collections-grid1-image" style="margin-top: 0.5em;margin-right: 20em">
                                 <a href="/admin/dashboard/bookmanager/bookdetail/{{$b->book_id}}" class="product-image"><img  style="width: 175px; height: 200px; align-items: center ; " src="/upload/book_image/{{$b->book_image}}" class="bookimage"/></a>
                             </div>
                             <div class="text-center">
                             <div ><h5>Mã sản phẩm : {{$b->book_id}}</h5></div>
                             <div style="width: 180px; height: 40px;"><h5><a href="/admin/dashboard/bookmanager/bookdetail/{{$b->book_id}}">{{$b->book_name}}</a></h5></div>
                             </div>
-                         &nbsp&nbsp<td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="/admin/dashboard/bookmanager/deletebook/{{$b->book_id}}"> Delete</a></td>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                         <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="/admin/dashboard/bookmanager/updatebook/{{$b->book_id}}">Edit</a></td>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="new-collections-grid1-left">
+                                        <p>
+                                            <a href="/admin/dashboard/bookmanager/deletebook/{{$b->book_id}}"><i class="fa fa-trash-o  fa-fw"></i> Xóa </a>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="new-collections-grid1-left">
+
+                                        <p >
+                                            <a style="margin-right: 1em" href="/admin/dashboard/bookmanager/updatebook/{{$b->book_id}}"><i class="fa fa-pencil fa-fw"></i> Sửa </a>
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+
                         </div>
                      </div>
                 @endforeach
