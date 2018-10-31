@@ -22,7 +22,7 @@
                         </li>
                         <li><i class="glyphicon glyphicon-book" aria-hidden="true"></i><a href="/info">Cập nhật tài khoản</a>
                         </li>
-                        <li><i class="glyphicon glyphicon-upload" aria-hidden="true"></i><a href="/">Tải sách</a>
+                        <li><i class="glyphicon glyphicon-upload" aria-hidden="true"></i><a href="/addproduct">Tải sách</a>
                         </li>
                         @if(Auth::user()->role_id == 2)
                             <li><i class="glyphicon glyphicon-log-in" aria-hidden="true"></i><a href="admin/dashboard">Admin</a>

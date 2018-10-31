@@ -3,6 +3,7 @@
 namespace App\Http;
 
 use App\Http\Middleware\CheckPermison;
+use App\Http\Middleware\CheckPermison2;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -62,5 +63,6 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'permison'=>CheckPermison::class,
+        'permison2'=>CheckPermison2::class,
     ];
 }

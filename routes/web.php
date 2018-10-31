@@ -10,7 +10,7 @@
 |
 */
 
-Route::get('/', 'BookController@getListBook');
+Route::get('/', 'ClientController@index');
 
 Auth::routes();
 //checklogin
@@ -33,6 +33,10 @@ Route::get('/RemoveCart/{id}', 'CartController@RemoveCart');
 Route::post('/Updatecart', 'CartController@UpdateCart');
 // get book_info
 Route::get('/Product/singleproduct/{book_id}', 'BookController@getBookinfo');
+//showaddproduct
+Route::middleware(['permison', 'auth'])->group(function () {
+    Route::get('/addproduct', 'ClientController@getAddBook');
+});
 
 //updateinfo
 Route::get('/info','ClientController@showinfo');
