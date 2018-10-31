@@ -19,6 +19,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
     <link href="/css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
     <link href="/css/style.css" rel="stylesheet" type="text/css" media="all"/>
+    <!-- swiper slide-->
+    <link rel="stylesheet" href="/swiperslide/css/swiper.min.css">
     <!-- js -->
     <script src="/js/jquery.min.js"></script>
     <!-- //js -->
@@ -41,6 +43,48 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script>
         new WOW().init();
     </script>
+    <!-- slide style-->
+    <style type="text/css">
+        .swiper-container {
+            width: 100%;
+            height: 400px;
+            margin-bottom: 0.5em;
+            margin-top: 0.5em;
+            background-color: #F7F7F9;
+        }
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+            /* Center slide text vertically */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+        .append-buttons {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .append-buttons a {
+            display: inline-block;
+            border: 1px solid #007aff;
+            color: #007aff;
+            text-decoration: none;
+            padding: 4px 10px;
+            border-radius: 4px;
+            margin: 0 10px;
+            font-size: 13px;
+        }
+    </style>
 
 @endsection
 @section('content')
@@ -93,15 +137,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="new-collections-grids">
                 @for($i = 0 ; $i < 8 ;$i= $i+2)
                     <div class="col-md-3 new-collections-grid">
-                        <div class="new-collections-grid1 animated wow slideInUp" data-wow-delay=".5s" >
-                            <div class="new-collections-grid1-image">
+                        <div class="new-collections-grid12 animated wow slideInUp" data-wow-delay=".5s" >
+                            <div class="new-collections-grid12-image">
                                 <a href="#" class="product-image"><img style="width: 291.4px; height: 388.53px; " src="/upload/book_image/{{$Books[$i]->book_image}}"
                                                                        class="img-responsive"/></a>
-                                <div class="new-collections-grid1-image-pos">
+                                <div class="new-collections-grid12-image-pos">
                                     <a href="/Product/singleproduct/{{$Books[$i]->book_id}}">Xem nhanh</a>
                                 </div>
 
-                                <div class="new-collections-grid1-right">
+                                <div class="new-collections-grid12-right">
                                     <div class="rating">
                                         @php
                                             $status = 0;
@@ -164,14 +208,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </div>
                             </div>
                         </div>
-                        <div class="new-collections-grid1 animated wow slideInUp" data-wow-delay=".5s">
-                            <div class="new-collections-grid1-image">
+                        <div class="new-collections-grid12 animated wow slideInUp" data-wow-delay=".5s">
+                            <div class="new-collections-grid12-image">
                                 <a href="#" class="product-image"><img style="width: 291.4px; height: 388.53px; " src="/upload/book_image/{{$Books[$i+1]->book_image}}"
                                                                        class="img-responsive"/></a>
-                                <div class="new-collections-grid1-image-pos">
+                                <div class="new-collections-grid12-image-pos">
                                     <a href="/Product/singleproduct/{{$Books[$i+1]->book_id}}">Xem nhanh</a>
                                 </div>
-                                <div class="new-collections-grid1-right">
+                                <div class="new-collections-grid12-right">
                                     <div class="rating">
                                         @php
                                             $status = 0;
@@ -220,7 +264,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 </div>
                             </div>
                             <div class="text-center">
-                            <div class="item-name"><h4 style="width: 250px; height: 40px;"><a href="single">{{$Books[$i+1]->book_name}}đ</a></h4></div>
+                            <div class="item-name"><h4 style="width: 250px; height: 40px;"><a href="single">{{$Books[$i+1]->book_name}}</a></h4></div>
                             <p>{{$Books[$i+1]->book_author}}</p>
                             <div class="new-collections-grid1-left simpleCart_shelfItem">
                                 <p>
@@ -247,150 +291,88 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <h3 class="animated wow zoomIn" data-wow-delay=".5s">Sách Mới Cập Nhật</h3>
             <p class="est animated wow zoomIn" data-wow-delay=".5s">Toàn bộ sách mới đã được chúng tôi cập nhật lên website.
                 Kính mời quý độc giả có thể tham khảo </p>
-            @if($LNewsBook != null)
-            <div class="new-collections-grids">
-                @for($i = 0 ; $i < 8 ;$i= $i+2)
-                    <div class="col-md-3 new-collections-grid">
-                        <div class="new-collections-grid1 animated wow slideInUp" data-wow-delay=".5s">
-                            <div class="new-collections-grid1-image">
-                                <a href="#" class="product-image"><img style="width: 291.4px; height: 388.53px; " src="/upload/book_image/{{$LNewsBook[$i]->book_image}}"
-                                                                       class="img-responsive"/></a>
-                                <div class="new-collections-grid1-image-pos">
-                                    <a href="/Product/singleproduct/{{$LNewsBook[$i]->book_id}}">Xem nhanh</a>
-                                </div>
 
-                                <div class="new-collections-grid1-right">
-                                    <div class="rating">
-                                        @php
-                                            $status = 0;
-                                        @endphp
-                                        @foreach($Rating as $rt)
-                                            @if($rt->book_id == $LNewsBook[$i]->book_id)
-                                                @php
-                                                    $temp = $rt->rating;
-                                                    $pre = substr($temp,0,1);
-                                                    $suff = substr($temp,2,4);
-                                                    $status = 1;
-                                                @endphp
-                                                @for($j = 0 ; $j < $pre; $j++)
+            <div class="row" style="background-color: white;margin-top: 1em">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                        @foreach($LNewsBook as $book)
+                        <div class="swiper-slide">
+                            <div class="new-collections-grid1 animated wow slideInUp" data-wow-delay=".5s">
+                                <div class="new-collections-grid1-image">
+                                    <a href="/Product/singleproduct/{{$book->book_id}}" class="product-image"><img style="width: 176.36px;height: 235.15px" src="/upload/book_image/{{$book->book_image}}" alt=" "
+                                                                                     class="img-responsive"/></a>
+                                    <div class="new-collections-grid1-image-pos">
+                                        <a href="/Product/singleproduct/{{$book->book_id}}">Xem nhanh</a>
+                                    </div>
+                                    <div class="new-collections-grid1-right">
+                                        <div class="rating">
+                                            @php
+                                                $status = 0;
+                                            @endphp
+                                            @foreach($Rating as $rt)
+                                                @if($rt->book_id == $book->book_id)
+                                                    @php
+                                                        $temp = $rt->rating;
+                                                        $pre = substr($temp,0,1);
+                                                        $suff = substr($temp,2,4);
+                                                        $status = 1;
+                                                    @endphp
+                                                    @for($j = 0 ; $j < $pre; $j++)
                                                         <div class="rating-left">
                                                             <img src="images/2.png" alt=" " class="img-responsive"/>
                                                         </div>
-                                                @endfor
-                                                @if($suff == 0 && $pre != 5)
-                                                    <div class="rating-left">
-                                                        <img src="images/1.png" alt=" " class="img-responsive"/>
-                                                    </div>
-                                                @elseif($suff > 0)
-                                                    <div class="rating-left">
-                                                        <img src="images/hjhj.png" alt=" " class="img-responsive"/>
-                                                    </div>
+                                                    @endfor
+                                                    @if($suff == 0 && $pre != 5)
+                                                        <div class="rating-left">
+                                                            <img src="images/1.png" alt=" " class="img-responsive"/>
+                                                        </div>
+                                                    @elseif($suff > 0)
+                                                        <div class="rating-left">
+                                                            <img src="images/hjhj.png" alt=" " class="img-responsive"/>
+                                                        </div>
+                                                    @endif
+                                                    @for($j = 0 ; $j < 5-($pre+1); $j++)
+                                                        <div class="rating-left">
+                                                            <img src="images/1.png" alt=" " class="img-responsive"/>
+                                                        </div>
+                                                    @endfor
                                                 @endif
-                                                @for($j = 0 ; $j < 5-($pre+1); $j++)
+                                            @endforeach
+                                            @if($status == 0)
+                                                @for($j = 0 ; $j < 5 ; $j++)
                                                     <div class="rating-left">
                                                         <img src="images/1.png" alt=" " class="img-responsive"/>
                                                     </div>
                                                 @endfor
                                             @endif
-                                        @endforeach
-                                        @if($status == 0)
-                                            @for($j = 0 ; $j < 5 ; $j++)
-                                                <div class="rating-left">
-                                                    <img src="images/1.png" alt=" " class="img-responsive"/>
-                                                </div>
-                                            @endfor
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </div>
+                                    <div class="new-one">
+                                        <p>Hot</p>
+                                    </div>
+                                </div>
+                                <h5><a style="height: 15px" href="single.html">{{$book->book_name}}</a></h5>
+                                <p style="margin-top: 1em">{{$book->book_author}}</p>
+                                <div class="new-collections-grid1-left simpleCart_shelfItem">
+                                    <p>
+                                        @if($book->book_sale > 0)
+                                            <i class="book_price{{$book->book_id}}"> {{number_format($book->book_price,0,',','.')}}đ </i>
                                         @endif
-                                        <div class="clearfix"></div>
-                                    </div>
+                                        <span style="padding: 0px;" class="item_price"> {{number_format($book->book_price - ($book->book_price * $book->book_sale)/100,0,',','.')}}đ </span> </br>
+                                        <a class="item_add" href="/Addtocart/{{$book->book_id}}/{{$book->book_name}}">Thêm vào giỏ</a>
+                                    </p>
                                 </div>
-                                <div class="new-one">
-                                    <p>New</p>
-                                </div>
-                            </div>
-                            <div class="text-center">
-                            <div class="item-name" style="width: 250px; height: 40px;"><h4><a href="single">{{$LNewsBook[$i]->book_name}}</a></h4></div>
-                            <p>{{$LNewsBook[$i]->book_author}}</p>
-                            <div class="new-collections-grid1-left simpleCart_shelfItem">
-                                <p>
-                                    @if($LNewsBook[$i]->book_sale > 0)
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="book_price">{{number_format($LNewsBook[$i]->book_price,0,',','.')}}đ </i>
-                                    @endif
-                                    &nbsp;&nbsp;&nbsp;<span class="item_price">{{number_format($LNewsBook[$i]->book_price - ($LNewsBook[$i]->book_price * $LNewsBook[$i]->book_sale)/100,0,',','.')}}đ </span> </br>
-                                    <a class="item_add" href="/Addtocart/{{$LNewsBook[$i]->book_id}}/{{$LNewsBook[$i]->book_name}}">Thêm vào giỏ</a>
-                                </p>
-                            </div>
                             </div>
                         </div>
-                        <div class="new-collections-grid1 animated wow slideInUp" data-wow-delay=".5s">
-                            <div class="new-collections-grid1-image">
-                                <a href="#" class="product-image"><img style="width: 291.4px; height: 388.53px; " src="/upload/book_image/{{$LNewsBook[$i+1]->book_image}}"
-                                                                       class="img-responsive"/></a>
-                                <div class="new-collections-grid1-image-pos">
-                                    <a href="/Product/singleproduct/{{$LNewsBook[$i+1]->book_id}}">Xem nhanh</a>
-                                </div>
-                                <div class="new-collections-grid1-right">
-                                    <div class="rating">
-                                        @php
-                                            $status = 0;
-                                        @endphp
-                                        @foreach($Rating as $rt)
-                                            @if($rt->book_id == $LNewsBook[$i+1]->book_id)
-                                                @php
-                                                    $temp = $rt->rating;
-                                                    $pre = substr($temp,0,1);
-                                                    $suff = substr($temp,2,4);
-                                                    $status = 1;
-                                                @endphp
-                                                @for($j = 0 ; $j < $pre; $j++)
-                                                    <div class="rating-left">
-                                                        <img src="images/2.png" alt=" " class="img-responsive"/>
-                                                    </div>
-                                                @endfor
-                                                @if($suff == 0 && $pre != 5)
-                                                    <div class="rating-left">
-                                                        <img src="images/1.png" alt=" " class="img-responsive"/>
-                                                    </div>
-                                                @elseif($suff > 0)
-                                                    <div class="rating-left">
-                                                        <img src="images/hjhj.png" alt=" " class="img-responsive"/>
-                                                    </div>
-                                                @endif
-                                                @for($j = 0 ; $j < 5-($pre+1); $j++)
-                                                    <div class="rating-left">
-                                                        <img src="images/1.png" alt=" " class="img-responsive"/>
-                                                    </div>
-                                                @endfor
-                                            @endif
-                                        @endforeach
-                                        <div class="clearfix"></div>
-                                    </div>
-                                </div>
-                                <div class="new-one">
-                                    <p>New</p>
-                                </div>
-                            </div>
-                            <div class="text-center">
-                            <div class="item-name"><h4 style="width: 250px;height: 40px;"><a href="single">{{$LNewsBook[$i+1]->book_name}}</a></h4></div>
-                            <p style="padding: 0px;">{{$LNewsBook[$i+1]->book_author}}</p>
-                            <div class="new-collections-grid1-left simpleCart_shelfItem">
-                                <p>
-                                    @if($LNewsBook[$i+1]->book_sale > 0)
-                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="book_price">{{number_format($LNewsBook[$i+1]->book_price,0,',','.')}}đ </i>
-                                    @endif
-                                        &nbsp;&nbsp;&nbsp;<span class="item_price"> {{number_format($LNewsBook[$i+1]->book_price - ($LNewsBook[$i+1]->book_price * $LNewsBook[$i+1]->book_sale)/100,0,',','.')}}đ </span> </br>
-                                    <a class="item_add" href="/Addtocart/{{$LNewsBook[$i]->book_id}}/{{$LNewsBook[$i]->book_name}}">Thêm vào giỏ</a>
-                                </p>
-                            </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
-                @endfor
+                    <!-- Add Pagination -->
+                    <!-- Add Arrows -->
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                </div>
             </div>
-
-            @else
-                <br>
-                <H2 style="text-align: center">Không có dữ liệu trong cơ sở</H2>
-            @endif
         </div>
     </div>
     <div class="timer">
@@ -448,5 +430,47 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
         </div>
     </div>
-
+    <script src="/swiperslide/js/swiper.min.js"></script>
+    <script>
+        var appendNumber = 5;
+        var prependNumber = 5;
+        var swiper = new Swiper('.swiper-container', {
+            speed:400,
+            centerSlides:true,
+            slidesOffsetBefore:0,
+            slidesOffsetAfter:0,
+            slidesPerView: 6,
+            spaceBetween: 2,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+        document.querySelector('.prepend-2-slides').addEventListener('click', function (e) {
+            e.preventDefault();
+            swiper.prependSlide([
+                '<div class="swiper-slide">Slide ' + (--prependNumber) + '</div>',
+                '<div class="swiper-slide">Slide ' + (--prependNumber) + '</div>'
+            ]);
+        });
+        document.querySelector('.prepend-slide').addEventListener('click', function (e) {
+            e.preventDefault();
+            swiper.prependSlide('<div class="swiper-slide">Slide ' + (--prependNumber) + '</div>');
+        });
+        document.querySelector('.append-slide').addEventListener('click', function (e) {
+            e.preventDefault();
+            swiper.appendSlide('<div class="swiper-slide">Slide ' + (++appendNumber) + '</div>');
+        });
+        document.querySelector('.append-2-slides').addEventListener('click', function (e) {
+            e.preventDefault();
+            swiper.appendSlide([
+                '<div class="swiper-slide">Slide ' + (++appendNumber) + '</div>',
+                '<div class="swiper-slide">Slide ' + (++appendNumber) + '</div>'
+            ]);
+        });
+    </script>
 @endsection

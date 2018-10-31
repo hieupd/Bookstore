@@ -7,31 +7,40 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html>
 <head>
-    <title>BookStore | Thanh Toán </title>
+    <title>Best Store a Ecommerce Online Shopping Category Flat Bootstrap Responsive Website Template | Register ::
+        w3layouts</title>
     <!-- for-mobile-apps -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="keywords" content="Best Store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
-    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
-        function hideURLbar(){ window.scrollTo(0,1); } </script>
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design"/>
+    <script type="application/x-javascript"> addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        } </script>
     <!-- //for-mobile-apps -->
-    <link href="/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
-    <link href="/css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
     <!-- js -->
-    <script src="/js/jquery.min.js"></script>
+    <script src="js/jquery.min.js"></script>
     <!-- //js -->
     <!-- cart -->
+    <script src="js/simpleCart.min.js"></script>
     <!-- cart -->
-    <link rel="stylesheet" type="text/css" href="/css/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
     <!-- for bootstrap working -->
-    <script type="/text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
     <!-- //for bootstrap working -->
-    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
-    <link href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic'
+          rel='stylesheet' type='text/css'>
+    <link href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic'
+          rel='stylesheet' type='text/css'>
     <!-- animation-effect -->
-    <link href="/css/animate.min.css" rel="stylesheet">
-    <script src="/js/wow.min.js"></script>
+    <link href="css/animate.min.css" rel="stylesheet">
+    <script src="js/wow.min.js"></script>
     <script>
         new WOW().init();
     </script>
@@ -51,8 +60,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <li><i class="glyphicon glyphicon-log-in" aria-hidden="true"></i><a href="login.blade.php">Đăng Nhập</a>
                     </li>
                     <li><i class="glyphicon glyphicon-book" aria-hidden="true"></i><a href="register.blade.php">Đăng Ký</a>
-                    </li>
-                    <li><i class="glyphicon glyphicon-log-in" aria-hidden="true"></i><a href="/BookStore/webAdmin/templates/dashboard/login.html">Admin</a>
                     </li>
                 </ul>
             </div>
@@ -94,34 +101,73 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         <div class="col-sm-4">
                                             <ul class="multi-column-dropdown">
                                                 <h6>Sách Trong Nước</h6>
-                                                <li><a href="productsbycategory.blade.php">Sách Giáo Khoa</a></li>
-                                                <li><a href="productsbycategory.blade.php">Sách Thiếu Nhi</a></li>
-                                                <li><a href="productsbycategory.blade.php">Sách Văn Học Trong Nước</a></li>
-                                                <li><a href="productsbycategory.blade.php">Sách Kinh Tế</a></li>
-                                                <li><a href="productsbycategory.blade.php">Sách Thưởng Thức - Đời Sống</a></li>
-                                                <li><a href="productsbycategory.blade.php">Sách Tin Học - Ngoại Ngữ</a></li>
-                                                <li><a href="productsbycategory.blade.php">Sách Chuyên Ngành</a></li>
+                                                <li><a href="products.blade.php">Sách Giáo Khoa</a></li>
+                                                <li><a href="products.blade.php">Sách Thiếu Nhi</a></li>
+                                                <li><a href="products.blade.php">Sách Văn Học Trong Nước</a></li>
+                                                <li><a href="products.blade.php">Sách Kinh Tế</a></li>
+                                                <li><a href="products.blade.php">Sách Thưởng Thức - Đời Sống</a></li>
+                                                <li><a href="products.blade.php">Sách Tin Học - Ngoại Ngữ</a></li>
+                                                <li><a href="products.blade.php">Sách Chuyên Ngành</a></li>
                                             </ul>
                                         </div>
                                         <div class="col-sm-4">
                                             <ul class="multi-column-dropdown">
                                                 <h6>Sách Nước Ngoài </h6>
-                                                <li><a href="productsbycategory.blade.php">Literature & Fiction</a></li>
-                                                <li><a href="productsbycategory.blade.php">Travel</a></li>
-                                                <li><a href="productsbycategory.blade.php">Children's Book</a></li>
-                                                <li><a href="productsbycategory.blade.php">English as A Second Language</a></li>
+                                                <li><a href="products.blade.php">Literature & Fiction</a></li>
+                                                <li><a href="products.blade.php">Travel</a></li>
+                                                <li><a href="products.blade.php">Children's Book</a></li>
+                                                <li><a href="products.blade.php">English as A Second Language</a></li>
                                             </ul>
                                         </div>
                                         <div class="col-sm-4">
                                             <ul class="multi-column-dropdown">
                                                 <h6>Tác Giả Nổi Bật</h6>
-                                                <li><a href="productsbycategory.blade.php">Clothing</a></li>
-                                                <li><a href="productsbycategory.blade.php">Wallets,Bags</a></li>
-                                                <li><a href="productsbycategory.blade.php">Footwear</a></li>
-                                                <li><a href="productsbycategory.blade.php">Watches</a></li>
-                                                <li><a href="productsbycategory.blade.php">Accessories</a></li>
-                                                <li><a href="productsbycategory.blade.php">Jewellery</a></li>
-                                                <li><a href="productsbycategory.blade.php">Beauty & Grooming</a></li>
+                                                <li><a href="products.blade.php">Clothing</a></li>
+                                                <li><a href="products.blade.php">Wallets,Bags</a></li>
+                                                <li><a href="products.blade.php">Footwear</a></li>
+                                                <li><a href="products.blade.php">Watches</a></li>
+                                                <li><a href="products.blade.php">Accessories</a></li>
+                                                <li><a href="products.blade.php">Jewellery</a></li>
+                                                <li><a href="products.blade.php">Beauty & Grooming</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Nhà Xuất Bản<b
+                                            class="caret"></b></a>
+                                <ul class="dropdown-menu multi-column columns-3">
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <ul class="multi-column-dropdown">
+                                                <h6>Nhà xuất bản trong nước</h6>
+                                                <li><a href="furniture.blade.php">Cookware</a></li>
+                                                <li><a href="furniture.blade.php">Sofas</a></li>
+                                                <li><a href="furniture.blade.php">Dining Tables</a></li>
+                                                <li><a href="furniture.blade.php">Shoe Racks</a></li>
+                                                <li><a href="furniture.blade.php">Home Decor</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <ul class="multi-column-dropdown">
+                                                <h6>Nhà xuất bản nước ngoài</h6>
+                                                <li><a href="furniture.blade.php">Carpets</a></li>
+                                                <li><a href="furniture.blade.php">Tables</a></li>
+                                                <li><a href="furniture.blade.php">Sofas</a></li>
+                                                <li><a href="furniture.blade.php">Shoe Racks</a></li>
+                                                <li><a href="furniture.blade.php">Sockets</a></li>
+                                                <li><a href="furniture.blade.php">Electrical Machines</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <ul class="multi-column-dropdown">
+                                                <h6>Decorations</h6>
+                                                <li><a href="furniture.blade.php">Toys</a></li>
+                                                <li><a href="furniture.blade.php">Wall Clock</a></li>
+                                                <li><a href="furniture.blade.php">Lighting</a></li>
+                                                <li><a href="furniture.blade.php">Top Brands</a></li>
                                             </ul>
                                         </div>
                                         <div class="clearfix"></div>
@@ -158,12 +204,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <h3>
                             <div class="total">
                                 <span class="simpleCart_total"></span> (<span id="simpleCart_quantity"
-                                                                              class="simpleCart_quantity"></span> items)
+                                                                              class="simpleCart_quantity"></span> sản
+                                phẩm)
                             </div>
                             <img src="images/bag.png" alt=""/>
                         </h3>
                     </a>
-                    <p><a href="javascript:;" class="simpleCart_empty">Xóa giỏ hàng</a></p>
+                    <p><a href="javascript:;" class="simpleCart_empty">Giỏ hàng rỗng</a></p>
                     <div class="clearfix"></div>
                 </div>
             </div>
@@ -176,15 +223,44 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="breadcrumbs">
     <div class="container">
         <ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
-            <li><a href="trangchu.blade.php"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Trang Chủ</a></li>
-            <li class="active">Thanh Toán</li>
+            <li><a href="trangchu"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Trang chủ</a></li>
+            <li class="active">Đăng ký</li>
         </ol>
     </div>
 </div>
 <!-- //breadcrumbs -->
-<!-- checkout -->
-
-<!-- //checkout -->
+<!-- register -->
+<div class="register">
+    <div class="container">
+        <h3 class="animated wow zoomIn" data-wow-delay=".5s">Đăng ký tại đây</h3>
+        <p class="est animated wow zoomIn" data-wow-delay=".5s">Quý khách vui lòng đăng ký tài khoản tại đây để có thể
+            đăng nhập sử dụng dịch vụ của hệ thống</p>
+        <div class="login-form-grids">
+            <h5 classưe="animated wow slideInUp">Thông tin khách hàng</h5>
+            @if(session('status'))
+                <ul>
+                    <li class="text-danger">
+                        {{session('status')}}
+                    </li>
+                </ul>
+            @endif
+            <form class="animated wow slideInUp" role="form" method="POST" action="{{route('register')}}">
+                @csrf
+                <input type="text" placeholder="FName..." required=" " name="user_fname">
+                <input type="text" placeholder="User Name..." required=" "name="user_name">
+                <h6 class="animated wow slideInUp">Thông tin đăng nhập</h6>
+                <input type="email" placeholder="Địa chỉ Email" required=" " name="user_email">
+                <input type="password" placeholder="Mật khẩu" required=" " name="password" id="password">
+                <input type="password" placeholder="Xác nhận mật khẩu" required=" " name="password_confirmation" id="confirmpassword">
+                <input type="submit" value="Đăng ký" id="register">
+            </form>
+        </div>
+        <div class="register-home animated wow slideInUp">
+            <a href="trangchu">Trang chủ</a>
+        </div>
+    </div>
+</div>
+<!-- //register -->
 <!-- footer -->
 <div class="footer">
     <div class="container">
@@ -243,90 +319,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <h2><a href="trangchu.blade.php">Book Store <span>shop anywhere</span></a></h2>
         </div>
         <div class="copy-right animated wow slideInUp" data-wow-delay=".5s">
-            <p>&copy 2016 Book Store. All rights reserved | Design by Nhom 7</p>
+            <p>&copy 2016 Book Store. All rights reserved | Design by Nhom 7</a></p>
         </div>
     </div>
 </div>
 <!-- //footer -->
-<script>
-    simpleCart({
-        // array representing the format and columns of the cart,
-        // see the cart columns documentation
-        cartColumns: [
-            { attr: "name" , label: "Name" } ,
-            { attr: "price" , label: "Price", view: 'currency' } ,
-            { view: "decrement" , label: false , text: "-" } ,
-            { attr: "quantity" , label: "Qty" } ,
-            { view: "increment" , label: false , text: "+" } ,
-            { attr: "total" , label: "SubTotal", view: 'currency' } ,
-            { view: "remove" , text: "Remove" , label: false },
-            //{ view: 'link' , label: 'Details' , attr: 'pageLink' , text: 'View More' },
-            {view:'image' , attr:'tumb', label: false}//,
-            //{view:'input', attr:'quantity', label: "Quantity" }
-
-        ],
-
-        // "div" or "table" - builds the cart as a
-        // table or collection of divs
-        cartStyle: "table",
-
-        // how simpleCart should checkout, see the
-        // checkout reference for more info
-        checkout: {
-            type: "PayPal" ,
-            email: "you@yours.com"
-        },
-
-        // set the currency, see the currency
-        // reference for more info
-        currency: "VND",
-
-        // collection of arbitrary data you may want to store
-        // with the cart, such as customer info
-        data: {},
-
-        // set the cart langauge
-        // (may be used for checkout)
-        language: "english-us",
-
-        // array of item fields that will not be
-        // sent to checkout
-        excludeFromCheckout: [],
-
-        // custom function to add shipping cost
-        shippingCustom: null,
-
-        // flat rate shipping option
-        shippingFlatRate: 0,
-
-        // added shipping based on this value
-        // multiplied by the cart quantity
-        shippingQuantityRate: 0,
-
-        // added shipping based on this value
-        // multiplied by the cart subtotal
-        shippingTotalRate: 0,
-
-        // tax rate applied to cart subtotal
-        taxRate: 0,
-
-        // true if tax should be applied to shipping
-        taxShipping: false,
-
-        // event callbacks
-        beforeAdd			: null,
-        afterAdd			: null,
-        load				: null,
-        beforeSave		: null,
-        afterSave			: null,
-        update			: null,
-        ready			: null,
-        checkoutSuccess	: null,
-        checkoutFail		: null,
-        beforeCheckout		: null,
-        beforeRemove           : null
-    });
-
-</script>
 </body>
 </html>
