@@ -104,7 +104,6 @@
 				<thead>
 				<tr align="center">
 					<th>ID</th>
-					<th>Tên sách</th>
 					<th>Người mua</th>
 					<th width="50px">Số lượng mua</th>
 					<th>Tổng tiền</th>
@@ -119,7 +118,6 @@
 				@foreach($Bills as $bl)
 				<tr class="odd gradeX" align="center ">
 					<td>{{$bl->bill_id}}</td>
-					<td>{{$bl->book_name}}</td>
 					<td>{{$bl->member_name}}</td>
 					<td>{{$bl->bill_count}}</td>
 					<td>{{$bl->bill_price}}</td>
@@ -131,10 +129,10 @@
 						@elseif($bl->bill_status == "Hủy Đơn")
 							<span class="status{{$bl->bill_id}}">{{$bl->bill_status}}</span>
 						@else
-							<span class="status{{$bl->bill_id}}" style="color: green">{{$bl->bill_status}}</span>
+							<span class="status{{$bl->bill_id}}"  style="color: green">{{$bl->bill_status}}</span>
 						@endif
-						<form action="/admin/dashboard/billmanager/updatebill/{{$bl->bill_id}}" method="POST">
-							{{csrf_field()}}
+						<form action="/admin/dashboard/billmanager/updatebill/{{$bl->bill_id}}" method="POST" name="billform">
+                            <meta name="csrf-token" content="{{ csrf_token() }}">
 							<div class="form-group">
 								<select class="form-control form-control-lg" name="slcbill_status" id="select1{{$bl->bill_id}}" style="display: none">
 									<option value="Chưa hoàn thành"> Chưa hoàn thành</option>
@@ -145,8 +143,8 @@
 
 					<td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="/admin/dashboard/billmanager/deletebill/{{$bl->bill_id}}" > Delete</a></td>
 					<td class="center"><i class="fa fa-pencil fa-fw" id="icon1{{$bl->bill_id}}"></i> <a href="#" id="{{$bl->bill_id}}" class="Edit_r">Edit</a>
-						<button type="submit" id="Save{{$bl->bill_id}}" class="btn btn-link" style="color: #337ab7; margin-top: -5px; font-size: 13px; display: none" >Save</button>
-						<button type="button" id="Cancel{{$bl->bill_id}}" class="btn btn-link " style="color: #337ab7; margin-top: -5px; font-size: 13px ;display: none">Cancel</button>
+						<i class="fa fa-trash-o  fa-fw" style="display: none"></i><a href="#" id="Save{{$bl->bill_id}}" style="display: none"> Save</a>
+						<i class="fa fa-pencil fa-fw" style="display: none"></i> <a href="#" id="Cancel{{$bl->bill_id}}" style="display: none">Cancel</a>
 					</td>
 						</form>
 					</td>
@@ -210,6 +208,60 @@
                     $("#Cancel"+id).hide();
                     $("#icon1"+id).show();
                     $("#"+id).show();
+                });
+                $("#Save"+id).click(function () {
+                    var status = $("#select1"+id).val();
+                    $.ajaxSetup({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        }
+                    });
+					$.ajax({
+						url:"/admin/dashboard/billmanager/updatebill/"+id,
+						type:"post",
+						cache:false,
+						data:
+							{
+								"idbill":id,
+                                "billstatus":status
+							},
+						success: function (data) {
+							if(data == "Success")
+							{
+							    if(status == "Chưa hoàn thành")
+                                {
+                                    $(".status"+id).html(status).css('color','red');
+                                }
+                                else if(status == "Hoàn thành")
+                                {
+                                    $(".status"+id).html(status).css('color','green');
+                                }
+                                else
+                                {
+                                    $(".status"+id).html(status).css('color','black');
+                                }
+
+                                $("#select1"+id).hide();
+                                $(".status"+id).show();
+                                $("#Save"+id).hide();
+                                $("#Cancel"+id).hide();
+                                $("#icon1"+id).show();
+                                $("#"+id).show();
+							}
+							else
+                            {
+                                alert("đã có lỗi xảy ra !");
+                                $("#select1"+id).hide();
+                                $(".status"+id).show();
+                                $("#Save"+id).hide();
+                                $("#Cancel"+id).hide();
+                                $("#icon1"+id).show();
+                                $("#"+id).show();
+                            }
+
+                        }
+						
+					});
                 });
             });
 
