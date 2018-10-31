@@ -1,5 +1,4 @@
 @extends('webclient.layout')
-
 @section('title')
     Trang chủ
 @endsection
