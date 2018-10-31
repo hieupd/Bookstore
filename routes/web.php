@@ -84,6 +84,7 @@ Route::middleware(['permison', 'auth'])->group(function () {
     Route::get('/admin/dashboard/billmanager/deletebill/{id}', 'BillController@getDeleteBill');
     //thong ke
     Route::get('/admin/dashboard/viewmanager', 'AdminController@getViewMNG');
+    Route::get('/admin/ajax/category/{id}','AjaxController@getBooktype');
 });
 
 // test
