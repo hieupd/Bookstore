@@ -118,7 +118,7 @@
 				@foreach($Bills as $bl)
 				<tr class="odd gradeX" align="center ">
 					<td>{{$bl->bill_id}}</td>
-					<td>{{$bl->member_name}}</td>
+					<td>{{$bl->user_name}}</td>
 					<td>{{$bl->bill_count}}</td>
 					<td>{{$bl->bill_price}}</td>
 					<td>{{$bl->bill_sale}}</td>
@@ -222,7 +222,6 @@
 						cache:false,
 						data:
 							{
-								"idbill":id,
                                 "billstatus":status
 							},
 						success: function (data) {
