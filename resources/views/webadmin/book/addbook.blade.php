@@ -98,7 +98,7 @@
                                 <div class="form-group">
                                     <label>Danh Mục</label>
                                     </br>
-                                        <select class="form-control form-control-lg" name="sl_CL" style="width: 250px;">
+                                        <select class="form-control form-control-lg" name="sl_CL" style="width: 250px;" id="book_category">
                                             @foreach($Category as $cate)
                                              <option value="{{$cate->category_id}}"> {{$cate->category_name}}</option>
                                             @endforeach
@@ -110,7 +110,7 @@
                                 <div class="form-group">
                                     <label>Thể loại</label>
                                     </br>
-                                    <select class="form-control form-control-lg" name="sl_TL" style="width: 250px;">
+                                    <select class="form-control form-control-lg" name="sl_TL" style="width: 250px;" id="book_type">
                                         @foreach($Type as $tp)
                                             <option value="{{$tp->type_id}}"> {{$tp->type_name}}</option>
                                         @endforeach
@@ -280,5 +280,13 @@
         function Redirect() {
             window.location = "/admin/dashboard/bookmanager";
         }
+        $('document').ready(function () {
+           $('#book_category').change(function () {
+              var categoryid = $(this).val();
+              $.get("/admin/ajax/category/"+categoryid,function (data) {
+                  $('#book_type').html(data);
+              });
+           });
+        });
     </script>
 @endsection
