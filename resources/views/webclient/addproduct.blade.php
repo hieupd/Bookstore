@@ -47,6 +47,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </div>
                 <div class="col-md-3">
                     <div class="form-group">
+                        <label>Danh Mục</label>
+                        </br>
+                        <select class="form-control form-control-lg" name="sl_CL" style="width: 250px;">
+                            @foreach($Category as $cate)
+                                <option value="{{$cate->category_id}}"> {{$cate->category_name}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <!--input class="form-control" name="txtPrice" placeholder="Please Enter Password" /-->
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
                         <label>Thể loại</label>
                         </br>
                         <select class="form-control form-control-lg" name="sl_TL" style="width: 250px;">
@@ -57,16 +69,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                     <!--input class="form-control" name="txtPrice" placeholder="Please Enter Password" /-->
                 </div>
-                <div class="col-md-4">
-                    <div class="form-group">
-                        <label>Năm xuất bản</label>
-                        <select class="form-control form-control-lg" name="slcbook_yearpublish" style="width: 100px;">
-                            @for($i = 1997 ; $i <= (int)date('Y') ;$i++)
-                                <option> {{$i}}</option>
-                            @endfor
-                        </select>
-                    </div>
-                </div>
+
             </div>
             <div class="row">
                 <div class="col-md-5">
@@ -80,8 +83,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="col-md-4">
                     <div class="form-group">
                         <label>Nhà xuất bản</label>
-                        <input class="form-control" style="width: 430px" name="txtbook_publish"
+                        <input class="form-control" style="width: 400px" name="txtbook_publish"
                                placeholder="Nhập nhà xuất bản"/>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <div class="form-group">
+                        <label>Năm xuất bản</label>
+                        <select class="form-control form-control-lg" name="slcbook_yearpublish" style="width: 140px;">
+                            @for($i = 1997 ; $i <= (int)date('Y') ;$i++)
+                                <option> {{$i}}</option>
+                            @endfor
+                        </select>
                     </div>
                 </div>
             </div>
@@ -104,21 +117,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </div>
                     </div>
                 </div>
-                <div class="col-md-2">
+                <div class="col-md-1">
                     <div class="form-group">
                         <div class="form-group">
                             <label>Số lượng</label>
                             <input class="form-control" name="txtbook_quantity" value="0" placeholder="Số lượng "
-                                   style="width: 100px"/>
+                                   style="width: 70px"/>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="row">
                 <div class="col-md-3">
                     <div class="form-group">
                         <label>Kích thước</label>
-                        <select class="form-control form-control-lg" name="slcbook_size" style="width: 150px;">
+                        <select class="form-control form-control-lg" name="slcbook_size" style="width: 140px;">
                             <option>17x24</option>
                             <option>14.5x20.5</option>
                             <option>14x21</option>
@@ -132,6 +143,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </select>
                     </div>
                 </div>
+            </div>
+            <div class="row">
+
                 <div class="col-md-2">
                     <div class="form-group">
                         <div class="form-group">
@@ -188,5 +202,4 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <button type="reset" class="btn btn-default" onclick="Redirect();">Hủy</button>
         </form>
     </div>
-    <script type="text/javascript" language="javascript" src="/ckeditor/ckeditor.js" ></script>
 @endsection

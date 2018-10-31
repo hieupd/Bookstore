@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\bt_book;
+use App\bt_category;
 use App\bt_type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -68,6 +69,7 @@ class ClientController extends Controller
     public function getAddBook()
     {
         $type = bt_type::all();
-        return view('webclient.addproduct', ['Type' => $type]);
+        $category = bt_category::all();
+        return view('webclient.addproduct',['Type'=>$type,'Category'=>$category]);
     }
 }
