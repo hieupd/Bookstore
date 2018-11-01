@@ -33,6 +33,9 @@ Route::get('/RemoveCart/{id}', 'CartController@RemoveCart');
 Route::post('/Updatecart', 'CartController@UpdateCart');
 // get book_info
 Route::get('/Product/singleproduct/{book_id}', 'BookController@getBookinfo');
+//
+Route::post('/Product/comment/{id}','CommentController@postComment');
+Route::get('/Product/comment/{id}','CommentController@getComment');
 //showaddproduct
 Route::middleware(['permison', 'auth'])->group(function () {
     Route::get('/addproduct', 'ClientController@getAddBook');
@@ -40,7 +43,7 @@ Route::middleware(['permison', 'auth'])->group(function () {
 });
 
 //updateinfo
-Route::get('/info','ClientController@showinfo');
+
 //Route::post('/info','ClientController@updateinfo')
 
 Route::middleware(['permison', 'auth'])->group(function () {
@@ -85,7 +88,8 @@ Route::middleware(['permison', 'auth'])->group(function () {
     Route::get('/admin/dashboard/billmanager/deletebill/{id}', 'BillController@getDeleteBill');
     //thong ke
     Route::get('/admin/dashboard/viewmanager', 'AdminController@getViewMNG');
-    Route::get('/admin/ajax/category/{id}','AjaxController@getBooktype');
+    Route::get('/admin/ajax/category/{id}/{typeid}','AjaxController@getBooktype');
+    Route::get('/admin/ajax/category/{id}','AjaxController@getBooktypeadd');
 });
 
 // test
