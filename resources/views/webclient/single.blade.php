@@ -138,7 +138,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 						<div class="col-md-9">
 							<h4>
-								<span class="item_price">{{number_format($Book->book_price - ($Book->book_price*$Book->book_sale)/100,0,',','.')}}</span>
+								<span class="item_price">{{number_format($Book->book_price - ($Book->book_price*$Book->book_sale)/100,0,',','.')}} đ</span>
 							</h4>
 						</div>
 						<div class="col-md-3">
@@ -225,43 +225,48 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="bootstrap-tab animated wow slideInUp" data-wow-delay=".5s">
 					<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
 						<ul id="myTab" class="nav nav-tabs" role="tablist">
-							<li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Description</a></li>
-							<li role="presentation"><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">Reviews</a></li>
-							<li role="presentation"><a href="#infomation" role="tab" id="infomation-tab" data-toggle="tab" aria-controls="infomation">Infomation</a></li>
+							<li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Mô tả</a></li>
+							<li role="presentation"><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">Đánh giá</a></li>
+							<li role="presentation"><a href="#infomation" role="tab" id="infomation-tab" data-toggle="tab" aria-controls="infomation">Thông tin</a></li>
 						</ul>
 						<div id="myTabContent" class="tab-content">
 							<div role="tabpanel" class="tab-pane fade in active bootstrap-tab-text" id="home" aria-labelledby="home-tab">
-									@php
-										echo htmlspecialchars_decode( $Book->book_dsc ,ENT_HTML401);
-									@endphp
+									{!! $Book->book_dsc !!}
+
 							</div>
 							<div role="tabpanel" class="tab-pane fade bootstrap-tab-text" id="profile" aria-labelledby="profile-tab">
 								<div class="bootstrap-tab-text-grids">
 									<div class="bootstrap-tab-text-grid">
-										<div class="bootstrap-tab-text-grid-left">
-											<img src="/images/avatars/avatar3.png" alt=" " class="img-responsive" style="width: 100px;height: 100px;" />
+										<div id="commentcontent">
+											@foreach($Comments as $cmt)
+											<div class="bootstrap-tab-text-grid-right">
+												<ul>
+													<li><a href="#">{{$cmt->user_fname}}</a></li>
+													<li><a href="#"><span class="glyphicon glyphicon-share" aria-hidden="true"></span>Reply</a></li>
+												</ul>
+												<hr>
+												<p >{{$cmt->comment_content}}</p>
+												<hr>
+											</div>
 										</div>
-										<div class="bootstrap-tab-text-grid-right">
-											<ul>
-												<li><a href="#">Admin</a></li>
-												<li><a href="#"><span class="glyphicon glyphicon-share" aria-hidden="true"></span>Reply</a></li>
-											</ul>
-											<p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis
-												suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem
-												vel eum iure reprehenderit.</p>
+										<div class="clearfix"></div>
+										@endforeach
+										<div class="text-right">
+											{{$Comments->links()}}
 										</div>
-										<div class="clearfix"> </div>
 									</div>
+									@if($Userid !=null)
 									<div class="add-review">
 										<h4>add a review</h4>
 										<form>
-											<input type="text" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" required="">
-											<input type="email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" required="">
-											<input type="text" value="Subject" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Subject';}" required="">
-											<textarea type="text"  onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message...';}" required="">Message...</textarea>
-											<input type="submit" value="Send" >
+											<meta name="csrf-token" content="{{ csrf_token() }}">
+											<textarea type="text" placeholder="Bình luận" id="txt_comment"></textarea>
+											<input type="button" class="{{$Userid}}" id="btncomment" value="Bình luận" >
 										</form>
 									</div>
+									@else
+										<p style="color: #8A3104; font-weight: bold;text-align: center;margin-top: 1em;">Bạn cần <a href="/login">đăng nhập</a> để bình luận.</p>
+									@endif
 								</div>
 							</div>
 							<div role="tabpanel" class="tab-pane fade bootstrap-tab-text" id="infomation" aria-labelledby="infomation-tab">
@@ -311,6 +316,36 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 		</div>
 	</div>
+	<script>
+		$('document').ready(function () {
+			$('#btncomment').click(function () {
+			    var userid = $(this).attr('class');
+			    var bookid = "{{$Book->book_id}}";
+				var cmtcontent = $('#txt_comment').val();
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+				$.ajax({
+					url:"/Product/comment/"+bookid,
+					type:"post",
+					cache:false,
+					data:
+						{
+                            "cmtcontent":cmtcontent,
+							 "userid":userid
+						},
+					success: function (data) {
+						$.get("/Product/comment/"+bookid,function (data) {
+							$('#commentcontent').html(data);
+                        });
+                    }
+				});
+
+            });
+        });
+	</script>
 @endsection
 @else
 	<h1>Sản phẩm không tồn tại</h1>
