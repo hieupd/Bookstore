@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\bt_category;
+use App\bt_comment;
 use App\bt_rate;
 use Dotenv\Validator;
 use App\bt_type;
@@ -109,7 +110,8 @@ class BookController extends Controller
     {
         $book = bt_book::where('book_id','=',$id)->get()->first();
         $type = bt_type::all();
-        return view('webadmin.book.updatebook',['Book'=>$book,'Type'=>$type]);
+        $category = bt_category::all();
+        return view('webadmin.book.updatebook',['Book'=>$book,'Type'=>$type,'Category'=>$category]);
     }
     public function postUpdateBook(Request $request, $id)
     {
@@ -273,9 +275,10 @@ class BookController extends Controller
     }
     public function getBookinfo($book_id)
     {
+        $cmts = bt_comment::join('users','bt_comments.member_id','=','users.id')->where('book_id',$book_id)->paginate(3);
         $books = bt_book::where('book_id','=',$book_id)->first();
         $userid = Auth::id();
-        return view('webclient.single',['Book'=>$books,'Userid'=>$userid]);
+        return view('webclient.single',['Book'=>$books,'Userid'=>$userid,'Comments'=>$cmts]);
     }
 }
 
