@@ -39,12 +39,18 @@ Route::get('/Product/comment/{id}','CommentController@getComment');
 //showaddproduct
 Route::middleware(['permison', 'auth'])->group(function () {
     Route::get('/addproduct', 'ClientController@getAddBook');
+    Route::post('/addproduct', 'ClientController@postAddBook');
     Route::get('/home', 'BookController@getListBook')->name('home');
 });
 
 //updateinfo
+<<<<<<< HEAD
 
 //Route::post('/info','ClientController@updateinfo')
+=======
+Route::get('/info','ClientController@showinfo');
+Route::post('/info','ClientController@updateinfo')->name('info');
+>>>>>>> 73c454790b01f870562947e658039926d5310373
 
 Route::middleware(['permison', 'auth'])->group(function () {
     //index
