@@ -43,7 +43,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </div>
     </div>
     <div class="container">
-        <form action="/admin/dashboard/bookmanager/addbook" method="POST" enctype="multipart/form-data">
+        <form action="/addproduct" method="POST" enctype="multipart/form-data">
             {{csrf_field()}}
             <div class="row">
                 <div class="col-md-5">
