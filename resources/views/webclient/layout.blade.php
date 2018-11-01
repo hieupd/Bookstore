@@ -24,11 +24,11 @@
                         </li>
                         <li><i class="glyphicon glyphicon-upload" aria-hidden="true"></i><a href="/addproduct">Tải sách</a>
                         </li>
-                        @if(Auth::user()->role_id == 2)
+                        @if(Auth::user()->role_id > 1)
                             <li><i class="glyphicon glyphicon-log-in" aria-hidden="true"></i><a href="admin/dashboard">Admin</a>
                             </li>
                         @endif
-                        <li><i class="glyphicon glyphicon-log-out" aria-hidden="true"></i><a href="logout">Logout</a>
+                        <li><i class="glyphicon glyphicon-log-out" aria-hidden="true"></i><a href="/logout">Logout</a>
                         </li>
                     </ul>
                 @else
@@ -36,9 +36,9 @@
                         <li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i><a
                                 href="mailto:info@example.com">phamdanghieu47@gmail.com</a></li>
                         <li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i>+84961098497</li>
-                        <li><i class="glyphicon glyphicon-log-in" aria-hidden="true"></i><a href="login">Đăng Nhập</a>
+                        <li><i class="glyphicon glyphicon-log-in" aria-hidden="true"></i><a href="/login">Đăng Nhập</a>
                         </li>
-                        <li><i class="glyphicon glyphicon-book" aria-hidden="true"></i><a href="register">Đăng Ký</a>
+                        <li><i class="glyphicon glyphicon-book" aria-hidden="true"></i><a href="/register">Đăng Ký</a>
                         </li>
                     </ul>
                 @endif

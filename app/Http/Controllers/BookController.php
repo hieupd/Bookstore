@@ -11,10 +11,6 @@ use Illuminate\Support\Facades\DB;
 use Cart;
 class BookController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
     //admin
     public function getAddBook()
     {
