@@ -7,6 +7,7 @@ use Dotenv\Validator;
 use App\bt_type;
 use App\bt_book;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Cart;
 class BookController extends Controller
@@ -277,7 +278,8 @@ class BookController extends Controller
     public function getBookinfo($book_id)
     {
         $books = bt_book::where('book_id','=',$book_id)->first();
-        return view('webclient.single',['Book'=>$books]);
+        $userid = Auth::id();
+        return view('webclient.single',['Book'=>$books,'Userid'=>$userid]);
     }
 }
 
