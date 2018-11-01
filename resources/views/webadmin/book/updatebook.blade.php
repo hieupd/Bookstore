@@ -96,9 +96,25 @@
             </div>
             <div class="col-md-3">
                 <div class="form-group">
+                    <label>Danh Mục</label>
+                    </br>
+                    <select class="form-control form-control-lg" name="sl_CL" style="width: 250px;" id="book_category">
+                        @foreach($Category as $cate)
+                            <option
+                                    @if($cate->category_id == $Book->category_id)
+                                    {{"selected"}}
+                                    @endif
+                                    value="{{$cate->category_id}}"> {{$cate->category_name}}</option>
+                        @endforeach
+                    </select>
+                </div>
+                <!--input class="form-control" name="txtPrice" placeholder="Please Enter Password" /-->
+            </div>
+            <div class="col-md-3">
+                <div class="form-group">
                     <label>Thể loại</label>
                     </br>
-                    <select class="form-control form-control-lg" name="sl_TL" style="width: 250px;">
+                    <select class="form-control form-control-lg" name="sl_TL" style="width: 250px;" id="book_type">
                         @foreach($Type as $tp)
                             <option
                                     @if($tp->type_id == $Book->type_id)
@@ -110,10 +126,24 @@
                 </div>
                 <!--input class="form-control" name="txtPrice" placeholder="Please Enter Password" /-->
             </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5">
+                <div class="form-group">
+                    <label>Tác giả</label>
+                    <input class="form-control" value="{{$Book->book_author}}" style="width: 450px" name="txtbook_author" placeholder="Nhập tác giả" />
+                </div>
+            </div>
             <div class="col-md-4">
                 <div class="form-group">
+                    <label>Nhà xuất bản</label>
+                    <input class="form-control" value="{{$Book->book_publish}}" style="width: 400px" name="txtbook_publish" placeholder="Nhập nhà xuất bản" />
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
                     <label>Năm xuất bản</label>
-                    <select class="form-control form-control-lg" name="slcbook_yearpublish" style="width: 100px;">
+                    <select class="form-control form-control-lg" name="slcbook_yearpublish" style="width: 140px;">
                         @for($i = 1997 ; $i <= (int)date('Y') ;$i++)
                             <option
                             @if($i == $Book->book_yearpublish)
@@ -125,21 +155,7 @@
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-5">
-                <div class="form-group">
-                    <label>Tác giả</label>
-                    <input class="form-control" value="{{$Book->book_author}}" style="width: 450px" name="txtbook_author" placeholder="Nhập tác giả" />
-                </div>
-            </div>
 
-            <div class="col-md-4">
-                <div class="form-group">
-                    <label>Nhà xuất bản</label>
-                    <input class="form-control" value="{{$Book->book_publish}}" style="width: 430px" name="txtbook_publish" placeholder="Nhập nhà xuất bản" />
-                </div>
-            </div>
-        </div>
         <div class="row">
             <div class="col-md-5">
                 <div class="form-group">
@@ -157,20 +173,18 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-1">
                 <div class="form-group">
                     <div class="form-group">
                         <label>Số lượng</label>
-                        <input class="form-control" value="{{$Book->book_quantity}}" name="txtbook_quantity" value="0" placeholder="Số lượng " style="width: 100px" />
+                        <input class="form-control" value="{{$Book->book_quantity}}" name="txtbook_quantity" value="0" placeholder="Số lượng " style="width: 70px" />
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="row">
             <div class="col-md-3">
                 <div class="form-group">
                     <label>Kích thước</label>
-                    <select class="form-control form-control-lg" name="slcbook_size" style="width: 150px;">
+                    <select class="form-control form-control-lg" name="slcbook_size" style="width: 140px;">
                         <option
                         @if($Book->book_size == "17x24")
                             {{"selected"}}
@@ -210,6 +224,9 @@
                     </select>
                 </div>
             </div>
+        </div>
+        <div class="row">
+
             <div class="col-md-2">
                 <div class="form-group">
                     <div class="form-group">
@@ -304,6 +321,22 @@
         function Redirect() {
             window.location = "/admin/dashboard/bookmanager";
         }
+        $('document').ready(function () {
+            $('#book_category').change(function () {
+                var categoryid = $(this).val();
+                $.get("/admin/ajax/category/"+categoryid,function (data) {
+                    $('#book_type').html(data);
+                });
+            });
+        });
+        $(window).bind('load',function () {
+            var categoryid = $('#book_category').val();
+            var typeid = {{$Book->type_id}};
+            $.get("/admin/ajax/category/"+categoryid+"/"+typeid,function (data) {
+                $('#book_type').html(data);
+            });
+        });
+
     </script>
     <script type="text/javascript" language="javascript" src="/ckeditor/ckeditor.js" ></script>
 @endsection
