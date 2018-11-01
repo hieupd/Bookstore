@@ -2256,7 +2256,7 @@ label.radio {
 	width:100%;
 	margin:1em 0;
 }
-.add-review input[type="submit"]{
+.add-review input[type="button"]{
 	outline:none;
 	padding:10px 0;
 	background:#ffc229;
