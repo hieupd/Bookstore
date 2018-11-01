@@ -280,13 +280,19 @@
         function Redirect() {
             window.location = "/admin/dashboard/bookmanager";
         }
+        $(window).bind('load',function () {
+            var categoryid = $('#book_category').val();
+            $.get("/admin/ajax/category/"+categoryid,function (data) {
+                $('#book_type').html(data);
+            });
+        });
         $('document').ready(function () {
-           $('#book_category').change(function () {
-              var categoryid = $(this).val();
-              $.get("/admin/ajax/category/"+categoryid,function (data) {
-                  $('#book_type').html(data);
-              });
-           });
+            $('#book_category').change(function () {
+                var categoryid = $(this).val();
+                $.get("/admin/ajax/category/"+categoryid,function (data) {
+                    $('#book_type').html(data);
+                });
+            });
         });
     </script>
 @endsection
