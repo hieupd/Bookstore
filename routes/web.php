@@ -36,6 +36,7 @@ Route::get('/Product/singleproduct/{book_id}', 'BookController@getBookinfo');
 //showaddproduct
 Route::middleware(['permison', 'auth'])->group(function () {
     Route::get('/addproduct', 'ClientController@getAddBook');
+    Route::get('/home', 'BookController@getListBook')->name('home');
 });
 
 //updateinfo
