@@ -29,6 +29,35 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         .attrríb{
             width: 200px;
         }
+        .div-title
+        {
+            float: left;
+            padding-bottom: 5px;
+            padding-top: 14px;
+            margin-left: 0px;
+            margin-right: -100px;
+            padding-left: 13px;
+            font-size: 19px;
+            color: black;
+            font-weight: 500;
+            font-family: 'Poppins', sans-serif;
+            border-bottom: 1px solid #ddd !important;
+            width: 100% !important;
+        }
+        .content
+        {
+            background-color: #ffffff; padding: 0em 0em 0em 0em;margin-bottom: 1em
+        }
+        .content-book
+        {
+            background-color: #ffffff; padding: 1em 0em 0em 0em;margin-bottom: 1em
+        }
+        .div-content
+        {
+            padding: 5em 13px 1em 1em;
+            color: #999;
+            font-size: 16px;
+        }
     </style>
 @endsection
 @if($Book != null)
@@ -47,7 +76,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 	<!-- //breadcrumbs -->
 	<!-- single -->
-	<div class="single">
+	<div class="single" style="background-color: #F7F7F9">
 		<div class="container">
 			<div class="col-md-4 products-left">
 				<div class="filter-price animated wow slideInUp" data-wow-delay=".5s">
@@ -104,7 +133,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 			</div>
 			<div class="col-md-8 single-right">
-				<div class="col-md-5 single-right-left animated wow slideInUp" data-wow-delay=".5s">
+                <div class="col-md-12 content-book">
+				<div class="col-md-5 single-right-left animated wow slideInUp" data-wow-delay=".5s" style="margin-left: 0em">
 					<div class="flexslider">
 						<ul class="slides">
 							<li data-thumb="/upload/book_image/{{$Book->book_image}}">
@@ -156,21 +186,38 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</h5>
 						<br>
 					@endif
-
-					<div class="rating1">
-						<span class="starRating">
-							<input id="rating5" type="radio" name="rating" value="5">
-							<label for="rating5">5</label>
-							<input id="rating4" type="radio" name="rating" value="4">
-							<label for="rating4">4</label>
-							<input id="rating3" type="radio" name="rating" value="3" checked>
-							<label for="rating3">3</label>
-							<input id="rating2" type="radio" name="rating" value="2">
-							<label for="rating2">2</label>
-							<input id="rating1" type="radio" name="rating" value="1">
-							<label for="rating1">1</label>
-						</span>
-					</div>
+                    <form>
+                        {!! csrf_field() !!}
+					    <div class="rating1">
+						    <span class="starRating">
+							    <input id="rating5" type="radio" name="rating" class="btn_bookrating" value="5"
+								@if($Rating == 5)
+                                    {{"checked"}}
+                                    @endif>
+							    <label for="rating5">5</label>
+							    <input id="rating4" type="radio" name="rating" class="btn_bookrating" value="4"
+                                @if($Rating == 4)
+                                    {{"checked"}}
+                                        @endif>
+							    <label for="rating4">4</label>
+							    <input id="rating3" type="radio" name="rating" class="btn_bookrating" value="3"
+                                @if($Rating == 3)
+                                    {{"checked"}}
+                                        @endif>
+							    <label for="rating3">3</label>
+							    <input id="rating2" type="radio" name="rating" class="btn_bookrating" value="2"
+                                @if($Rating == 2)
+                                    {{"checked"}}
+                                        @endif>
+							    <label for="rating2">2</label>
+							    <input id="rating1" type="radio" name="rating" class="btn_bookrating" value="1"
+                                @if($Rating == 1)
+                                    {{"checked"}}
+                                        @endif>
+							    <label for="rating1">1</label>
+						    </span>
+					    </div>
+                    </form>
 					<div class="description">
 						<div class="row">
 							<div class="col-md-6">
@@ -192,15 +239,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="description">
 						<h5><i>Nhà Xuất bản :  </i> {{$Book->book_publish}}</h5>
 					</div>
-
-					<div class="description">
-						<h5><i>Mô tả:</i></h5>
-                        <div>
-                            @php
-                                echo htmlspecialchars_decode( $Book->book_dsc ,ENT_HTML401);
-                            @endphp
-                        </div>
-					</div>
                     @if($Book->book_quantity > 0)
 					<div class="occasion-cart">
 						<a class="item_add" href="/Addtocart/{{$Book->book_id}}/{{$Book->book_name}}">Thêm vào giỏ </a>
@@ -221,85 +259,89 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="clearfix"> </div>
 					</div>
 				</div>
-				<div class="clearfix"> </div>
-				<div class="bootstrap-tab animated wow slideInUp" data-wow-delay=".5s">
-					<div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
-						<ul id="myTab" class="nav nav-tabs" role="tablist">
-							<li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true">Mô tả</a></li>
-							<li role="presentation"><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile">Đánh giá</a></li>
-							<li role="presentation"><a href="#infomation" role="tab" id="infomation-tab" data-toggle="tab" aria-controls="infomation">Thông tin</a></li>
-						</ul>
-						<div id="myTabContent" class="tab-content">
-							<div role="tabpanel" class="tab-pane fade in active bootstrap-tab-text" id="home" aria-labelledby="home-tab">
-									{!! $Book->book_dsc !!}
-
-							</div>
-							<div role="tabpanel" class="tab-pane fade bootstrap-tab-text" id="profile" aria-labelledby="profile-tab">
-								<div class="bootstrap-tab-text-grids">
-									<div class="bootstrap-tab-text-grid">
-										<div id="commentcontent">
-											@foreach($Comments as $cmt)
-											<div class="bootstrap-tab-text-grid-right">
-												<ul>
-													<li><a href="#">{{$cmt->user_fname}}</a></li>
-													<li><a href="#"><span class="glyphicon glyphicon-share" aria-hidden="true"></span>Reply</a></li>
-												</ul>
-												<hr>
-												<p >{{$cmt->comment_content}}</p>
-												<hr>
-											</div>
-										</div>
-										<div class="clearfix"></div>
-										@endforeach
-										<div class="text-right">
-											{{$Comments->links()}}
-										</div>
-									</div>
-									@if($Userid !=null)
-									<div class="add-review">
-										<h4>add a review</h4>
-										<form>
-											<meta name="csrf-token" content="{{ csrf_token() }}">
-											<textarea type="text" placeholder="Bình luận" id="txt_comment"></textarea>
-											<input type="button" class="{{$Userid}}" id="btncomment" value="Bình luận" >
-										</form>
-									</div>
-									@else
-										<p style="color: #8A3104; font-weight: bold;text-align: center;margin-top: 1em;">Bạn cần <a href="/login">đăng nhập</a> để bình luận.</p>
-									@endif
-								</div>
-							</div>
-							<div role="tabpanel" class="tab-pane fade bootstrap-tab-text" id="infomation" aria-labelledby="infomation-tab">
-                                <table class="table table-striped table-bordered">
-                                    <tbody>
-                                        <tr class="rem">
-                                            <td class="attrríb">Nhà cung cấp</td>
-                                            <td>{{$Book->book_provider}}</td>
-                                        </tr>
-                                        <tr class="rem">
-                                            <td class="attrríb">Năm xuất bản</td>
-                                            <td>{{$Book->book_yearpublish}}</td>
-                                        </tr>
-                                        <tr class="rem">
-                                            <td class="attrríb">Kích thước</td>
-                                            <td>{{$Book->book_size}}</td>
-                                        </tr>
-                                        <tr class="rem">
-                                            <td class="attrríb">Loại bìa</td>
-                                            <td>{{$Book->book_jackettype}}</td>
-                                        </tr>
-                                        <tr class="rem">
-                                            <td class="attrríb">Số trang</td>
-                                            <td>{{$Book->book_page}}</td>
-                                        </tr>
-                                    </tbody>
-                                <!--quantity-->
-                                    <!--quantity-->
-                                </table>
-							</div>
-						</div>
-					</div>
-				</div>
+                </div>
+                <div class="clearfix"> </div>
+                <div class="col-md-12 content" >
+                            <label class="div-title">
+                                <h4>Mô tả sách</h4>
+                            </label>
+                            <div class="book_dsc div-content">
+                                {!! $Book->book_dsc !!}
+                            </div>
+                </div>
+                <div class="col-md-12 content" >
+                    <label class="div-title">
+                        <h4>Thông số</h4>
+                    </label>
+                    <div class="book_dsc div-content">
+                            <table class="table table-striped table-bordered">
+                                <tbody>
+                                <tr class="rem">
+                                    <td class="attrríb">Nhà cung cấp</td>
+                                    <td>{{$Book->book_provider}}</td>
+                                </tr>
+                                <tr class="rem">
+                                    <td class="attrríb">Năm xuất bản</td>
+                                    <td>{{$Book->book_yearpublish}}</td>
+                                </tr>
+                                <tr class="rem">
+                                    <td class="attrríb">Kích thước</td>
+                                    <td>{{$Book->book_size}}</td>
+                                </tr>
+                                <tr class="rem">
+                                    <td class="attrríb">Loại bìa</td>
+                                    <td>{{$Book->book_jackettype}}</td>
+                                </tr>
+                                <tr class="rem">
+                                    <td class="attrríb">Số trang</td>
+                                    <td>{{$Book->book_page}}</td>
+                                </tr>
+                                </tbody>
+                            <!--quantity-->
+                            <!--quantity-->
+                            </table>
+                        </div>
+                </div>
+                <div class="col-md-12 content" >
+                    <label class="div-title">
+                        <h4>Bình luận</h4>
+                    </label>
+                    <div class="book_dsc div-content">
+                    <div class="bootstrap-tab-text-grids">
+                        <div class="bootstrap-tab-text-grid">
+                            <div id="commentcontent">
+                                @foreach($Comments as $cmt)
+                                    <div class="bootstrap-tab-text-grid-right">
+                                        <ul>
+                                            <li><a href="#">{{$cmt->user_fname}}  {{$cmt->book_id}}</a></li>
+                                            <li><a href="#"><span class="glyphicon glyphicon-share" aria-hidden="true"></span>Reply</a></li>
+                                        </ul>
+                                        <hr>
+                                        <p >{{$cmt->comment_content}}</p>
+                                        <hr>
+                                    </div>
+                            </div>
+                            <div class="clearfix"></div>
+                            @endforeach
+                            <div class="text-right">
+                                {{$Comments->links()}}
+                            </div>
+                            @if($Memberid !=null)
+                                <div class="add-review">
+                                    <h4>Thêm đánh giá</h4>
+                                    <form>
+                                        <meta name="csrf-token" content="{{ csrf_token() }}">
+                                        <textarea type="text" placeholder="Bình luận" id="txt_comment"></textarea>
+                                        <input type="button" class="{{$Memberid}}" id="btncomment" value="Bình luận" >
+                                    </form>
+                                </div>
+                            @else
+                                <p style="color: #8A3104; font-weight: bold;text-align: center;margin-top: 1em;">Bạn cần <a href="/login">đăng nhập</a> để bình luận.</p>
+                            @endif
+                        </div>
+                    </div>
+                    </div>
+                </div>
 			</div>
 			<div class="clearfix"> </div>
 		</div>
@@ -319,7 +361,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<script>
 		$('document').ready(function () {
 			$('#btncomment').click(function () {
-			    var userid = $(this).attr('class');
+			    var Memberid = $(this).attr('class');
 			    var bookid = "{{$Book->book_id}}";
 				var cmtcontent = $('#txt_comment').val();
                 $.ajaxSetup({
@@ -334,15 +376,37 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					data:
 						{
                             "cmtcontent":cmtcontent,
-							 "userid":userid
+							 "Memberid":Memberid
 						},
 					success: function (data) {
 						$.get("/Product/comment/"+bookid,function (data) {
 							$('#commentcontent').html(data);
                         });
+						$('#txt_comment').text('');
                     }
 				});
-
+            });
+        });
+		$('.btn_bookrating').click(function () {
+            var valuerate = $(this).val();
+            var Memberid = $("#btncomment").attr('class');
+            var bookid = "{{$Book->book_id}}";
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+            $.ajax({
+                url:"/Product/rating/"+bookid,
+                type:"post",
+                cache:false,
+                data:
+                    {
+                        "valuerating":valuerate,
+                        "memberid":Memberid
+                    },
+                success: function (data) {
+                }
             });
         });
 	</script>
