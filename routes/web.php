@@ -36,6 +36,7 @@ Route::get('/Product/singleproduct/{book_id}', 'BookController@getBookinfo');
 //
 Route::post('/Product/comment/{id}','CommentController@postComment');
 Route::get('/Product/comment/{id}','CommentController@getComment');
+Route::post('/Product/rating/{book_id}','RatingController@postRating');
 //showaddproduct
 Route::middleware(['permison', 'auth'])->group(function () {
     Route::get('/addproduct', 'ClientController@getAddBook');
@@ -44,13 +45,8 @@ Route::middleware(['permison', 'auth'])->group(function () {
 });
 
 //updateinfo
-<<<<<<< HEAD
-
-//Route::post('/info','ClientController@updateinfo')
-=======
 Route::get('/info','ClientController@showinfo');
 Route::post('/info','ClientController@updateinfo')->name('info');
->>>>>>> 73c454790b01f870562947e658039926d5310373
 
 Route::middleware(['permison', 'auth'])->group(function () {
     //index
