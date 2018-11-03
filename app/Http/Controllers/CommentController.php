@@ -13,9 +13,9 @@ class CommentController extends Controller
         if(Request::ajax())
         {
            $cmtcontent = Request::get('cmtcontent');
-           $userid = Request::get('userid');
+           $Memberid = Request::get('Memberid');
            $comment = new bt_comment();
-           $comment->member_id = $userid;
+           $comment->member_id = $Memberid;
            $comment->book_id = $id;
            $comment->comment_content = $cmtcontent;
            $comment->save();
