@@ -275,10 +275,15 @@ class BookController extends Controller
     }
     public function getBookinfo($book_id)
     {
-        $cmts = bt_comment::join('users','bt_comments.member_id','=','users.id')->where('book_id',$book_id)->paginate(3);
+        $cmts = bt_comment::join('users','bt_comments.member_id','=','users.id')->where('book_id','=',$book_id)->paginate(3);
         $books = bt_book::where('book_id','=',$book_id)->first();
-        $userid = Auth::id();
-        return view('webclient.single',['Book'=>$books,'Userid'=>$userid,'Comments'=>$cmts]);
+        $memberid = Auth::id();
+        $tb_rating = bt_rate::where('member_id','=',$memberid)->where('book_id','=',$book_id)->first();
+        if($tb_rating != '')
+            $rating = $tb_rating->book_rating;
+        else
+            $rating = 0;
+        return view('webclient.single',['Book'=>$books,'Memberid'=>$memberid,'Comments'=>$cmts,'Rating'=>$rating]);
     }
 }
 
