@@ -3,8 +3,8 @@
     Thêm Sản Phẩm
 @endsection
 @section('css')
-    <link rel="stylesheet" href="/css/bootstrap.min.css" />
-
+    <link href="/css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="/css/style.css" rel="stylesheet" type="text/css" media="all"/>
     <!-- page specific plugin styles -->
     <link rel="stylesheet" href="/css/jquery-ui.min.css" />
     <link rel="stylesheet" href="/css/bootstrap-datepicker3.min.css" />
@@ -131,13 +131,13 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Nhà xuất bản</label>
-                                    <input class="form-control"  style="width: 400px" name="txtbook_publish" placeholder="Nhập nhà xuất bản" />
+                                    <input class="form-control"  style="width: 350px" name="txtbook_publish" placeholder="Nhập nhà xuất bản" />
                                 </div>
                             </div>
                             <div class="col-md-2">
                                 <div class="form-group">
                                     <label>Năm xuất bản</label>
-                                    <select class="form-control form-control-lg" name="slcbook_yearpublish" style="width: 140px;">
+                                    <select class="form-control form-control-lg" name="slcbook_yearpublish" style="width: 153px;">
                                         @for($i = 1997 ; $i <= (int)date('Y') ;$i++)
                                             <option> {{$i}}</option>
                                         @endfor
@@ -173,7 +173,7 @@
                             <div class="col-md-3">
                                 <div class="form-group">
                                     <label>Kích thước</label>
-                                    <select class="form-control form-control-lg" name="slcbook_size" style="width: 140px;">
+                                    <select class="form-control form-control-lg" name="slcbook_size" style="width: 153px;">
                                         <option>17x24</option>
                                         <option>14.5x20.5</option>
                                         <option>14x21</option>
