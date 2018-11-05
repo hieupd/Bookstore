@@ -31,6 +31,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 @section('content')
 	<div class="breadcrumbs">
 		<div class="container">
+            <div class="row"    >
+                <div class="col-md-6">
+
+                </div>
+            </div>
 			<ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
 				<li><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Home</a></li>
 				<li class="active" >Thanh toán</li>
@@ -61,7 +66,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<td class="invert">
 							<div class="quantity">
 								<div class="quantity-select">
-									<input type="text" style="width: 40px;height: 40px; text-align: center" value="{{$item->quantity}}" name="{{$item->id}}"  id="imputqty{{$item->id}}">
+									<input class="form-control" type="text" style="margin-left: 70px;margin-right: -5px;width: 40px;height: 40px;text-align: center; "value="{{$item->quantity}}" name="{{$item->id}}"  id="imputqty{{$item->id}}">
 								</div>
 							</div>
 						</td>
@@ -111,6 +116,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 			</div>
 		</div>
-
+        </div>
 	</div>
 @endsection
