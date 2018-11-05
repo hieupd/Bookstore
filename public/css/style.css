@@ -742,7 +742,7 @@ p.est{
     font-size:14px;
     color:#999;
     line-height:1.8em;
-    margin:0 0 .5em;
+    margin:0 0 0em;
 }
 .new-collections-grid1-left p a,.occasion-cart a{
 	font-size: 12px;
@@ -1477,7 +1477,7 @@ select#country,select#country1 {
 .products-right-grid1-add-cart p a,.new-products-grid-right-add-cart p a {
     font-size: 14px;
     color: #D8703F;
-    margin: 1em 0 0;
+    margin: 0em 0 0;
     text-decoration: none;
     text-transform: uppercase;
     padding: 0em 1em;
@@ -1526,7 +1526,7 @@ ul.paging {
 	border:1px solid #999;
 }
 .categories{
-	margin:3em 0;
+	margin:0.5em 0;
 }
 .categories h3,.filter-price h3,.new-products h3{
 	font-size: 1.5em;
@@ -2327,7 +2327,7 @@ label.radio {
     border: 1px solid #DBDBDB;
     padding: 10px 10px 10px 45px;
     font-size: 14px;
-    color: #999;
+    color: black;
     display: block;
     width: 100%;
 }
@@ -2410,6 +2410,7 @@ label.radio {
 }
 .login-form-grids input[type="text"]{
 	background:url(../images/img-sp.png) no-repeat 5px -259px #fff;
+    margin:1em 0;
 }
 .login-form-grids input[type="text"]:nth-child(2){
 	background:url(../images/img-sp.png) no-repeat 0px -298px #fff;
