@@ -94,6 +94,19 @@
                                         @endforeach
                                         <div class="clearfix"></div>
                                     </div>
+                                    <div class="row">
+                                                <div class="col-sm-3">
+                                                    <ul class="multi-column-dropdown">
+                                                        <h6 style="height: 50px;" ><a style="height: 100px;" href="/Product/Category/{{$ct->category_id}}">Tác giả</a></h6>
+                                                        <div style="height: 250px;">
+                                                            @foreach($Authors as $author)
+                                                                    <li><a href="/Product/Type/{{$type->type_id}}">{{$author->book_author}}</a></li>
+                                                            @endforeach
+                                                        </div>
+                                                    </ul>
+                                                </div>
+                                            <div class="clearfix"></div>
+                                    </div>
                                 </ul>
                             </li>
                             <li><a href="mail">Liên hệ với chúng tôi</a></li>
