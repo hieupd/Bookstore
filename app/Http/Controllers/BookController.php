@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Cart;
+use App\Http\Controllers\MLController as MLController;
 class BookController extends Controller
 {
     //admin
@@ -260,10 +261,34 @@ class BookController extends Controller
     }
     public function getLbookbyCategory($category_id)
     {
+        $memberid = Auth::id();
+        if($memberid != '')
+        {
+            $x = new MLController();
+            $listRaw = $x->recomemded($memberid);
+            $list = array();
+            if($count  = count($list) > 3)
+            {
+                sort($listRaw);
+                $list[] = $listRaw[0];
+                $list[] = $listRaw[1];
+                $list[] = $listRaw[2];
+            }
+            else
+            {
+                $list = $listRaw;
+            }
+        }
+        else
+        {
+            $list = null;
+        }
+
         $books = bt_book::where('category_id','=',$category_id)->paginate(9);
+        $LbooksRecommend = bt_book::all();
         $rating = DB::table('bt_rates')->select(DB::raw('book_id,AVG(book_rating) as rating'))->groupBy('book_id')->get();
         $category_name = bt_category::where('category_id','=',$category_id)->select('category_name')->first();
-        return view('webclient.productsbycategory',['Books'=>$books,'Category_name'=>$category_name,'Rating'=>$rating]);
+        return view('webclient.productsbycategory',['Books'=>$books,'Category_name'=>$category_name,'Rating'=>$rating,"List"=>$list,"LBooksCm"=>$LbooksRecommend]);
 
     }
     public function getLbookbyType($type_id)
