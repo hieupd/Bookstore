@@ -103,7 +103,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<li>Tổng Tiền <i>:</i> <span>{{number_format($Cart_Total,0,',','.')}} VNĐ</span></li>
 						</ul>
 
-						<a href="/"><span class="" aria-hidden="true"></span><button type="submit" class="checkoutbtn" >Thanh toán</button> </a>
+						<a href="/Product/checkout/{{$Memeber_id}}"><span class="" aria-hidden="true"></span><button type="button" class="checkoutbtn" >Thanh toán</button> </a>
 					</div>
 
 				</div>

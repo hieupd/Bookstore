@@ -38,6 +38,7 @@ Route::post('/Product/comment/{id}','CommentController@postComment');
 Route::get('/Product/comment/{id}','CommentController@getComment');
 Route::post('/Product/rating/{book_id}','RatingController@postRating');
 Route::get('/Userinfo/{id}','UserController@getUserinfo');
+Route::get('/Product/checkout/{memberid}','CartController@checkout');
 //showaddproduct
 Route::middleware(['permison', 'auth'])->group(function () {
     Route::get('/addproduct', 'ClientController@getAddBook');

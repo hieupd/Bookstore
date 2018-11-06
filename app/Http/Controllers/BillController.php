@@ -6,6 +6,7 @@ use Request;
 use App\bt_bill;
 use App\bt_book;
 use Cart;
+use App\bt_billinfo;
 
 class BillController extends Controller
 {
