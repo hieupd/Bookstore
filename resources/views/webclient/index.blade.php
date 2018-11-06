@@ -196,7 +196,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <div class="text-center">
                             <div class="item_name" style="width: 250px; height: 40px;"><h4><a href="single">{{$Books[$i]->book_name}}</a></h4></div>
                             <p>{{$Books[$i]->book_author}}</p>
-                            <div class="new-collections-grid1-left simpleCart_shelfItem"  >
+                            <div class="new-collections-grid12-left simpleCart_shelfItem"  >
                                 <p>
                                     @if($Books[$i]->book_sale > 0)
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="book_price{{$Books[$i]->book_id}}"> {{number_format($Books[$i]->book_price,0,',','.')}}đ </i>
@@ -265,7 +265,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <div class="text-center">
                             <div class="item-name"><h4 style="width: 250px; height: 40px;"><a href="single">{{$Books[$i+1]->book_name}}</a></h4></div>
                             <p>{{$Books[$i+1]->book_author}}</p>
-                            <div class="new-collections-grid1-left simpleCart_shelfItem">
+                            <div class="new-collections-grid12-left simpleCart_shelfItem">
                                 <p>
                                     @if($Books[$i+1]->book_sale > 0)
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="book_price"> {{number_format($Books[$i+1]->book_price,0,',','.')}}</i>

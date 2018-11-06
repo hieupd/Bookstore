@@ -277,13 +277,17 @@ class BookController extends Controller
     {
         $cmts = bt_comment::join('users','bt_comments.member_id','=','users.id')->where('book_id','=',$book_id)->paginate(3);
         $books = bt_book::where('book_id','=',$book_id)->first();
+        $category = bt_category::all();
+        $types = bt_type::all();
         $memberid = Auth::id();
+        $category_quantity = DB::table('bt_books')->select(DB::raw('category_id , COUNT(category_id) as quantity'))->groupBy('category_id')->get();
+        $type_quantity = DB::table('bt_books')->select(DB::raw('type_id , COUNT(type_id) as quantity'))->groupBy('type_id')->get();
         $tb_rating = bt_rate::where('member_id','=',$memberid)->where('book_id','=',$book_id)->first();
         if($tb_rating != '')
             $rating = $tb_rating->book_rating;
         else
             $rating = 0;
-        return view('webclient.single',['Book'=>$books,'Memberid'=>$memberid,'Comments'=>$cmts,'Rating'=>$rating]);
+        return view('webclient.single',['Book'=>$books,'Memberid'=>$memberid,'Comments'=>$cmts,'Rating'=>$rating,'Categorys'=>$category,'Types'=>$types,'Category_quantity'=>$category_quantity,'Type_quantity'=>$type_quantity]);
     }
 }
 

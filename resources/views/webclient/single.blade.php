@@ -82,20 +82,36 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="categories animated wow slideInUp" data-wow-delay=".5s">
 					<h3>Categories</h3>
 					<ul class="cate">
-						<li><a href="productsbycategory.blade.php">Best Selling</a> <span>(15)</span></li>
-						<li><a href="productsbycategory.blade.php">Home Collections</a> <span>(16)</span></li>
+						<li><a href="productsbycategory.blade.php">Top bán chạy</a> <span>(15)</span></li>
+                        @foreach($Categorys as $category)
+						<li>
+                            <a href="productsbycategory.blade.php">{{$category->category_name}}</a>
+                            <span>
+                                @foreach($Category_quantity as $ctq)
+                                    @if($category->category_id == $ctq->category_id)
+                                        {{"(".$ctq->quantity.")"}}
+                                    @endif
+                                @endforeach
+
+                            </span>
+                        </li>
 						<ul>
-							<li><a href="productsbycategory.blade.php">Cookware</a> <span>(2)</span></li>
-							<li><a href="productsbycategory.blade.php">New Arrivals</a> <span>(0)</span></li>
-							<li><a href="productsbycategory.blade.php">Home Decore</a> <span>(1)</span></li>
+                            @foreach($Types as $type)
+                                @if($type->category_id == $category->category_id)
+							        <li>
+                                        <a href="productsbycategory.blade.php">{{$type->type_name}}</a>
+                                        <span>
+                                           @foreach($Type_quantity as $tq)
+                                                @if($tq->type_id == $type->type_id)
+                                                    {{"(".$tq->quantity.")"}}
+                                                @endif
+                                            @endforeach
+                                        </span>
+                                    </li>
+                                @endif
+                            @endforeach
 						</ul>
-						<li><a href="productsbycategory.blade.php">Decorations</a> <span>(15)</span></li>
-						<ul>
-							<li><a href="productsbycategory.blade.php">Wall Clock</a> <span>(2)</span></li>
-							<li><a href="productsbycategory.blade.php">New Arrivals</a> <span>(0)</span></li>
-							<li><a href="productsbycategory.blade.php">Lighting</a> <span>(1)</span></li>
-							<li><a href="productsbycategory.blade.php">Top Brands</a> <span>(0)</span></li>
-						</ul>
+                        @endforeach
 					</ul>
 				</div>
 				<div class="men-position animated wow slideInUp" data-wow-delay=".5s">
@@ -287,7 +303,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 @foreach($Comments as $cmt)
                                     <div class="bootstrap-tab-text-grid-right">
                                         <ul>
-                                            <li><a href="#">{{$cmt->user_fname}}  {{$cmt->book_id}}</a></li>
+                                            <li><a href="#">{{$cmt->user_fname}}</a></li>
                                             <li><a href="#"><span class="glyphicon glyphicon-share" aria-hidden="true"></span>Reply</a></li>
                                         </ul>
                                         <hr>
