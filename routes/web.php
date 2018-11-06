@@ -97,4 +97,4 @@ Route::middleware(['permison', 'auth'])->group(function () {
 });
 
 // test
-Route::get('/Checkout/Cartx', 'CartController@getCartx');
+Route::get('/ML/{userid}', 'MLController@recomemded');
