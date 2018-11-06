@@ -20,6 +20,7 @@ class CreateBtBillInfo extends Migration
             $table->integer('book_price');
             $table->integer('book_quantity');
             $table->integer('book_sale');
+            $table->timestamps();
         });
     }
 
