@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\bt_book;
 use Cart;
+use Auth;
+use App\bt_bill;
+use App\bt_billinfo;
+use DB;
 
 class CartController extends Controller
 {
@@ -13,7 +17,8 @@ class CartController extends Controller
         $cart_content = Cart::getContent();
         $cart_qty = Cart::getTotalQuantity();
         $cart_totalprice = Cart::getTotal();
-        return view('webclient.checkout',['Cart_content'=>$cart_content,'Cart_qty'=>$cart_qty,'Cart_Total'=>$cart_totalprice]);
+        $memberid = Auth::id();
+        return view('webclient.checkout',['Cart_content'=>$cart_content,'Cart_qty'=>$cart_qty,'Cart_Total'=>$cart_totalprice,'Memeber_id'=>$memberid]);
     }
     public function getCartx()
     {
@@ -24,7 +29,7 @@ class CartController extends Controller
     {
         $book_buy = bt_book::where('book_id',$id)->first();
         $book_price = $book_buy->book_price - ($book_buy->book_price * $book_buy->book_sale)/100;
-        Cart::add(array('id'=>$id,'name'=>$book_buy->book_name,'quantity'=>1,'price'=>$book_price,'attributes'=>array('img'=>$book_buy->book_image,'sale'=>$book_buy->book_sale)));
+        Cart::add(array('id'=>$id,'name'=>$book_buy->book_name,'quantity'=>1,'price'=>$book_price,'attributes'=>array('img'=>$book_buy->book_image,'sale'=>$book_buy->book_sale,'rawprice'=>$book_buy->book_price)));
         return redirect()->back();
     }
     public function ClearCart()
@@ -54,6 +59,31 @@ class CartController extends Controller
         }
         else
             return redirect()->back();
+
+    }
+    public function checkout($memberid)
+    {
+        $cart_totalprice = Cart::getTotal();
+        $bill = new bt_bill();
+        $bill->member_id = $memberid;
+        $bill->bill_tprice = $cart_totalprice;
+        $bill->bill_status = 'Chưa hoàn thành';
+        $bill->save();
+        $billinfo = DB::table('bt_bills')->select(DB::raw('MAX(bill_id) as maxbill'))->where('member_id',$memberid)->get();
+        $billid = $billinfo[0]->maxbill;
+
+        $cartcontent = Cart::getContent();
+        foreach ($cartcontent as $item) {
+            $billinfo = new bt_billinfo();
+            $billinfo->bill_id = $billid;
+            $billinfo->book_id = $item->id;
+            $billinfo->book_price = $item->attributes->rawprice;
+            $billinfo->book_quantity = $item->quantity;
+            $billinfo->book_sale = $item->attributes->sale;
+            $billinfo->save();
+        }
+        Cart::clear();
+        return redirect('/Checkout/Cart');
 
     }
 }
