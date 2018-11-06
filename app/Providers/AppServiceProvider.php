@@ -8,6 +8,7 @@ use Illuminate\Validation\Validator;
 use App\bt_type;
 use App\bt_category;
 use Cart;
+use DB;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -29,7 +30,8 @@ class AppServiceProvider extends ServiceProvider
             $types = bt_type::all();
             $cart_Quantity = Cart::getTotalQuantity();
             $cart_total = Cart::getTotal();
-            $view -> with(['Types'=> $types,'Category'=> $category,'Cartquantity'=>$cart_Quantity,'Carttotal'=>$cart_total]);
+            $authors = DB::table('bt_books')->select(DB::raw('book_author'))->groupBy('book_author')->get();
+            $view -> with(['Types'=> $types,'Category'=> $category,'Cartquantity'=>$cart_Quantity,'Carttotal'=>$cart_total,'Authors'=>$authors]);
 
 
 

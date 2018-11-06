@@ -15,25 +15,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             window.scrollTo(0, 1);
         } </script>
     <!-- //for-mobile-apps -->
-    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
-    <link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="/css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="/css/style.css" rel="stylesheet" type="text/css" media="all"/>
     <!-- js -->
-    <script src="js/jquery.min.js"></script>
+    <script src="/js/jquery.min.js"></script>
     <!-- //js -->
     <!-- cart -->
-    <script src="js/simpleCart.min.js"></script>
+    <script src="/js/simpleCart.min.js"></script>
     <!-- cart -->
-    <link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
+    <link rel="stylesheet" type="text/css" href="/css/jquery-ui.css">
     <!-- for bootstrap working -->
-    <script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
+    <script type="text/javascript" src="/js/bootstrap-3.1.1.min.js"></script>
     <!-- //for bootstrap working -->
     <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic'
           rel='stylesheet' type='text/css'>
     <link href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic'
           rel='stylesheet' type='text/css'>
     <!-- animation-effect -->
-    <link href="css/animate.min.css" rel="stylesheet">
-    <script src="js/wow.min.js"></script>
+    <link href="/css/animate.min.css" rel="stylesheet">
+    <script src="/js/wow.min.js"></script>
     <script>
         new WOW().init();
     </script>
@@ -65,15 +65,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </li>
                     </ul>
                 @endif
-                @if($errors->first())
-                    <div class="text-danger">{{$errors->first()}}</div>
-                @endif
                 <form class="animated wow slideInUp" role="form" method="POST" action="{{route('info')}}">
                     @csrf
-                    <input type="text" placeholder="Giới tính..." required=" " name="user_gender">
-                    <input type="text" placeholder="Địa chỉ..." required=" "name="user_address">
-                    <input type="text" placeholder="Số điện thoại" required=" " name="user_phone">
-                    <input type="text" placeholder="Chứng minh thư ( Thẻ căn cước )" required=" " name="user_id_card">
+                    <label style="font-weight: unset;font-size: 15px">Giới tính</label>
+                    <input class="form-control" style="height: 42px"type="text" value="{{$Usinfo->user_gender}}" placeholder="Giới tính..." required=" " name="user_gender">
+                    <label style="font-weight: unset;font-size: 15px">Địa chỉ</label>
+                    <input class="form-control" style="height: 42px"type="text" value="{{$Usinfo->user_address}}"placeholder="Địa chỉ..." required=" "name="user_address">
+                    <label style="font-weight: unset;font-size: 15px">Số điện thoại</label>
+                    <input class="form-control" style="height: 42px" type="text" value="{{$Usinfo->user_phone}}" placeholder="Số điện thoại" required=" " name="user_phone">
+                    <label style="font-weight: unset;font-size: 15px">Chứng minh thư</label>
+                    <input class="form-control" style="height: 42px"type="text" value="{{$Usinfo->user_id_card}}"placeholder="Chứng minh thư ( Thẻ căn cước )" required=" " name="user_id_card">
                     <input type="submit" value="Cập nhật" id="updateinfo">
                 </form>
             </div>

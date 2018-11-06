@@ -260,11 +260,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     @endif
                                 </div>
                             </div>
-                            <h4><a href="single.blade.php" style="height: 40px;">{{$book->book_name}}</a></h4>
+                            <h4><a href="single.blade.php" style="height: 28px;">{{$book->book_name}}</a></h4>
                             <p>{{$book->book_author}}</p>
                             <div class="simpleCart_shelfItem products-right-grid1-add-cart">
                                 <p>
-                                    <span style="padding: 0px;font-size: 15px" class="item_price" > {{number_format($book->book_price - ($book->book_price * $book->book_sale)/100,0,',','.')}}đ </span> </br>
+                                    <span style="padding: 0px;font-size: 17px" class="item_price" > {{number_format($book->book_price - ($book->book_price * $book->book_sale)/100,0,',','.')}}đ </span> </br>
                                     <a class="item_add" href="/Addtocart/{{$book->book_id}}/{{$book->book_name}}">Thêm vào giỏ </a>
                                 </p>
                             </div>

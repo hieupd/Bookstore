@@ -108,7 +108,7 @@
                         <form action="/admin/dashboard/typemanager/updatebooklist/{{$ct->category_id}}" method="POST">
                             {{csrf_field()}}
 					        <td><span id="list_name{{$ct->category_id}}">{{$ct->category_name}}</span>
-                                <input type="text" id="txt_listname{{$ct->category_id}}" name="txt_listname"  style="display: none;width: 500px; height: 27.4px;">
+                                <input type="text" class="form-control" id="txt_listname{{$ct->category_id}}" name="txt_listname"  style="display: none;width: 500px;">
                              </td>
                             <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="/admin/dashboard/typemanager/deletebooklist/{{$ct->category_id}}"> Delete</a></td>
 					         <td class="center">
@@ -150,7 +150,7 @@
                         {{csrf_field()}}
                     <td>
                         <span id="Tlist_name{{$tp->type_id}}">{{$tp->category_name}}</span>
-                            <select name="slc_listname" id="slt_type{{$tp->type_id}}" style="display: none; width: 250px">
+                            <select class="form-control" name="slc_listname" id="slt_type{{$tp->type_id}}" style="display: none; width: 250px">
                                 @foreach($Category as $ct)
                                     <option
                                             @if($tp->category_name ==$ct->category_name)
@@ -162,7 +162,7 @@
                     </td>
                     <td>
                         <span id="type_name{{$tp->type_id}}">{{$tp->type_name}} </span>
-                            <input type="text" id="txt_typename{{$tp->type_id}}" value="{{$tp->type_name}}" name="txt_typename"  style="display: none;width: 250px; height: 27.4px;">
+                            <input type="text" class="form-control" id="txt_typename{{$tp->type_id}}" value="{{$tp->type_name}}" name="txt_typename"  style="display: none;width: 250px;">
 
                     </td>
                     <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="/admin/dashboard/typemanager/deletebooktype/{{$tp->type_id}}"> Delete</a></td>
@@ -236,14 +236,14 @@
                         $("#Save"+id).show();
                         $("#Cancel"+id).show();
                         $("#iconlist"+id).hide();
-                        $(this).hide();
+                        $("#"+id).hide();
                         $("#Cancel"+id).on("click",function () {
                             $("#txt_listname"+id).hide();
                             $("#list_name"+id).show();
                             $("#Save"+id).hide();
                             $("#Cancel"+id).hide();
                             $("#iconlist"+id).show();
-                            $(".Edit_rL").show();
+                            $("#"+id).show();
                         });
                     });
                     $(".Edit_rT").on("click",function () {
