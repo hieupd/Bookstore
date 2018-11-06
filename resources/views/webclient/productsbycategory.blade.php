@@ -78,95 +78,43 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="new-products animated wow slideInUp" data-wow-delay=".5s">
                     <h3>Sách mới phát hành</h3>
                     <div class="new-products-grids">
-                        <div class="new-products-grid">
-                            <div class="new-products-grid-left">
-                                <a href="single.blade.php"><img src="/images/3.jpg" alt=" " class="img-responsive" /></a>
-                            </div>
-                            <div class="new-products-grid-right">
-                                <h4><a href="single.blade.php">Tiếng Việt 1 - Tập 2</a></h4><div class="rating">
-                                    <div class="rating-left">
-                                        <img src="/images/2.png" alt=" " class="img-responsive">
-                                    </div>
-                                    <div class="rating-left">
-                                        <img src="/images/2.png" alt=" " class="img-responsive">
-                                    </div>
-                                    <div class="rating-left">
-                                        <img src="/images/2.png" alt=" " class="img-responsive">
-                                    </div>
-                                    <div class="rating-left">
-                                        <img src="/images/1.png" alt=" " class="img-responsive">
-                                    </div>
-                                    <div class="rating-left">
-                                        <img src="/images/1.png" alt=" " class="img-responsive">
-                                    </div>
-                                    <div class="clearfix"> </div>
-                                </div>
-                                <div class="simpleCart_shelfItem new-products-grid-right-add-cart">
-                                    <p> <span class="item_price">30000đ</span><a class="item_add" href="#">Thêm vào giỏ</a></p>
-                                </div>
-                            </div>
-                            <div class="clearfix"> </div>
-                        </div>
-                        <div class="new-products-grid">
-                            <div class="new-products-grid-left">
-                                <a href="single.blade.php"><img src="/images/18.jpg" alt=" " class="img-responsive" /></a>
-                            </div>
-                            <div class="new-products-grid-right">
-                                <h4><a href="single.blade.php">eum fugiat quo</a></h4>
-                                <div class="rating">
-                                    <div class="rating-left">
-                                        <img src="/images/2.png" alt=" " class="img-responsive">
-                                    </div>
-                                    <div class="rating-left">
-                                        <img src="/images/2.png" alt=" " class="img-responsive">
-                                    </div>
-                                    <div class="rating-left">
-                                        <img src="/images/2.png" alt=" " class="img-responsive">
-                                    </div>
-                                    <div class="rating-left">
-                                        <img src="/images/1.png" alt=" " class="img-responsive">
-                                    </div>
-                                    <div class="rating-left">
-                                        <img src="/images/1.png" alt=" " class="img-responsive">
-                                    </div>
-                                    <div class="clearfix"> </div>
-                                </div>
-                                <div class="simpleCart_shelfItem new-products-grid-right-add-cart">
-                                    <p> <span class="item_price">$250</span><a class="item_add" href="#">Thêm vào giỏ </a></p>
-                                </div>
-                            </div>
-                            <div class="clearfix"> </div>
-                        </div>
-                        <div class="new-products-grid">
-                            <div class="new-products-grid-left">
-                                <a href="single.blade.php"><img src="/images/6.jpg" alt=" " class="img-responsive" /></a>
-                            </div>
-                            <div class="new-products-grid-right">
-                                <h4><a href="single.blade.php">officia deserunt</a></h4>
-                                <div class="rating">
-                                    <div class="rating-left">
-                                        <img src="/images/2.png" alt=" " class="img-responsive">
-                                    </div>
-                                    <div class="rating-left">
-                                        <img src="/images/2.png" alt=" " class="img-responsive">
-                                    </div>
-                                    <div class="rating-left">
-                                        <img src="/images/2.png" alt=" " class="img-responsive">
-                                    </div>
-                                    <div class="rating-left">
-                                        <img src="/images/1.png" alt=" " class="img-responsive">
-                                    </div>
-                                    <div class="rating-left">
-                                        <img src="/images/1.png" alt=" " class="img-responsive">
-                                    </div>
-                                    <div class="clearfix"> </div>
-                                </div>
-                                <div class="simpleCart_shelfItem new-products-grid-right-add-cart">
-                                    <p> <span class="item_price">$259</span><a class="item_add" href="#">Thêm vào giỏ </a></p>
-                                </div>
-                            </div>
-                            <div class="clearfix"> </div>
-                        </div>
+                        @if($List !=null)
+                            @foreach($List as $item)
+                                @foreach($LBooksCm as $book)
+                                    @if($book->book_id == $item)
+                                        <div class="new-products-grid">
+                                            <div class="new-products-grid-left">
+                                                <a href=""><img src="/upload/book_image/{{$book->book_image}}" alt=" " class="img-responsive" /></a>
+                                            </div>
+                                            <div class="new-products-grid-right">
+                                                <h4><a href="/Product/singleproduct/{{$book->book_id}}">{{$book->book_name}}</a></h4><div class="rating">
+                                                    <div class="rating-left">
+                                                        <img src="/images/2.png" alt=" " class="img-responsive">
+                                                    </div>
+                                                    <div class="rating-left">
+                                                        <img src="/images/2.png" alt=" " class="img-responsive">
+                                                    </div>
+                                                    <div class="rating-left">
+                                                        <img src="/images/2.png" alt=" " class="img-responsive">
+                                                    </div>
+                                                    <div class="rating-left">
+                                                        <img src="/images/1.png" alt=" " class="img-responsive">
+                                                    </div>
+                                                    <div class="rating-left">
+                                                        <img src="/images/1.png" alt=" " class="img-responsive">
+                                                    </div>
+                                                    <div class="clearfix"> </div>
+                                                </div>
+                                                <div class="simpleCart_shelfItem new-products-grid-right-add-cart">
+                                                    <p> <span class="item_price">{{number_format($book->book_price - ($book->book_price * $book->book_sale)/100,0,',','.')}}đ </span><a class="item_add" href="#">Thêm vào giỏ</a></p>
+                                                </div>
+                                            </div>
+                                            <div class="clearfix"> </div>
+                                        </div>
+                                    @endif
+                                @endforeach
+                            @endforeach
+                        @endif
                     </div>
                 </div>
                 <div class="men-position animated wow slideInUp" data-wow-delay=".5s">
