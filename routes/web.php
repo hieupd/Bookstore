@@ -9,6 +9,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use App\bt_role;
 
 Route::get('/', 'ClientController@index');
 
@@ -47,14 +48,16 @@ Route::middleware(['permison', 'auth'])->group(function () {
 });
 
 //updateinfo
-Route::get('/info','ClientController@showinfo');
-Route::post('/info','ClientController@updateinfo')->name('info');
+Route::get('/info/{id}','UserController@getUserinfo');
+Route::post('/info/{id}','UserController@updateinfo');
 
 Route::middleware(['permison', 'auth'])->group(function () {
     //index
     Route::get('/admin/dashboard', 'AdminController@index')->name('dashboard');
     //account
-    Route::get('/admin/dashboard/accountmanager', 'AdminController@getAccountMNG');
+    Route::get('/admin/dashboard/accountmanager','AccountController@getAccount');
+    Route::get('/admin/dashboard/accountmanager/delete/{id}','AccountController@getDeleteAccount');
+    Route::post('/admin/dashboard/accountmanager/update/{id}','AccountController@postUpdateAccount');
     //member
     Route::get('/admin/dashboard/membermanager', 'AdminController@getMemberMNG');
     //book
@@ -94,7 +97,17 @@ Route::middleware(['permison', 'auth'])->group(function () {
     Route::get('/admin/dashboard/viewmanager', 'AdminController@getViewMNG');
     Route::get('/admin/ajax/category/{id}/{typeid}','AjaxController@getBooktype');
     Route::get('/admin/ajax/category/{id}','AjaxController@getBooktypeadd');
+
 });
 
 // test
 Route::get('/ML/{userid}', 'MLController@recomemded');
+    Route::get('/Vccc',function ()
+{
+    $Roles = bt_role::all();
+    foreach ($Roles as $role)
+    {
+        echo $role->role_id;
+        echo $role->role_name;
+    }
+});
