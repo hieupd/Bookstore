@@ -76,7 +76,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </ul>
                 </div>
                 <div class="new-products animated wow slideInUp" data-wow-delay=".5s">
-                    <h3>Sách mới phát hành</h3>
+                    <h3>Có thể bạn thấy thú vị</h3>
                     <div class="new-products-grids">
                         @if($List !=null)
                             @foreach($List as $item)

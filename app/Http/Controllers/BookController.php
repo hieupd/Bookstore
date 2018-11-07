@@ -245,7 +245,7 @@ class BookController extends Controller
         }
         $book ->delete();
         Cart::remove($id);
-        return redirect('admin/dashboard/bookmanager')->with('Thongbao','Bạn đã xóa thành công !');
+        return redirect('/admin/dashboard/bookmanager')->with('Thongbao','Bạn đã xóa thành công !');
     }
     //client
     public function getListBook()

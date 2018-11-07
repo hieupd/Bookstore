@@ -131,7 +131,7 @@
 						@else
 							<span class="status{{$bl->bill_id}}"  style="color: green">{{$bl->bill_status}}</span>
 						@endif
-						<form action="/admin/dashboard/billmanager/updatebill/{{$bl->bill_id}}" method="POST" name="billform">
+						<form>
                             <meta name="csrf-token" content="{{ csrf_token() }}">
 							<div class="form-group">
 								<select class="form-control form-control-lg" name="slcbill_status" id="select1{{$bl->bill_id}}" style="display: none">
@@ -147,7 +147,6 @@
 						<i class="fa fa-pencil fa-fw" style="display: none"></i> <a href="#" id="Cancel{{$bl->bill_id}}" style="display: none">Cancel</a>
 					</td>
 						</form>
-					</td>
 
 				</tr>
 				@endforeach

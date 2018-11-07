@@ -16,10 +16,6 @@ class AdminController extends Controller
     {
         return view('webadmin.index');
     }
-    function getAccountMNG()
-    {
-        return view('webadmin.account.account');
-    }
     function getMemberMNG()
     {
         return view('webadmin.member.member');
