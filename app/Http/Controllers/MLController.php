@@ -46,7 +46,7 @@ class MLController extends Controller
             $Cosin = $Scalarofanb/(sqrt($LengthOfVtora)*sqrt($LengthOfVtorb));
         return $Cosin;
     }
-    public function ratematrix($rating)
+    public function ratematrix($rating) // matran rate
     {
         $ratmatrix = array();
         foreach ($rating as $rt)
@@ -56,7 +56,7 @@ class MLController extends Controller
         }
         return $ratmatrix;
     }
-    public function avgrating($ratequantity,$rating,$Litem,$itemquantity)
+    public function avgrating($ratequantity,$rating,$Litem,$itemquantity) //trung binh rating cua tung san pham
     {
         $avgrating = array();
         for($i = 0 ; $i < $itemquantity; $i++)
@@ -88,7 +88,7 @@ class MLController extends Controller
 //        }
 //
 //    }
-    public function Similarmatrix($itemquantity,$Litem,$itemid,$ratmatrix,$totalrate,$userquantity)
+    public function Similarmatrix($itemquantity,$Litem,$itemid,$ratmatrix,$totalrate,$userquantity) // ma tran tuong dong
     {
         $Vectorofitemid = $this->GetVector($ratmatrix,$totalrate,$itemid);
         ksort($Vectorofitemid);
@@ -104,7 +104,7 @@ class MLController extends Controller
         }
         return $Arrofsimilarity;
     }
-    public function arritemnaverage($rating,$userid,$totalrate,$ratmatrix)
+    public function arritemnaverage($rating,$userid,$totalrate,$ratmatrix) // mang trung binh item
     {
         $arritem = array();
         foreach ($rating as $rate)
@@ -126,7 +126,7 @@ class MLController extends Controller
         }
         return $arritemnavgrate;
     }
-    public function Recommend($itemquantity,$Litem,$itemid,$ratmatrix,$totalrate,$userquantity,$rating,$userid)
+    public function Recommend($itemquantity,$Litem,$itemid,$ratmatrix,$totalrate,$userquantity,$rating,$userid) // de xuat 1 san pham
     {
         $Arrofsimilarity = $this->Similarmatrix($itemquantity,$Litem,$itemid,$ratmatrix,$totalrate,$userquantity);//ma trận tương đồng giữ item id;
         $arritemnavgrate = $this->arritemnaverage($rating,$userid,$totalrate,$ratmatrix);
