@@ -81,55 +81,50 @@
 
 @section('Content')
             <!-- /.col-lg-12 -->
+            @if(session('Thongbao'))
+                <div class="alert alert-success">
+                    {{session('Thongbao')}} </br>
+                </div>
+            @endif
     <table class="table table-striped table-bordered table-hover" id="dataTables-example">
         <thead>
         <tr align="center">
             <th>ID</th>
-            <th>Username</th>
-            <th></th>
-            <th>Date</th>
-            <th>Status</th>
+            <th>Tên thành viên</th>
+            <th>Tài khoản</th>
+            <th style="width: 250px">Mật Khẩu</th>
+            <th>Quyền</th>
             <th>Delete</th>
-            <th>Edit</th>
-            <th>Edit</th>
-            <th>Edit</th>
+            <th style="width: 100px">Edit</th>
         </tr>
         </thead>
         <tbody>
+        @foreach($Accounts as $account)
         <tr class="odd gradeX" align="center">
-            <td>1</td>
-            <td>Áo Thun Nana</td>
-            <td>200.000 VNĐ</td>
-            <td>3 Minutes Age</td>
-            <td>Hiện</td>
-            <td>Hiện</td>
-            <td>Hiện</td>
-            <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="#"> Delete</a></td>
-            <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="#">Edit</a></td>
+            <td>{{$account->id}}</td>
+            <td>{{$account->user_fname}}</td>
+            <td>{{$account->user_name}}</td>
+            <td>{{$account->password}}</td>
+            <form>
+                <meta name="csrf-token" content="{{ csrf_token() }}">
+            <td>
+                <select class="form-control" style="display:none" id="select1{{$account->id}}">
+                    @foreach($Roles as $role)
+                        <option value="{{$role->role_id}}">
+                            {{$role->role_name}}
+                        </option>
+                    @endforeach
+                </select>
+                <span class="role{{$account->id}}">{{$account->role_name}}</span>
+            </td>
+            <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="/admin/dashboard/accountmanager/delete/{{$account->id}}"> Delete</a></td>
+            <td class="center"><i class="fa fa-pencil fa-fw" id="icon1{{$account->id}}"></i> <a href="#" id="{{$account->id}}" class="Edit_r">Edit</a>
+                <i class="fa fa-trash-o  fa-fw" style="display: none"></i><a href="#" id="Save{{$account->id}}" style="display: none"> Save</a>&nbsp
+                <i class="fa fa-pencil fa-fw" style="display: none"></i> <a href="#" id="Cancel{{$account->id}}" style="display: none">Cancel</a>
+            </td>
+            </form>
         </tr>
-        <tr class="even gradeC" align="center">
-            <td>2</td>
-            <td>Áo Thun Polo</td>
-            <td>250.000 VNĐ</td>
-            <td>1 Hours Age</td>
-            <td>Ẩn</td>
-            <td>Ẩn</td>
-            <td>Ẩn</td>
-            <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="#"> Delete</a></td>
-            <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="#">Edit</a></td>
-        </tr>
-        <tr class="even gradeC" align="center">
-            <td>3</td>
-            <td>Áo Thun Polo</td>
-            <td>240.000 VNĐ</td>
-            <td>1 Hours Age</td>
-
-            <td>Ẩn</td>
-            <td>Ẩn</td>
-            <td>Ẩn</td>
-            <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="#"> Delete</a></td>
-            <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="#">Edit</a></td>
-        </tr>
+        @endforeach
         </tbody>
     </table>
 @endsection
@@ -169,6 +164,67 @@
             $('#dataTables-example').DataTable({
                 responsive: true
             });
+        });
+        $(document).ready(function() {
+            var id ;
+            $(".Edit_r").on("click",function () {
+                id =$(this).attr('id');
+                $("#select1"+id).show();
+                $(".role"+id).hide();
+                $("#Save"+id).show();
+                $("#Cancel"+id).show();
+                $("#icon1"+id).hide();
+                $(this).hide();
+                $("#Cancel"+id).on("click",function () {
+                    $("#select1"+id).hide();
+                    $(".role"+id).show();
+                    $("#Save"+id).hide();
+                    $("#Cancel"+id).hide();
+                    $("#icon1"+id).show();
+                    $("#"+id).show();
+                });
+                $("#Save"+id).click(function () {
+                    var role = $("#select1"+id).val();
+                    $.ajaxSetup({
+                        headers: {
+                            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        }
+                    });
+                    $.ajax({
+                        url:"/admin/dashboard/accountmanager/update/"+id,
+                        type:"post",
+                        cache:false,
+                        data:
+                            {
+                                "role_id":role
+                            },
+                        success: function (data) {
+                            if(data == "Success")
+                            {
+                                $("#select1"+id).hide();
+                                $(".role"+id).show();
+                                $("#Save"+id).hide();
+                                $("#Cancel"+id).hide();
+                                $("#icon1"+id).show();
+                                $("#"+id).show();
+                            }
+                            else
+                            {
+                                alert("đã có lỗi xảy ra !");
+                                $("#select1"+id).hide();
+                                $(".role"+id).show();
+                                $("#Save"+id).hide();
+                                $("#Cancel"+id).hide();
+                                $("#icon1"+id).show();
+                                $("#"+id).show();
+                            }
+
+                        }
+
+                    });
+                });
+            });
+
         });
     </script>
 @endsection
