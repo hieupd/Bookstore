@@ -200,8 +200,6 @@ class MLController extends Controller
                 {
                     $arrRecommended[] = $ratmatrix[$i][1];
                 }
-
-
             }
         }
         return $arrRecommended;
