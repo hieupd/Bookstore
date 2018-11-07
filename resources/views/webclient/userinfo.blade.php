@@ -68,13 +68,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <form class="animated wow slideInUp" role="form" method="POST" action="/info/{{$Usinfo->id}}">
                     @csrf
                     <label style="font-weight: unset;font-size: 15px">Giới tính</label>
-                    <input class="form-control" style="height: 42px"type="text" value="{{$Usinfo->user_gender}}" placeholder="Giới tính..." required=" " name="user_gender">
+                    <input class="form-control" style="height: 42px" type="text" value="{{$Usinfo->user_gender}}" placeholder="Giới tính..." required=" " name="user_gender">
                     <label style="font-weight: unset;font-size: 15px">Địa chỉ</label>
-                    <input class="form-control" style="height: 42px"type="text" value="{{$Usinfo->user_address}}"placeholder="Địa chỉ..." required=" "name="user_address">
+                    <input class="form-control" style="height: 42px" type="text" value="{{$Usinfo->user_address}}" placeholder="Địa chỉ..." required=" "name="user_address">
                     <label style="font-weight: unset;font-size: 15px">Số điện thoại</label>
                     <input class="form-control" style="height: 42px" type="text" value="{{$Usinfo->user_phone}}" placeholder="Số điện thoại" required=" " name="user_phone">
                     <label style="font-weight: unset;font-size: 15px">Chứng minh thư</label>
-                    <input class="form-control" style="height: 42px"type="text" value="{{$Usinfo->user_id_card}}"placeholder="Chứng minh thư ( Thẻ căn cước )" required=" " name="user_id_card">
+                    <input class="form-control" style="height: 42px" type="text" value="{{$Usinfo->user_id_card}}" placeholder="Chứng minh thư ( Thẻ căn cước )" required=" " name="user_id_card">
                     <input type="submit" value="Cập nhật" id="updateinfo">
                 </form>
             </div>

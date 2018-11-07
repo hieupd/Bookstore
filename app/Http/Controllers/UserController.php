@@ -17,7 +17,11 @@ class UserController extends Controller
         $usInfo = User::all();
         return view('webadmin.member.member',['Users'=>$usInfo]);
     }
+<<<<<<< HEAD
     function updateinfo(Request $request,$id)
+=======
+    function updateinfo(Request $request)
+>>>>>>> d0d77ac2a63bed6c38de49de5720503f96f942f6
     {
 
         $user = User::where('id',$id)->first();
