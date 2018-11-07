@@ -44,7 +44,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div class="breadcrumbs">
         <div class="container">
             <ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
-                <li><a href="trangchu"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Trang chủ</a></li>
+                <li><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Trang chủ</a></li>
                 <li class="active">Đăng ký</li>
             </ol>
         </div>
