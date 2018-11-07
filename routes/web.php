@@ -59,7 +59,7 @@ Route::middleware(['permison', 'auth'])->group(function () {
     Route::get('/admin/dashboard/accountmanager/delete/{id}','AccountController@getDeleteAccount');
     Route::post('/admin/dashboard/accountmanager/update/{id}','AccountController@postUpdateAccount');
     //member
-    Route::get('/admin/dashboard/membermanager', 'AdminController@getMemberMNG');
+    Route::get('/admin/dashboard/membermanager', 'UserController@getUser');
     //book
     Route::get('/admin/dashboard/bookmanager', 'BookController@GetListBooks');
     //addbook

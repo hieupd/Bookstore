@@ -88,51 +88,31 @@
 				<thead>
 				<tr align="center">
 					<th>ID</th>
-					<th>Name</th>
-					<th>Price</th>
-					<th>Date</th>
-					<th>Status</th>
+					<th>Tên Thành Viên</th>
+					<th>Giới tính</th>
+					<th>Ngày sinh</th>
+					<th>Địa chỉ</th>
+					<th>Số điện thoại</th>
+					<th>Email</th>
 					<th>Delete</th>
-					<th>Edit</th>
-					<th>Edit</th>
 					<th>Edit</th>
 				</tr>
 				</thead>
 				<tbody>
-				<tr class="odd gradeX" align="center">
-					<td>1</td>
-					<td>Áo Thun Nana</td>
-					<td>200.000 VNĐ</td>
-					<td>3 Minutes Age</td>
-					<td>Hiện</td>
-					<td>Hiện</td>
-					<td>Hiện</td>
+				@foreach($Users as $us)
+				<tr class="even gradeC" aign="center">
+					<td>{{$us->id}}</td>
+					<td>{{$us->user_fname}}</td>
+					<td>{{$us->user_gender}}</td>
+					<td>{{$us->user_dob}}</td>
+					<td>{{$us->user_address}}</td>
+					<td>{{$us->user_phone}}</td>
+					<td>{{$us->user_email}}</td>
 					<td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="#"> Delete</a></td>
 					<td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="#">Edit</a></td>
 				</tr>
-				<tr class="even gradeC" align="center">
-					<td>2</td>
-					<td>Áo Thun Polo</td>
-					<td>250.000 VNĐ</td>
-					<td>1 Hours Age</td>
-					<td>Ẩn</td>
-					<td>Ẩn</td>
-					<td>Ẩn</td>
-					<td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="#"> Delete</a></td>
-					<td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="#">Edit</a></td>
-				</tr>
-				<tr class="even gradeC" align="center">
-					<td>3</td>
-					<td>Áo Thun Polo</td>
-					<td>240.000 VNĐ</td>
-					<td>1 Hours Age</td>
+				@endforeach
 
-					<td>Ẩn</td>
-					<td>Ẩn</td>
-					<td>Ẩn</td>
-					<td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="#"> Delete</a></td>
-					<td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="#">Edit</a></td>
-				</tr>
 				</tbody>
 			</table>
 			</div>

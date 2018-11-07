@@ -12,6 +12,11 @@ class UserController extends Controller
         $usInfo = User::where('id',$id)->first();
         return view('webclient.userinfo',['Usinfo'=>$usInfo]);
     }
+    public function getUser()
+    {
+        $usInfo = User::all();
+        return view('webadmin.member.member',['Users'=>$usInfo]);
+    }
     function updateinfo(Request $request)
     {
 //        $id = Auth::id();
