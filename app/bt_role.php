@@ -13,6 +13,7 @@ class bt_role extends Model
      *
      * @var array
      */
+    protected $table = 'bt_roles';
     protected $fillable = [
         'role_id','role_name','role_dsc'
     ];
