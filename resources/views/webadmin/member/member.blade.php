@@ -95,10 +95,6 @@
 					<th>Số điện thoại</th>
 					<th>Email</th>
 					<th>Delete</th>
-<<<<<<< HEAD
-=======
-					<th>Edit</th>
->>>>>>> d0d77ac2a63bed6c38de49de5720503f96f942f6
 				</tr>
 				</thead>
 				<tbody>
@@ -111,12 +107,7 @@
 					<td>{{$us->user_address}}</td>
 					<td>{{$us->user_phone}}</td>
 					<td>{{$us->user_email}}</td>
-<<<<<<< HEAD
 					<td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="/admin/dashboard/membermanager/delete/{{$us->id}}"> Delete</a></td>
-=======
-					<td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="#"> Delete</a></td>
-					<td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="#">Edit</a></td>
->>>>>>> d0d77ac2a63bed6c38de49de5720503f96f942f6
 				</tr>
 				@endforeach
 
