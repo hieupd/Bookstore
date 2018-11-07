@@ -60,10 +60,7 @@ Route::middleware(['permison', 'auth'])->group(function () {
     Route::post('/admin/dashboard/accountmanager/update/{id}','AccountController@postUpdateAccount');
     //member
     Route::get('/admin/dashboard/membermanager', 'UserController@getUser');
-<<<<<<< HEAD
     Route::get('/admin/dashboard/membermanager/delete/{id}', 'UserController@getDeleteUser');
-=======
->>>>>>> d0d77ac2a63bed6c38de49de5720503f96f942f6
     //book
     Route::get('/admin/dashboard/bookmanager', 'BookController@GetListBooks');
     //addbook
@@ -106,12 +103,3 @@ Route::middleware(['permison', 'auth'])->group(function () {
 
 // test
 Route::get('/ML/{userid}', 'MLController@recomemded');
-    Route::get('/Vccc',function ()
-{
-    $Roles = bt_role::all();
-    foreach ($Roles as $role)
-    {
-        echo $role->role_id;
-        echo $role->role_name;
-    }
-});
