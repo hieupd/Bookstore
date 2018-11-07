@@ -65,7 +65,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </li>
                     </ul>
                 @endif
-                <form class="animated wow slideInUp" role="form" method="POST" action="{{route('info')}}">
+                <form class="animated wow slideInUp" role="form" method="POST" action="/info/{{$Usinfo->id}}">
                     @csrf
                     <label style="font-weight: unset;font-size: 15px">Giới tính</label>
                     <input class="form-control" style="height: 42px"type="text" value="{{$Usinfo->user_gender}}" placeholder="Giới tính..." required=" " name="user_gender">
