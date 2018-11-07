@@ -1,4 +1,3 @@
-
 @extends('webclient.layout')
 @section('css')
 	<title>Best Store a Ecommerce Online Shopping Category Flat Bootstrap Responsive Website Template | Single :: w3layouts</title>
