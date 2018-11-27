@@ -134,3 +134,4 @@ Route::middleware(['permison', 'auth'])->group(function () {
 });
 // test
 Route::get('/ML/{userid}', 'MLController@recomemded');
+Route::get('/x','BookController@updatef');
