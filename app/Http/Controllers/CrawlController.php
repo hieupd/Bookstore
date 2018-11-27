@@ -60,7 +60,7 @@ class CrawlController extends Controller
             foreach ($menu2 as $item2) {
                 $type_name = $item2->title;
                 $tmp = bt_type::where('type_name',$type_name)->first();
-                if($tmp != null) {
+                if($tmp == null) {
                     $type_link = $item2->href;
                     $type = new bt_type();
                     $type->type_name = $type_name;
