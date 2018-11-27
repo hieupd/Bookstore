@@ -28,14 +28,14 @@
                                 <ul class="list-inline f-right">
                                     <li>
                                         <i class="fas fa-sign-out-alt"></i>&nbsp
-                                        <a href="/logout">Logout</a>
+                                        <a href="/logout">Đăng xuất</a>
                                     </li>
                                 </ul>
                                 @if(Auth::user()->role_id > 1)
                                     <ul class="list-inline f-right">
                                         <li>
                                             <i class="fas fa-link"></i>&nbsp
-                                            <a href="/admin/dashboard">Admin</a>
+                                            <a href="/admin/dashboard">Trang quản lý</a>
                                         </li>
                                     </ul>
                                 @endif
@@ -116,7 +116,7 @@
                                     <div class="em-wrapper-search"> <a class="em-search-icon" title="Search" href=""><span>Search</span></a>
                                         <div class="em-container-js-search" style="display: none;">
                                                 <div class="form-search">
-                                                    <label for="search">Search:</label>
+                                                    <label for="search">Tìm kiếm:</label>
                                                     <input id="search-fixed-top" type="text" name="keyword" value="" class="input-text pad2" maxlength="128" placeholder="Tìm kiếm..." />
                                                     <button type="button" title="Search" class="button btn_search2"><span><span>Tìm Kiếm</span></span></button>
                                                 </div>
