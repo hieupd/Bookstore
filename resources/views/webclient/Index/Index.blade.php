@@ -229,7 +229,7 @@
                                                                                                     </li>
                                                                                                     @endif
                                                                                                 </ul>
-                                                                                                <a href="#" title=" Metallic Midi Cut Out Midi Dress" style="padding-left: 4.5%;padding-top: 5%" class="product-image">
+                                                                                                <a href="#" title=" {{$book->book_name}}" style="padding-left: 4.5%;padding-top: 5%" class="product-image">
                                                                                                     <img style=" width: 210px;height: 264px;padding-left: 4.5%;padding-top: 5%" class="em-alt-hover img-responsive em-lazy-loaded" src="/upload/book_image/{{$book->book_image}}" height="300" width="300">
                                                                                                     <img style=" width: 200px;height: 264px;" class="img-responsive em-alt-org em-lazy-loaded" src="/upload/book_image/{{$book->book_image}}" data-original="/upload/book_image/{{$book->book_image}}" height="300" width="300">
                                                                                                 </a>
@@ -237,7 +237,7 @@
                                                                                                     <div class="em-btn-addto">
                                                                                                         @if($book->book_quantity > 0)
                                                                                                         <!--product add to cart-->
-                                                                                                        <a href="/Addtocart/{{$book->book_id}}/{{$book->book_name}}"> <button type="button" title="Add to Cart" class="button btn-cart" onclick="217"><span>Thêm vào giỏ</span>
+                                                                                                        <a href="/Addtocart/{{$book->book_id}}"> <button type="button" title="Add to Cart" class="button btn-cart" onclick="217"><span>Thêm vào giỏ</span>
                                                                                                             </button></a>
                                                                                                         @endif
                                                                                                         <!--product add to compare-wishlist-->
@@ -301,7 +301,7 @@
                                                     @for($i = 0 ; $i <3;$i++)
                                                         @if($topSale[$i] != null)
                                                     <div class="item" style="  ">
-                                                        <a href="#" title="Cross Back Dress" class="product-image">
+                                                        <a href="#" title="{{$topSale[$i]->book_name}}" class="product-image">
                                                             <img style="" class="em-alt-hover img-responsive em-lazy-loaded" src="/upload/book_image/{{$topSale[$i]->book_image}}" data-original="/upload/book_image/{{$topSale[$i]->book_image}}" alt="Cross Back Dress" height="110" width="110">
                                                             <img class="img-responsive em-alt-org em-lazy-loaded" src="/upload/book_image/{{$topSale[$i]->book_image}}" data-original="/upload/book_image/{{$topSale[$i]->book_image}}" alt="Cross Back Dress" height="110" width="110">
                                                         </a>
@@ -332,7 +332,7 @@
                                                                     <div class="em-btn-addto">
                                                                     @if($topSale[$i]->book_quantity)
                                                                         <!--product add to cart-->
-                                                                        <a href="/Addtocart/{{$topSale[$i]->book_id}}/{{$topSale[$i]->book_name}}"> <button type="button" title="Add to Cart" class="button btn-cart" onclick="217">
+                                                                        <a href="/Addtocart/{{$topSale[$i]->book_id}}"> <button type="button" title="Add to Cart" class="button btn-cart" onclick="217">
                                                                             </button></a>
                                                                     @endif
                                                                         <!--product add to compare-wishlist-->
@@ -352,7 +352,7 @@
                                                     @for($i = 3 ; $i <6;$i++)
                                                         @if($topSale[$i] != null)
                                                         <div class="item" style="  ">
-                                                            <a href="#" title="Cross Back Dress" class="product-image">
+                                                            <a href="#" title="{{$topSale[$i]->book_name}}" class="product-image">
                                                                 <img style="" class="em-alt-hover img-responsive em-lazy-loaded" src="/upload/book_image/{{$topSale[$i]->book_image}}" data-original="/upload/book_image/{{$topSale[$i]->book_image}}" alt="Cross Back Dress" height="110" width="110">
                                                                 <img class="img-responsive em-alt-org em-lazy-loaded" src="/upload/book_image/{{$topSale[$i]->book_image}}" data-original="/upload/book_image/{{$topSale[$i]->book_image}}" alt="Cross Back Dress" height="110" width="110">
                                                             </a>
@@ -382,7 +382,7 @@
                                                                         <div class="em-btn-addto">
                                                                         @if($topSale[$i]->book_quantity)
                                                                             <!--product add to cart-->
-                                                                            <a href="/Addtocart/{{$topSale[$i]->book_id}}/{{$topSale[$i]->book_name}}"> <button type="button" title="Add to Cart" class="button btn-cart" onclick="217">
+                                                                            <a href="/Addtocart/{{$topSale[$i]->book_id}}"> <button type="button" title="Add to Cart" class="button btn-cart" onclick="217">
                                                                                 </button></a>
                                                                         @endif
                                                                             <!--product add to compare-wishlist-->
