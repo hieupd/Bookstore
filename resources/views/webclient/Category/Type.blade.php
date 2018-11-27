@@ -166,8 +166,7 @@
                                                     <option value="price-asc">Giá thấp đến cao</option>
                                                     <option value="price-desc">Giá cao đến thấp</option>
                                                 </select>
-                                                <a href="#" title="Set Descending Direction"><img src="/images/i_asc_arrow.png" alt="Set Descending Direction" class="v-middle" />
-                                                </a>
+
                                             </div>
                                             {{--<div style="float:right;">--}}
                                                 {{--<label>Hiện</label>--}}
@@ -207,7 +206,7 @@
                                                         <div class="bottom">
                                                             @if($book->book_quantity > 0)
                                                             <div class="em-btn-addto text-center ">
-                                                                <a href="/Addtocart/{{$book->book_id}}/{{$book->book_name}}"> <button type="button" title="Add to Cart" class="button btn-cart" onclick="217"><span>Thêm vào giỏ</span>
+                                                                <a href="/Addtocart/{{$book->book_id}}"> <button type="button" title="Add to Cart" class="button btn-cart" onclick="217"><span>Thêm vào giỏ</span>
                                                                 </button></a>
                                                             </div>
                                                             @endif
