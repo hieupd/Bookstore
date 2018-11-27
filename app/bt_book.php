@@ -15,7 +15,7 @@ class bt_book extends Model
      * @var array
      */
     protected $table = "bt_books";
-
+    protected $primaryKey = 'book_id';
     protected $fillable = [
         'book_id', 'book_name', 'book_date','book_author','book_publish','book_size','book_qpaper',
         'book_page','book_amount','book_dsc','book_sale','book_price','book_zipcode','type_id',
