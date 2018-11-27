@@ -114,7 +114,6 @@
 					<td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="/admin/dashboard/membermanager/delete/{{$us->id}}"> Xóa</a></td>
 				</tr>
 				@endforeach
-				<span>Lỗi</span>
 
 				</tbody>
 			</table>
