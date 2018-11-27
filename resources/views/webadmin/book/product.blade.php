@@ -3,7 +3,7 @@
 	Quản Lý Sách
 @endsection
 @section('css')
-			<link rel="stylesheet" href="/css/bootstrap.min.css" />
+			<link rel="stylesheet" href="/dist/bootstrap.min.css" />
 
 			<!-- page specific plugin styles -->
 			<link rel="stylesheet" href="/css/jquery-ui.min.css" />
@@ -49,7 +49,7 @@
                     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
                     font-size: 10px;
                     color: #D8703F;
-                    margin: 0.5em;
+                    margin: 4%;
                     text-decoration: none;
                     text-transform: uppercase;
                     padding: .5em 1em;
@@ -66,7 +66,7 @@
         <ul class="breadcrumb">
             <li>
                 <i class="ace-icon fa fa-home home-icon"></i>
-                <a href="#">Trang Chủ</a>
+                <a href="/admin/dashboard/">Trang Chủ</a>
             </li>
 
             <li>
@@ -120,7 +120,7 @@
                             </div>
                             <div class="text-center">
                             <div ><h5>Mã sản phẩm : {{$b->book_id}}</h5></div>
-                            <div style="width: 180px; height: 40px;"><h5><a href="/admin/dashboard/bookmanager/bookdetail/{{$b->book_id}}">{{$b->book_name}}</a></h5></div>
+                            <div style="width: 150px; height: 200px;"><h5><a href="/admin/dashboard/bookmanager/bookdetail/{{$b->book_id}}">{{$b->book_name}}</a></h5></div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
@@ -165,8 +165,8 @@
                             <th>Đơn giá</th>
                             <th>Số lượng</th>
                             <th width="50px;">Chi tiết</th>
-                            <th>Delete</th>
-                            <th>Edit</th>
+                            <th>Xóa</th>
+                            <th>Sửa</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -182,8 +182,8 @@
                                 <td><span>{{$b->book_price}}</span></td>
                                 <td><span>{{$b->book_quantity}}</span></td>
                                 <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="/admin/dashboard/bookmanager/bookdetail/{{$b->book_id}}">Chi tiết</a></td>
-                                <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="/admin/dashboard/bookmanager/deletebook/{{$b->book_id}}"> Delete</a></td>
-                                <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="/admin/dashboard/bookmanager/updatebook/{{$b->book_id}}">Edit</a></td>
+                                <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="/admin/dashboard/bookmanager/deletebook/{{$b->book_id}}"> Xóa</a></td>
+                                <td class="center"><i class="fa fa-pencil fa-fw"></i> <a href="/admin/dashboard/bookmanager/updatebook/{{$b->book_id}}">Sửa</a></td>
                             </tr>
                         @endforeach
                         </tbody>
@@ -220,7 +220,7 @@
 	<script src="/dist/js/sb-admin-2.js"></script>
 
 	<!-- DataTables JavaScript -->
-	<script src="/bower_components/DataTables/media/js/jquery.dataTables.min.js"></script>
+	<script src="/bower_components/jquery.dataTables.min.js"></script>
 	<script src="/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
 	<script>
         $(document).ready(function() {

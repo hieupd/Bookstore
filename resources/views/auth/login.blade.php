@@ -1,81 +1,210 @@
-@extends('webclient.layout')
-@section('title')
+@extends('webclient.layout.Layout')
+@section('Title')
     Đăng nhập
 @endsection
-@section('css')
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta name="keywords" content="Best Store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
-Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design"/>
-    <script type="application/x-javascript"> addEventListener("load", function () {
-            setTimeout(hideURLbar, 0);
-        }, false);
+@section('Css')
+    <link rel="shortcut icon" href="http://placehold.it/64.png/000/fff">
+    <!-- Retina iPad Touch Icon-->
+    <link rel="apple-touch-icon" sizes="144x144" href="http://placehold.it/144.png/000/fff">
+    <!-- Retina iPhone Touch Icon-->
+    <link rel="apple-touch-icon" sizes="114x114" href="http://placehold.it/114.png/000/fff">
+    <!-- Standard iPad Touch Icon-->
+    <link rel="apple-touch-icon" sizes="72x72" href="http://placehold.it/72.png/000/fff">
+    <!-- Standard iPhone Touch Icon-->
+    <link rel="apple-touch-icon" sizes="57x57" href="http://placehold.it/57.png/000/fff">
 
-        function hideURLbar() {
-            window.scrollTo(0, 1);
-        } </script>
-    <!-- //for-mobile-apps -->
-    <link href="/css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
-    <link href="/css/style.css" rel="stylesheet" type="text/css" media="all"/>
-    <!-- js -->
-    <script src="/js/jquery.min.js"></script>
-    <!-- //js -->
-    <!-- cart -->
-    <script src="/js/simpleCart.min.js"></script>
-    <!-- cart -->
-    <link rel="stylesheet" type="text/css" href="/css/jquery-ui.css">
-    <!-- for bootstrap working -->
-    <script type="text/javascript" src="/js/bootstrap-3.1.1.min.js"></script>
-    <!-- //for bootstrap working -->
-    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic'
-          rel='stylesheet' type='text/css'>
-    <link href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic'
-          rel='stylesheet' type='text/css'>
-    <!-- animation-effect -->
-    <link href="/css/animate.min.css" rel="stylesheet">
-    <script src="/js/wow.min.js"></script>
-    <script>
-        new WOW().init();
-    </script>
-    <!-- //animation-effect -->
+    <!-- ================= Google Fonts ================== -->
+    <link href='http://fonts.googleapis.com/css?family=Lato:200,300,400,500,600,700,800&amp;subset=latin,cyrillic-ext,cyrillic,greek-ext,greek,vietnamese,latin-ext' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Lora:200,300,400,500,600,700,800&amp;subset=latin,cyrillic-ext,cyrillic,greek-ext,greek,vietnamese,latin-ext' rel='stylesheet' type='text/css' />
+    <link href='http://fonts.googleapis.com/css?family=Raleway:200,300,400,500,600,700,800&amp;subset=latin,cyrillic-ext,cyrillic,greek-ext,greek,vietnamese,latin-ext' rel='stylesheet' type='text/css' />
+
+    <!-- Cloud Zoom CSS -->
+    <!-- <link rel="stylesheet" type="text/css" href="css/em_cloudzoom.css" media="all" /> -->
+
+    <!-- Menu CSS -->
+    <link rel="stylesheet" type="text/css" href="/css/menu.css" media="all" />
+    <!-- Mega Menu CSS -->
+    <link rel="stylesheet" type="text/css" href="/css/megamenu.css" media="all" />
+
+    <!-- Widget CSS -->
+    <!-- <link rel="stylesheet" type="text/css" href="css/widgets.css" media="all" /> -->
+
+    <!-- Default CSS -->
+    <link rel="stylesheet" type="text/css" href="/css/styles.css" media="all" />
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" type="text/css" href="/css/font-awesome.css" media="all" />
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" type="text/css" href="/css/owl.carousel.css" media="all" />
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" type="text/css" href="/css/responsive.css" media="all" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" media="all" />
+
+    <!-- Ajax Cart CSS -->
+    <!-- <link rel="stylesheet" type="text/css" href="css/em_ajaxcart.css" media="all" /> -->
+    <!-- Blog Style CSS -->
+    <link rel="stylesheet" type="text/css" href="/css/blog-styles.css" media="all" />
+    <!-- Multi Deal Pro CSS -->
+    <!-- <link rel="stylesheet" type="text/css" href="css/em_multidealpro.css" media="all" /> -->
+
+    <!-- Product Labels CSS -->
+    <link rel="stylesheet" type="text/css" href="/css/em_productlabels.css" media="all" />
+
+    <!-- Quick Shop CSS -->
+    <!-- <link rel="stylesheet" type="text/css" href="css/em_quickshop.css" media="all" /> -->
+
+    <!-- Fancybox CSS -->
+    <link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css" media="all" />
+
+    <!-- Responsive Tab CSS -->
+    <link rel="stylesheet" type="text/css" href="/css/responsive-tabs.css" media="all" />
+    <!-- Print CSS -->
+    <link rel="stylesheet" type="text/css" href="/css/print.css" media="print" />
+    <!-- Fashion CSS -->
+    <link rel='stylesheet' type='text/css' media='all' href='/css/color1.css' />
+    <!-- Style Fashion CSS -->
+    <link rel='stylesheet' type='text/css' media='all' href='/css/style_fashion.css' />
+
+    <!-- Jquery Js -->
+    <script type="text/javascript" src="/js/jquery-1.11.3.min.js"></script>
+    <!-- Bootstrap Js -->
+    <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+    <!-- Lazy Load Js -->
+    <script type="text/javascript" src="/js/jquery.lazyload.min.js"></script>
+    <!-- Owl Carousel Js -->
+    <script type="text/javascript" src="/js/owl.carousel.js"></script>
+    <!-- Ios Orientation Change Js -->
+    <script type="text/javascript" src="/js/ios-orientationchange-fix.js"></script>
+    <!-- Hover Intent Js -->
+    <script type="text/javascript" src="/js/jquery.hoverIntent.js"></script>
+    <!-- Select UI Js -->
+    <script type="text/javascript" src="/js/selectUl.js"></script>
+    <!-- Throttle Js -->
+    <script type="text/javascript" src="/js/jquery.ba-throttle-debounce.js"></script>
+    <!-- EM Js -->
+    <script type="text/javascript" src="/js/em0131.js"></script>
+    <!-- MegaMenu Js -->
+    <script type="text/javascript" src="/js/megamenu.js"></script>
+    <!-- Responsive Tab Js -->
+    <script type="text/javascript" src="/js/jquery.custom.responsiveTabs.js"></script>
+    <!-- Fancybox Js -->
+    <script type="text/javascript" src="/js/jquery.fancybox.js"></script>
+    <!-- Custom Js -->
+    <script type="text/javascript" src="/js/custom.js"></script>
+
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
 @endsection
 @section('content')
-    <div class="breadcrumbs">
+    <div class="wrapper-breadcrums">
         <div class="container">
-            <ol class="breadcrumb breadcrumb1 animated wow slideInLeft" data-wow-delay=".5s">
-                <li><a href="/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span>Trang chủ</a></li>
-                <li class="active">Đăng nhập</li>
-            </ol>
-        </div>
-    </div>
-    <!-- //breadcrumbs -->
-    <!-- login -->
-    <div class="login">
-        <div class="container">
-            <h3 class="animated wow zoomIn" data-wow-delay=".5s">Đăng Nhập</h3>
-            <p class="est animated wow zoomIn" data-wow-delay=".5s">Vui lòng đăng nhập để sử dụng được dịch vụ của Bookstore</p>
-            <div class="login-form-grids animated wow slideInUp" data-wow-delay=".5s">
-                @if(session('status'))
-                    <ul>
-                        <li class="text-danger">
-                            {{session('status')}}
-                        </li>
-                    </ul>
-                @endif
-                <form method="POST" action="{{route('logincheck')}}">
-                    @csrf
-                    <input type="text" placeholder="Username" required=" " name="user_name">
-                    <input type="password" placeholder="Mật khẩu" required=" " name="password">
-                    {{--<div class="forgot">--}}
-                    {{--<a href="#">Quên mật khẩu ?</a>--}}
-                    {{--</div>--}}
-                    <input type="submit" value="Đâng Nhập">
-                </form>
+            <div class="row">
+                <div class="col-sm-24">
+                    <div class="breadcrumbs">
+                        <ul>
+                            <li class="home"> <a href="index.html" title="Go to Home Page"><span >Trang chủ</span></a> <span class="separator">/ </span>
+                            </li>
+                            <li class="cms_page"> <strong>Đăng nhập</strong>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <h4 class="animated wow slideInUp" data-wow-delay=".5s">Dành cho người mới sử dụng</h4>
-            <p class="animated wow slideInUp" data-wow-delay=".5s"><a href="/register">Đăng ký tại đây</a> (hoặc) quay lại
-                <a href="/">Trang chủ<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span></a></p>
         </div>
-    </div>
-    <!-- //login -->
+    </div><!-- /.wrapper-breadcrums -->
+
+    <div class="em-wrapper-main">
+        <div class="container container-main">
+            <div class="em-inner-main">
+                <div class="em-wrapper-area02"></div>
+                <div class="em-main-container em-col1-layout">
+                    <div class="row">
+                        <div class="em-col-main col-sm-24">
+                            <div class="account-login">
+                                <div class="page-title em-box-02">
+                                    <div class="title-box">
+                                        <h1>Đăng nhập hoặc tạo tài khoản</h1>
+                                    </div>
+                                </div>
+                                <form method="post" id="login-form" action="{{route('logincheck')}}">
+                                    @csrf
+                                    <input name="form_key" type="hidden" value="W2ZAZqxDCT2TpZYs" />
+                                    <div class="col2-set">
+                                        <div class="col-1 new-users">
+                                            <div class="content">
+                                                <h2>Thành viên mới</h2>
+                                                <p>Tạo tài khoản mang lại nhiều lợi ích cho các bạn.</p>
+                                            </div>
+                                            <div class="buttons-set">
+                                                <button type="button" title="Create an Account" class="button" id="Register"><span><span>Tạo tài khoản</span></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="col-2 registered-users">
+                                            <div class="content">
+                                                @if(count($errors) > 0)
+                                                    <div class="alert alert-danger">
+                                                        @foreach($errors -> all() as $err)
+                                                        {{$err}}
+                                                        </br>
+                                                        @endforeach
+                                                    </div>
+                                                @endif
+                                                @if(session('Thongbao'))
+                                                    <div class="alert alert-success">
+                                                        {{session('Thongbao')}} </br>
+                                                    </div>
+                                                @endif
+                                                <h2>Đăng nhập</h2>
+                                                <ul class="form-list">
+                                                    <li>
+                                                        <label for="email" class="required"><em>*</em>Tài khoản</label>
+                                                        <div class="input-box">
+                                                            <input type="text" name="user_name" value="" id="email" class="input-text required-entry validate-email" title="Email Address" />
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <label for="pass" class="required"><em>*</em>Mật khẩu</label>
+                                                        <div class="input-box">
+                                                            <input type="password" name="password" class="input-text required-entry validate-password" id="pass" title="Password" />
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                                <div id="window-overlay" class="window-overlay" style="display:none;"></div>
+                                                <div id="remember-me-popup" class="remember-me-popup" style="display:none;">
+                                                    <div class="remember-me-popup-head">
+                                                        <h3>What's this?</h3> <a href="#" class="remember-me-popup-close" title="Close">Close</a>
+                                                    </div>
+                                                    <div class="remember-me-popup-body">
+                                                        <p>Checking &quot;Remember Me&quot; will let you access your shopping cart on this computer when you are logged out</p>
+                                                        <div class="remember-me-popup-close-button a-right"> <a href="#" class="remember-me-popup-close button" title="Close"><span>Close</span></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="buttons-set">
+                                                <button type="submit" class="button" title="Login" name="send" id="send2"><span><span>Đăng nhập</span></span>
+                                                </button> <a href="#" class="f-left">Forgot Your Password?</a>
+                                                <p class="required">* Required Fields</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div><!-- /.account-login -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- /.em-wrapper-main -->
+    <script>
+        $('document').ready(function () {
+           $('#Register').click(function () {
+               window.location = "/register";
+           }) ;
+        });
+    </script>
 @endsection

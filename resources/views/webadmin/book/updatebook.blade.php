@@ -3,7 +3,7 @@
     Cập nhập sản phẩm
 @endsection
 @section('css')
-    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/dist/bootstrap.min.css" />
 
     <!-- page specific plugin styles -->
     <link rel="stylesheet" href="/css/jquery-ui.min.css" />
@@ -57,14 +57,14 @@
         <ul class="breadcrumb">
             <li>
                 <i class="ace-icon fa fa-home home-icon"></i>
-                <a href="#">Trang Chủ</a>
+                <a href="/admin/dashboard/">Trang Chủ</a>
             </li>
 
             <li>
                 <a href="#">Quản Lý</a>
             </li>
             <li>
-                <a href="#">Quản Lý Sản Phẩm</a>
+                <a href="/admin/dashboard/bookmanager">Quản Lý Sản Phẩm</a>
             </li>
             <li class="active">Cập nhập sản phẩm</li>
         </ul><!-- /.breadcrumb -->
@@ -87,6 +87,19 @@
 @section('Content')
     <form action="/admin/dashboard/bookmanager/updatebook/{{$Book->book_id}}" method="POST" enctype="multipart/form-data">
         {{csrf_field()}}
+        @if(count($errors) > 0)
+            <div class="alert alert-danger">
+                @foreach($errors -> all() as $err)
+                {{$err}}
+                </br>
+                @endforeach
+            </div>
+        @endif
+        @if(session('Thongbao'))
+            <div class="alert alert-success">
+                {{session('Thongbao')}} </br>
+            </div>
+        @endif
         <div class="row">
             <div class="col-md-5">
                 <div class="form-group">
@@ -269,19 +282,6 @@
             <label>Mô tả Sách</label>
             <textarea id="demo" class="ckeditor" name="txtbook_dsc"> {{$Book->book_dsc}} </textarea>
         </div>
-        @if(count($errors) > 0)
-            <div class="alert alert-danger">
-                @foreach($errors -> all() as $err)
-                {{$err}}
-                </br>
-                @endforeach
-            </div>
-        @endif
-        @if(session('Thongbao'))
-            <div class="alert alert-success">
-                {{session('Thongbao')}} </br>
-            </div>
-        @endif
         <button type="submit" class="btn btn-default">Cập nhập sản phẩm</button>
         <button type="reset" class="btn btn-default" onclick="Redirect();">Hủy</button>
     </form>

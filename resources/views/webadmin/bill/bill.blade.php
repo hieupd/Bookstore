@@ -3,7 +3,7 @@
 	Quản Lý Hóa Đơn
 @endsection
 @section('css')
-			<link rel="stylesheet" href="/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="/dist/bootstrap.min.css" />
 
 			<!-- page specific plugin styles -->
 			<link rel="stylesheet" href="/css/jquery-ui.min.css" />
@@ -105,23 +105,19 @@
 				<tr align="center">
 					<th>ID</th>
 					<th>Người mua</th>
-					<th width="50px">Số lượng mua</th>
+					<th>Địa chỉ nhận hàng</th>
 					<th>Tổng tiền</th>
-					<th width="50px">Giảm giá</th>
-					<th>Thành tiền</th>
 					<th>Trạng thái</th>
-					<th width="50px;">Delete</th>
-					<th width="110px;">Edit</th>
+					<th width="50px;">Xóa</th>
+					<th width="110px;">Sửa</th>
 				</tr>
 				</thead>
 				<tbody>
 				@foreach($Bills as $bl)
 				<tr class="odd gradeX" align="center ">
 					<td>{{$bl->bill_id}}</td>
-					<td>{{$bl->user_name}}</td>
-					<td>{{$bl->bill_count}}</td>
-					<td>{{$bl->bill_price}}</td>
-					<td>{{$bl->bill_sale}}</td>
+					<td>{{$bl->user_fname}}</td>
+					<td>{{$bl->ship_address}}</td>
 					<td>{{$bl->bill_tprice}}</td>
 					<td>
                         @if($bl->bill_status == "Chưa hoàn thành")
@@ -141,10 +137,10 @@
 								</select>
 							</div>
 
-					<td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="/admin/dashboard/billmanager/deletebill/{{$bl->bill_id}}" > Delete</a></td>
-					<td class="center"><i class="fa fa-pencil fa-fw" id="icon1{{$bl->bill_id}}"></i> <a href="#" id="{{$bl->bill_id}}" class="Edit_r">Edit</a>
-						<i class="fa fa-trash-o  fa-fw" style="display: none"></i><a href="#" id="Save{{$bl->bill_id}}" style="display: none"> Save</a>
-						<i class="fa fa-pencil fa-fw" style="display: none"></i> <a href="#" id="Cancel{{$bl->bill_id}}" style="display: none">Cancel</a>
+					<td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="/admin/dashboard/billmanager/deletebill/{{$bl->bill_id}}" > Xóa</a></td>
+					<td class="center"><i class="fa fa-pencil fa-fw" id="icon1{{$bl->bill_id}}"></i> <a href="#" id="{{$bl->bill_id}}" class="Edit_r">Sửa</a>
+						<i class="fa fa-trash-o  fa-fw" style="display: none"></i><a href="#" id="Save{{$bl->bill_id}}" style="display: none"> Lưu</a>&nbsp&nbsp
+						<i class="fa fa-pencil fa-fw" style="display: none"></i> <a href="#" id="Cancel{{$bl->bill_id}}" style="display: none">Hủy</a>
 					</td>
 						</form>
 
@@ -182,7 +178,7 @@
 	<script src="/dist/js/sb-admin-2.js"></script>
 
 	<!-- DataTables JavaScript -->
-	<script src="/bower_components/DataTables/media/js/jquery.dataTables.min.js"></script>
+	<script src="/bower_components/jquery.dataTables.min.js"></script>
 	<script src="/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
 	<script>
         $(document).ready(function() {

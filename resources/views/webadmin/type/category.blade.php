@@ -3,7 +3,7 @@
 	Quản Lý Danh Mục Sách
 @endsection
 @section('css')
-			<link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/dist/bootstrap.min.css" />
 
 			<!-- page specific plugin styles -->
 			<link rel="stylesheet" href="/css/jquery-ui.min.css" />
@@ -56,7 +56,7 @@
 		<ul class="breadcrumb">
 			<li>
 				<i class="ace-icon fa fa-home home-icon"></i>
-				<a href="#">Trang Chủ</a>
+				<a href="/admin/dashboard">Trang Chủ</a>
 			</li>
 
 			<li>
@@ -75,7 +75,13 @@
 				<i class="ace-icon fa fa-angle-double-right"></i>
 				Bảng quản lý danh mục sách
 			</small>
-			<!-- /.nav-search -->
+            <div style="float: right;">
+                <small>
+                    <a href="/CrawlCate"><button type="button" id="AddSlide" onclick="" class="btn btn-success"><li class="fa fa-plus"></li> Cập nhập danh mục</button></a>
+                </small>
+            </div>
+
+            <!-- /.nav-search -->
 		</h1>
 	</div>
 @endsection
@@ -98,8 +104,8 @@
 			<tr align="center">
 				<th style="width: 50px ;">Mã Danh Mục</th>
 				<th style="width: 300px ;"> Tên Danh Mục</th>
-				<th style="width: 50px ">Delete</th>
-				<th style="width: 50px ">Edit</th>
+				<th style="width: 50px ">Xóa</th>
+				<th style="width: 50px ">Sửa</th>
 			</thead>
 			<tbody>
 			@foreach($Category as $ct)
@@ -110,11 +116,11 @@
 					        <td><span id="list_name{{$ct->category_id}}">{{$ct->category_name}}</span>
                                 <input type="text" class="form-control" id="txt_listname{{$ct->category_id}}" name="txt_listname"  style="display: none;width: 500px;">
                              </td>
-                            <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="/admin/dashboard/typemanager/deletebooklist/{{$ct->category_id}}"> Delete</a></td>
+                            <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="/admin/dashboard/typemanager/deletebooklist/{{$ct->category_id}}"> Xóa</a></td>
 					         <td class="center">
-                                <i class="fa fa-pencil fa-fw" id="iconlist{{$ct->category_id}}"></i> <a id="{{$ct->category_id}}" class="Edit_rL">Edit</a>
-                                <button type="submit" id="Save{{$ct->category_id}}" class="btn btn-link" style="color: #337ab7; margin-top: -5px; font-size: 13px; display: none" >Save</button>
-                                <button type="button" id="Cancel{{$ct->category_id}}" class="btn btn-link " style="color: #337ab7; margin-top: -5px; font-size: 13px ;display: none">Cancel</button>
+                                <i class="fa fa-pencil fa-fw" id="iconlist{{$ct->category_id}}"></i> <a id="{{$ct->category_id}}" class="Edit_rL">Sửa</a>
+                                <button type="submit" id="Save{{$ct->category_id}}" class="btn btn-link" style="color: #337ab7; margin-top: -5px; font-size: 13px; display: none" >Lưu</button>
+                                <button type="button" id="Cancel{{$ct->category_id}}" class="btn btn-link " style="color: #337ab7; margin-top: -5px; font-size: 13px ;display: none">Hủy</button>
                             </td>
                         </form>
                     </tr>
@@ -130,6 +136,11 @@
                     <i class="ace-icon fa fa-angle-double-right"></i>
                     Bảng quản lý thể loại sách
                 </small>
+                <div style="float: right;">
+                    <small>
+                        <a href="/CrawlAllBook"><button type="button" id="AddSlide" onclick="" class="btn btn-success"><li class="fa fa-plus"></li> Cập nhập sách</button></a>
+                    </small>
+                </div>
                 <!-- /.nav-search -->
             </h1>
         </div>
@@ -139,8 +150,9 @@
                 <th style="width: 50px ;">Mã Loại Sách</th>
                 <th style="width: 150px ;">Danh Mục</th>
                 <th style="width: 150px ;">Tên loại Sách</th>
-                <th style="width: 50px ">Delete</th>
-                <th style="width: 50px ">Edit</th>
+                <th style="width: 50px ">Cập nhập Sách</th>
+                <th style="width: 50px ">Xóa</th>
+                <th style="width: 50px ">Sửa</th>
             </thead>
             <tbody>
             @foreach($Types as $tp)
@@ -165,11 +177,12 @@
                             <input type="text" class="form-control" id="txt_typename{{$tp->type_id}}" value="{{$tp->type_name}}" name="txt_typename"  style="display: none;width: 250px;">
 
                     </td>
-                    <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="/admin/dashboard/typemanager/deletebooktype/{{$tp->type_id}}"> Delete</a></td>
+                        <td class="center"><i class="fa fa-upload  fa-fw"></i><a href="/CrawlBook/{{$tp->type_id}}"> Cập nhập</a></td>
+                    <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="/admin/dashboard/typemanager/deletebooktype/{{$tp->type_id}}"> Xóa</a></td>
                     <td class="center">
-                        <i class="fa fa-pencil fa-fw" id="icontype{{$tp->type_id}}"></i> <a id="{{$tp->type_id}}" class="Edit_rT">Edit</a>
-                        <button type="submit" id="SaveT{{$tp->type_id}}" class="btn btn-link " style="color: #337ab7; margin-top: -5px; font-size: 13px; display: none" >Save</button>
-                        <button type="button" id="CancelT{{$tp->type_id}}" class="btn btn-link " style="color: #337ab7; margin-top: -5px; font-size: 13px ;display: none">Cancel</button>
+                        <i class="fa fa-pencil fa-fw" id="icontype{{$tp->type_id}}"></i> <a id="{{$tp->type_id}}" class="Edit_rT">Sửa</a>
+                        <button type="submit" id="SaveT{{$tp->type_id}}" class="btn btn-link " style="color: #337ab7; margin-top: -5px; font-size: 13px; display: none" >Lưu</button>
+                        <button type="button" id="CancelT{{$tp->type_id}}" class="btn btn-link " style="color: #337ab7; margin-top: -5px; font-size: 13px ;display: none">Hủy</button>
                     </td>
                     </form>
                 </tr>
@@ -208,7 +221,7 @@
     <script src="/dist/js/sb-admin-2.js"></script>
 
     <!-- DataTables JavaScript -->
-    <script src="/bower_components/DataTables/media/js/jquery.dataTables.min.js"></script>
+    <script src="/bower_components/jquery.dataTables.min.js"></script>
     <script src="/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
     <script type="text/javascript" language="javascript" src="/ckeditor/ckeditor.js" ></script>
 			<script>

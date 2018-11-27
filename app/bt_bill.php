@@ -14,6 +14,7 @@ class bt_bill extends Model
      * @var array
      */
     protected $table = 'bt_bills';
+    protected $primaryKey = 'bill_id';
     protected $fillable = [
         'bill_id', 'book_id', 'member_id','bill_count','bill_price','bill_ship_price','bill_sale',
         'bill_tprice','bill_status','bill_dsc'

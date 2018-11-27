@@ -8,4 +8,5 @@ class bt_billinfo extends Model
 {
     //
     protected $table = 'bt_billsinfo';
+    protected $primaryKey='billinfo_id';
 }

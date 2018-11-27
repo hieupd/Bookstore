@@ -9,6 +9,7 @@ use App\bt_type;
 use App\bt_category;
 use Cart;
 use DB;
+use Auth;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -24,17 +25,26 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Schema::defaultStringLength(191);
-        view()->composer('webclient.layout',function ($view)
+        view()->composer('webclient.layout.Header',function ($view)
         {
-            $category = bt_category::all();
-            $types = bt_type::all();
-            $cart_Quantity = Cart::getTotalQuantity();
-            $cart_total = Cart::getTotal();
-            $authors = DB::table('bt_books')->select(DB::raw('book_author'))->groupBy('book_author')->get();
-            $view -> with(['Types'=> $types,'Category'=> $category,'Cartquantity'=>$cart_Quantity,'Carttotal'=>$cart_total,'Authors'=>$authors]);
-
-
-
+            if(Auth::check()) {
+                $memberid = auth()->user()->id;
+//            $id = Auth::user()->id;
+                $category = bt_category::all();
+                $types = bt_type::all();
+                $cart_content = Cart::session($memberid)->getContent();
+                $cart_Quantity = Cart::session($memberid)->getTotalQuantity();
+                $cart_total = Cart::session($memberid)->getTotal();
+                $authors = DB::table('bt_books')->select(DB::raw('book_author'))->groupBy('book_author')->get();
+                $view->with(['Types' => $types, 'Category' => $category, 'Cartquantity' => $cart_Quantity, 'Carttotal' => $cart_total, 'Authors' => $authors, 'CartContent' => $cart_content]);
+            }
+            else
+            {
+                $category = bt_category::all();
+                $types = bt_type::all();
+                $authors = DB::table('bt_books')->select(DB::raw('book_author'))->groupBy('book_author')->get();
+                $view->with(['Types' => $types, 'Category' => $category, 'Authors' => $authors]);
+            }
         });
     }
 

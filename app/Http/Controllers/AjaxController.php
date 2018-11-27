@@ -4,10 +4,23 @@ namespace App\Http\Controllers;
 
 use App\bt_book;
 use App\bt_type;
-use Illuminate\Http\Request;
+//use Illuminate\Http\Request;
+use Request;
 
 class AjaxController extends Controller
 {
+    public function Acceptbook($id)
+    {
+        if(Request::ajax())
+        {
+            $Accept= Request::get('accept');
+            $book = bt_book::where('book_id',$id)->update
+            ([
+                'book_status' => $Accept,
+            ]);
+            return "Success";
+        }
+    }
     public function getBooktype($id, $typeid)
     {
         $booktype = bt_type::where('category_id',$id)->get();
@@ -24,6 +37,7 @@ class AjaxController extends Controller
 
         }
     }
+
     public function getBooktypeadd($id)
     {
         $booktype = bt_type::where('category_id',$id)->get();

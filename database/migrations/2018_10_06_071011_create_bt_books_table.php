@@ -32,6 +32,7 @@ class CreateBtBooksTable extends Migration
             $table->integer('book_sale')->nullable();
             $table->integer('book_price')->nullable();
             $table->string('book_image')->nullable();
+            $table->integer('book_status')->nullable();
             $table->timestamps();
         });
     }

@@ -21,9 +21,25 @@ class BillController extends Controller
         {
             $billstatus = Request::get('billstatus');
             $bill = bt_bill::where('bill_id','=',$id)->first();
-            $bill::where('bill_id','=',$id)->update([
-                'bill_status' => $billstatus,
-            ]);
+            $Lbillinfo = bt_billinfo::where('bill_id','=',$bill->bill_id)->get();
+            if($billstatus == "Hủy đơn") {
+                foreach ($Lbillinfo as $item) {
+                    $book = bt_book::where('book_id', '=', $item->book_id)->first();
+                    $book_quantity = $book->book_quantity + $item->book_quantity;
+                    $book::where('book_id', '=', $item->book_id)->update([
+                        'book_quantity' => $book_quantity,
+                    ]);
+                }
+                $bill::where('bill_id', '=', $id)->update([
+                    'bill_status' => $billstatus,
+                ]);
+            }
+            else
+            {
+                $bill::where('bill_id', '=', $id)->update([
+                    'bill_status' => $billstatus,
+                ]);
+            }
             return "Success";
         }
     }
@@ -33,18 +49,24 @@ class BillController extends Controller
         $bill = bt_bill::where('bill_id','=',$id)->first();
         if($bill->bill_status == 'Chưa hoàn thành')
         {
-            $book = bt_book::where('book_id','=',$bill->book_id)->get()->first();
-            $book_quantity =  $book->book_quantity + $bill->bill_count;
-            $book::where('book_id','=',$bill->book_id)->update([
-                'book_quantity' => $book_quantity,
-            ]);
+            $Lbillinfo = bt_billinfo::where('bill_id','=',$bill->bill_id)->get();
+            foreach ($Lbillinfo as $item)
+            {
+                $book = bt_book::where('book_id', '=', $item->book_id)->first();
+                $book_quantity =  $book->book_quantity + $item->book_quantity;
+                $book::where('book_id','=',$item->book_id)->update([
+                    'book_quantity' => $book_quantity,
+                ]);
+                $item->delete();
+            }
             $billdelete = bt_bill::where('bill_id','=',$id);
             $billdelete->delete();
-
         }
         else
         {
             $billdelete = bt_bill::where('bill_id','=',$id);
+            $Lbillinfo = bt_billinfo::where('bill_id','=',$bill->bill_id);
+            $Lbillinfo -> delete();
             $billdelete->delete();
         }
         return redirect('/admin/dashboard/billmanager')->with('Thongbao','Xóa hóa đơn thành công ! ');

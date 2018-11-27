@@ -3,7 +3,7 @@
 	Quản Lý Thành Viên
 @endsection
 @section('css')
-			<link rel="stylesheet" href="/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="/dist/bootstrap.min.css" />
 
 			<!-- page specific plugin styles -->
 			<link rel="stylesheet" href="/css/jquery-ui.min.css" />
@@ -57,7 +57,7 @@
 		<ul class="breadcrumb">
 			<li>
 				<i class="ace-icon fa fa-home home-icon"></i>
-				<a href="#">Trang Chủ</a>
+				<a href="/admin/dashboard/">Trang Chủ</a>
 			</li>
 
 			<li>
@@ -81,7 +81,11 @@
 @endsection
 @section('Content')
 		<div class="container-fluid">
-
+			@if(session('Loi'))
+				<div class="alert alert-danger">
+					{{session('Loi')}} </br>
+				</div>
+			@endif
             <div class="row">
                 <!-- /.col-lg-12 -->
 			<table class="table table-striped table-bordered table-hover" id="dataTables-example">
@@ -94,7 +98,7 @@
 					<th>Địa chỉ</th>
 					<th>Số điện thoại</th>
 					<th>Email</th>
-					<th>Delete</th>
+					<th>Xóa</th>
 				</tr>
 				</thead>
 				<tbody>
@@ -107,9 +111,10 @@
 					<td>{{$us->user_address}}</td>
 					<td>{{$us->user_phone}}</td>
 					<td>{{$us->user_email}}</td>
-					<td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="/admin/dashboard/membermanager/delete/{{$us->id}}"> Delete</a></td>
+					<td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="/admin/dashboard/membermanager/delete/{{$us->id}}"> Xóa</a></td>
 				</tr>
 				@endforeach
+				<span>Lỗi</span>
 
 				</tbody>
 			</table>
@@ -145,7 +150,7 @@
 			<script src="/dist/js/sb-admin-2.js"></script>
 
 			<!-- DataTables JavaScript -->
-			<script src="/bower_components/DataTables/media/js/jquery.dataTables.min.js"></script>
+			<script src="/bower_components/jquery.dataTables.min.js"></script>
 			<script src="/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
 			<script>
                 $(document).ready(function() {

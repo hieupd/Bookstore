@@ -1,636 +1,1599 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html class="no-js" lang="en">
+
+<!-- Mirrored from htmlcooker.com/tvlgiao/everything/assets/everything/fashion/404.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 19 Oct 2015 02:43:36 GMT -->
 <head>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-	<meta charset="utf-8"/>
-	<title>Trang Chủ - BookStore Admin</title>
+	<meta charset="utf-8">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<title>Fashion : Everything Template</title>
+	<meta name="description" content="Lorem ipsum dolor sit amet, consectetur adipiscing elit.">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="author" content="HTMLCooker">
 
-	<meta name="description" content="overview &amp; stats"/>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+	<!-- ================= Favicon ================== -->
+	<!-- Standard -->
+	<link rel="shortcut icon" href="http://placehold.it/64.png/000/fff">
+	<!-- Retina iPad Touch Icon-->
+	<link rel="apple-touch-icon" sizes="144x144" href="http://placehold.it/144.png/000/fff">
+	<!-- Retina iPhone Touch Icon-->
+	<link rel="apple-touch-icon" sizes="114x114" href="http://placehold.it/114.png/000/fff">
+	<!-- Standard iPad Touch Icon-->
+	<link rel="apple-touch-icon" sizes="72x72" href="http://placehold.it/72.png/000/fff">
+	<!-- Standard iPhone Touch Icon-->
+	<link rel="apple-touch-icon" sizes="57x57" href="http://placehold.it/57.png/000/fff">
 
-	<!-- bootstrap & fontawesome -->
-	<link rel="stylesheet" href="/css/bootstrap.min.css"/>
-	<link rel="stylesheet" href="/font-awesome/4.5.0/css/font-awesome.min.css"/>
+	<!-- ================= Google Fonts ================== -->
+	<link href='http://fonts.googleapis.com/css?family=Lato:200,300,400,500,600,700,800&amp;subset=latin,cyrillic-ext,cyrillic,greek-ext,greek,vietnamese,latin-ext' rel='stylesheet' type='text/css' />
+	<link href='http://fonts.googleapis.com/css?family=Lora:200,300,400,500,600,700,800&amp;subset=latin,cyrillic-ext,cyrillic,greek-ext,greek,vietnamese,latin-ext' rel='stylesheet' type='text/css' />
+	<link href='http://fonts.googleapis.com/css?family=Raleway:200,300,400,500,600,700,800&amp;subset=latin,cyrillic-ext,cyrillic,greek-ext,greek,vietnamese,latin-ext' rel='stylesheet' type='text/css' />
 
-	<!-- page specific plugin styles -->
+	<!-- Menu CSS -->
+	<link rel="stylesheet" type="text/css" href="css/menu.css" media="all" />
+	<!-- Mega Menu CSS -->
+	<link rel="stylesheet" type="text/css" href="css/megamenu.css" media="all" />
 
-	<!-- text fonts -->
-	<link rel="stylesheet" href="/css/fonts.googleapis.com.css"/>
+	<!-- Default CSS -->
+	<link rel="stylesheet" type="text/css" href="css/styles.css" media="all" />
+	<!-- Font Awesome CSS -->
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.css" media="all" />
+	<!-- Owl Carousel CSS -->
+	<link rel="stylesheet" type="text/css" href="css/owl.carousel.css" media="all" />
+	<!-- Responsive CSS -->
+	<link rel="stylesheet" type="text/css" href="css/responsive.css" media="all" />
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css" media="all" />
 
-	<!-- ace styles -->
-	<link rel="stylesheet" href="/css/ace.min.css" class="ace-main-stylesheet"
-		  id="main-ace-style"/>
+	<!-- Blog Style CSS -->
+	<link rel="stylesheet" type="text/css" href="css/blog-styles.css" media="all" />
 
-	<!--[if lte IE 9]>
-	<link rel="stylesheet" href="/css/ace-part2.min.css" class="ace-main-stylesheet"/>
-	<![endif]-->
-	<link rel="stylesheet" href="/css/ace-skins.min.css"/>
-	<link rel="stylesheet" href="/css/ace-rtl.min.css"/>
+	<!-- Product Labels CSS -->
+	<link rel="stylesheet" type="text/css" href="css/em_productlabels.css" media="all" />
 
-	<!--[if lte IE 9]>
-	<link rel="stylesheet" href="/css/ace-ie.min.css"/>
-	<![endif]-->
+	<!-- Fancybox CSS -->
+	<link rel="stylesheet" type="text/css" href="css/jquery.fancybox.css" media="all" />
 
-	<!-- inline styles related to this page -->
+	<!-- Responsive Tab CSS -->
+	<link rel="stylesheet" type="text/css" href="css/responsive-tabs.css" media="all" />
+	<!-- Print CSS -->
+	<link rel="stylesheet" type="text/css" href="css/print.css" media="print" />
+	<!-- Fashion CSS -->
+	<link rel='stylesheet' type='text/css' media='all' href='css/color1.css' />
+	<!-- Style Fashion CSS -->
+	<link rel='stylesheet' type='text/css' media='all' href='css/style_fashion.css' />
 
-	<!-- ace settings handler -->
-	<script src="/js/ace-extra.min.js"></script>
+	<!-- Jquery Js -->
+	<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+	<!-- Bootstrap Js -->
+	<script type="text/javascript" src="js/bootstrap.min.js"></script>
+	<!-- Lazy Load Js -->
+	<script type="text/javascript" src="js/jquery.lazyload.min.js"></script>
+	<!-- Owl Carousel Js -->
+	<script type="text/javascript" src="js/owl.carousel.js"></script>
+	<!-- Ios Orientation Change Js -->
+	<script type="text/javascript" src="js/ios-orientationchange-fix.js"></script>
+	<!-- Hover Intent Js -->
+	<script type="text/javascript" src="js/jquery.hoverIntent.js"></script>
+	<!-- Select UI Js -->
+	<script type="text/javascript" src="js/selectUl.js"></script>
+	<!-- Throttle Js -->
+	<script type="text/javascript" src="js/jquery.ba-throttle-debounce.js"></script>
+	<!-- EM Js -->
+	<script type="text/javascript" src="js/em0131.js"></script>
+	<!-- MegaMenu Js -->
+	<script type="text/javascript" src="js/megamenu.js"></script>
+	<!-- Responsive Tab Js -->
+	<script type="text/javascript" src="js/jquery.custom.responsiveTabs.js"></script>
+	<!-- Fancybox Js -->
+	<script type="text/javascript" src="js/jquery.fancybox.js"></script>
+	<!-- Custom Js -->
+	<script type="text/javascript" src="js/custom.js"></script>
 
-	<!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
 
-	<!--[if lte IE 8]>
-	<script src="/js/html5shiv.min.js"></script>
-	<script src="/js/respond.min.js"></script>
+	<!--[if lt IE 9]>
+	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 	<![endif]-->
 </head>
 
-<body class="no-skin">
-<div id="navbar" class="navbar navbar-default          ace-save-state">
-	<div class="navbar-container ace-save-state" id="navbar-container">
-		<button type="button" class="navbar-toggle menu-toggler pull-left" id="menu-toggler" data-target="#sidebar">
-			<span class="sr-only">Toggle sidebar</span>
+<body>
 
-			<span class="icon-bar"></span>
-
-			<span class="icon-bar"></span>
-
-			<span class="icon-bar"></span>
-		</button>
-
-		<div class="navbar-header pull-left">
-			<a href="/dashboard" class="navbar-brand">
-				<small>
-					<i class="fa fa-leaf"></i>
-					BookStore
-				</small>
-			</a>
-		</div>
-
-		<div class="navbar-buttons navbar-header pull-right" role="navigation">
-			<ul class="nav ace-nav">
-				<li class="grey dropdown-modal">
-					<!--<a data-toggle="dropdown" class="dropdown-toggle" href="#">-->
-					<!--<i class="ace-icon fa fa-tasks"></i>-->
-					<!--<span class="badge badge-grey">4</span>-->
-					<!--</a>-->
-
-					<ul class="dropdown-menu-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
-					</ul>
-				</li>
-
-
-				<ul class="dropdown-menu-right dropdown-navbar navbar-pink dropdown-menu dropdown-caret dropdown-close">
-				</ul>
-				</li>
-
-				<li class="green dropdown-modal">
-
-					<ul class="dropdown-menu-right dropdown-navbar dropdown-menu dropdown-caret dropdown-close">
-					</ul>
-				</li>
-
-				<li class="light-blue dropdown-modal">
-					<a data-toggle="dropdown" href="#" class="dropdown-toggle">
-						<img class="nav-user-photo" src="/images/avatars/user.jpg"
-							 alt="Jason's Photo"/>
-						<span class="user-info">
-									<small>Welcome,</small>
-									Jason
-								</span>
-
-						<i class="ace-icon fa fa-caret-down"></i>
-					</a>
-
-					<ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
-						<li>
-							<a href="#">
-								<i class="ace-icon fa fa-cog"></i>
-								Settings
-							</a>
-						</li>
-
-						<li>
-							<a href="profile.blade.php">
-								<i class="ace-icon fa fa-user"></i>
-								Profile
-							</a>
-						</li>
-
-						<li class="divider"></li>
-
-						<li>
-							<a href="/admin">
-								<i class="ace-icon fa fa-power-off"></i>
-								Logout
-							</a>
-						</li>
-					</ul>
-				</li>
-			</ul>
-		</div>
-	</div><!-- /.navbar-container -->
-</div>
-
-<div class="main-container ace-save-state" id="main-container">
-	<script type="text/javascript">
-        try {
-            ace.settings.loadState('main-container')
-        } catch (e) {
-        }
-	</script>
-
-	<div id="sidebar" class="sidebar                  responsive                    ace-save-state">
-		<script type="text/javascript">
-            try {
-                ace.settings.loadState('sidebar')
-            } catch (e) {
-            }
-		</script>
-
-		<div class="sidebar-shortcuts" id="sidebar-shortcuts">
-			<div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
-				<button class="btn btn-success">
-					<i class="ace-icon fa fa-signal"></i>
-				</button>
-
-				<button class="btn btn-info">
-					<i class="ace-icon fa fa-pencil"></i>
-				</button>
-
-				<button class="btn btn-warning">
-					<i class="ace-icon fa fa-users"></i>
-				</button>
-
-				<button class="btn btn-danger">
-					<i class="ace-icon fa fa-cogs"></i>
-				</button>
+<div class="wrapper">
+	<noscript>
+		<div class="global-site-notice noscript">
+			<div class="notice-inner">
+				<p> <strong>JavaScript seems to be disabled in your browser.</strong>
+					<br /> You must have JavaScript enabled in your browser to utilize the functionality of this website.</p>
 			</div>
-
-			<div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
-				<span class="btn btn-success"></span>
-
-				<span class="btn btn-info"></span>
-
-				<span class="btn btn-warning"></span>
-
-				<span class="btn btn-danger"></span>
-			</div>
-		</div><!-- /.sidebar-shortcuts -->
-
-		<ul class="nav nav-list">
-			<li class="active">
-				<a href="index.blade.php">
-					<i class="menu-icon fa fa-tachometer"></i>
-					<span class="menu-text"> Bảng Điều Khiển</span>
-				</a>
-
-				<b class="arrow"></b>
-			</li>
-			<li class="">
-				<a href="#" class="dropdown-toggle">
-					<i class="menu-icon fa fa-list"></i>
-					<span class="menu-text"> Quản Lý </span>
-
-					<b class="arrow fa fa-angle-down"></b>
-				</a>
-
-				<b class="arrow"></b>
-
-				<ul class="submenu">
-					<li class="">
-						<a href="/dashboard/accountmanager">
-							<i class="menu-icon fa fa-caret-right"></i>
-							Quản Lý Tài Khoản
-						</a>
-
-						<b class="arrow"></b>
-					</li>
-					<li class="">
-						<a href="/dashboard/membermanager">
-							<i class="menu-icon fa fa-caret-right"></i>
-							Quản Lý Thành Viên
-						</a>
-
-						<b class="arrow"></b>
-					</li>
-					<li class="">
-						<a href="/dashboard/bookmanager">
-							<i class="menu-icon fa fa-caret-right"></i>
-							Quản Lý Sách
-						</a>
-
-						<b class="arrow"></b>
-					</li>
-					<li class="">
-						<a href="/dashboard/typemanager">
-							<i class="menu-icon fa fa-caret-right"></i>
-							Quản Lý Danh Mục Sách
-						</a>
-
-						<b class="arrow"></b>
-					</li>
-					<li class="">
-						<a href="#" class="dropdown-toggle">
-							<span class="menu-text"> Quản Lý Bán Hàng </span>
-
-							<b class="arrow fa fa-angle-down"></b>
-						</a>
-
-						<b class="arrow"></b>
-
-						<ul class="submenu">
-							<li class="">
-								<a href="/dashboard/billmanager">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Hóa Đơn
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-							<li class="">
-								<a href="/dashboard/viewManager">
-									<i class="menu-icon fa fa-caret-right"></i>
-									Thống kê
-								</a>
-
-								<b class="arrow"></b>
-							</li>
-						</ul>
-					</li>
-				</ul>
-			</li>
-		</ul><!-- /.nav-list -->
-
-		<div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
-			<i id="sidebar-toggle-icon" class="ace-icon fa fa-angle-double-left ace-save-state"
-			   data-icon1="ace-icon fa fa-angle-double-left" data-icon2="ace-icon fa fa-angle-double-right"></i>
 		</div>
-	</div>
+	</noscript>
 
-	<div class="main-content">
-		<div class="main-content-inner">
-			<div class="breadcrumbs ace-save-state" id="breadcrumbs">
-				<ul class="breadcrumb">
-					<li>
-						<i class="ace-icon fa fa-home home-icon"></i>
-						<a href="masterpage">Trang chủ</a>
-					</li>
-					<li class="active">Bảng điều khiển</li>
-				</ul><!-- /.breadcrumb -->
-
-				<div class="nav-search" id="nav-search">
-					<form class="form-search">
-								<span class="input-icon">
-									<input type="text" placeholder="Search ..." class="nav-search-input"
-										   id="nav-search-input" autocomplete="off"/>
-									<i class="ace-icon fa fa-search nav-search-icon"></i>
-								</span>
-					</form>
-				</div><!-- /.nav-search -->
-			</div>
-
-			<div class="page-content">
-				<div class="ace-settings-container" id="ace-settings-container">
-					<div class="btn btn-app btn-xs btn-warning ace-settings-btn" id="ace-settings-btn">
-						<i class="ace-icon fa fa-cog bigger-130"></i>
-					</div>
-
-					<div class="ace-settings-box clearfix" id="ace-settings-box">
-						<div class="pull-left width-50">
-							<div class="ace-settings-item">
-								<div class="pull-left">
-									<select id="skin-colorpicker" class="hide">
-										<option data-skin="no-skin" value="#438EB9">#438EB9</option>
-										<option data-skin="skin-1" value="#222A2D">#222A2D</option>
-										<option data-skin="skin-2" value="#C6487E">#C6487E</option>
-										<option data-skin="skin-3" value="#D0D0D0">#D0D0D0</option>
-									</select>
+	<div class="page one-column">
+		<div class="em-wrapper-header">
+			<div id="em-mheader" class="visible-xs container">
+				<div id="em-mheader-top" class="row">
+					<div id="em-mheader-logo" class="col-xs-4">
+						<div class="em-logo"><a href="../index.html" title="Clothing Commerce" class="logo"><strong>Clothing Commerce</strong><img src="images/logo_small.png" alt="Clothing Commerce" /></a>
+						</div>
+					</div><!-- /#em-mheader-logo -->
+					<div class="col-xs-20">
+						<div class="em-top-search">
+							<div class="em-header-search-mobile">
+								<form method="get">
+									<div class="form-search no_cate_search">
+										<div class="text-search">
+											<input id="search-mobile" type="text" name="q" value="" class="input-text" maxlength="128" />
+											<button type="submit" title="Search" class="button"><span><span>Search</span></span>
+											</button>
+											<div id="search_autocomplete_mobile" class="search-autocomplete"></div>
+										</div>
+									</div>
+								</form>
+							</div><!-- /.em-header-search-mobile -->
+						</div><!-- /.em-top-search -->
+						<div class="em-top-cart">
+							<div class="em-wrapper-topcart-mobile em-no-quickshop">
+								<div class="em-container-topcart">
+									<div class="em-summary-topcart">
+										<a id="em-amount-cart-link" title="Shopping Cart" class="em-amount-topcart" href="../cart.html"> <span class="em-topcart-text">My Cart:</span> <span class="em-topcart-qty">0</span> </a>
+									</div>
 								</div>
-								<span>&nbsp; Choose Skin</span>
 							</div>
-
-							<div class="ace-settings-item">
-								<input type="checkbox" class="ace ace-checkbox-2 ace-save-state"
-									   id="ace-settings-navbar" autocomplete="off"/>
-								<label class="lbl" for="ace-settings-navbar"> Fixed Navbar</label>
+						</div><!-- /.em-top-cart -->
+						<div id="em-mheader-wrapper-menu"> <span class="visible-xs fa fa-bars" id="em-mheader-menu-icon"></span>
+							<div id="em-mheader-menu-content" style="display: none;">
+								<div class="em-wrapper-top">
+									<div class="em-language-currency row">
+										<div class="col-sm-24">
+											<div class="form-language em-language-style-mobile">
+												<ul>
+													<li class="selected">
+														<a href="#" title="English"> <img alt="english" src="images/language/english.png" /> </a>
+													</li>
+													<li class="">
+														<a href="#" title="French"> <img alt="french" src="images/language/french.png" /> </a>
+													</li>
+													<li class="">
+														<a href="#" title="German"> <img alt="german" src="images/language/german.png" /> </a>
+													</li>
+												</ul>
+											</div><!-- /.form-language -->
+											<div class="em-currency-style-mobile">
+												<ul class="list-inline">
+													<li class=""> <a href="#"> AUD </a>
+													</li>
+													<li class=""> <a href="#"> EUR </a>
+													</li>
+													<li class=" selected"> <a href="#"> USD </a>
+													</li>
+												</ul>
+											</div><!-- /.em-currency-style-mobile -->
+										</div>
+									</div><!-- /.em-language-currency -->
+									<div class="em-top-links row">
+										<div class="">
+											<ul class="top-header-link links">
+												<li class="first col-xs-8"> <a title="Log In" class="login-link fa fa-user" href="#"><span>Log In</span></a>
+												</li>
+												<li class="col-xs-8"> <a title="Sign up" class='signup-link fa fa-sign-out' href="#"><span>Sign up</span></a>
+												</li>
+												<li class="last col-xs-8"> <a href="#" class="checkout-link fa fa-shopping-cart"><span>Cart</span></a>
+												</li>
+											</ul>
+										</div>
+									</div><!-- /.em-top-links -->
+								</div><!-- /.em-wrapper-top -->
+								<div class="row mobile-main-menu toggle-menu">
+									<div class="col-sm-24">
+										<div class="em-top-menu">
+											<div class="em-menu-mobile">
+												<div class="megamenu-wrapper wrapper-7_5505">
+													<div class="em_nav" id="toogle_menu_7_5505">
+														<ul class="hnav em_menu_mobile">
+															<li class="menu-item-link menu-item-depth-0 fa fa-home menu-item-parent">
+																<a class="em-menu-link" href="#"> <span> Home </span> </a>
+																<ul class="menu-container">
+																	<li class="menu-item-hbox menu-item-depth-1 col-menu menu_col9 grid_18 menu-item-parent" style="">
+																		<ul class="menu-container">
+																			<li class="menu-item-vbox menu-item-depth-2 col-sm-12 menu-item-parent" style="">
+																				<ul class="menu-container">
+																					<li class="menu-item-text menu-item-depth-3  ">
+																						<ul class="em-line-01">
+																							<li>
+																								<h4>Layout styles</h4>
+																							</li>
+																							<li>
+																								<ul class="menu-link">
+																									<li><a href="../index.html">Home Default</a>
+																									</li>
+																									<li><a href="#">Home Style 02</a>
+																									</li>
+																									<li><a href="#">Home Style 03</a>
+																									</li>
+																									<li><a href="#">Home Style 04</a>
+																									</li>
+																								</ul><!-- /.menu-link -->
+																							</li>
+																						</ul>
+																					</li>
+																				</ul>
+																			</li><!-- /.menu-item-vbox -->
+																			<li class="menu-item-vbox menu-item-depth-2 col-sm-12 menu-item-parent" style="">
+																				<ul class="menu-container">
+																					<li class="menu-item-text menu-item-depth-3  ">
+																						<div class="em-line-01">
+																							<h4>Header styles</h4>
+																							<div>
+																								<ul class="menu-link">
+																									<li><a href="../index.html">Header Style 01</a>
+																									</li>
+																									<li><a href="#">Header Style 02</a>
+																									</li>
+																									<li><a href="#">Header Style 04</a>
+																									</li>
+																									<li><a href="#">Header Style 03</a>
+																									</li>
+																								</ul>
+																							</div>
+																						</div>
+																					</li>
+																				</ul>
+																			</li><!-- /.menu-item-vbox -->
+																		</ul>
+																	</li>
+																</ul>
+															</li><!-- /.menu-item-link -->
+															<li class="menu-item-link menu-item-depth-0 dd-menu-link fa fa-bars menu-item-parent">
+																<a class="em-menu-link" href="#"> <span> Category </span> </a>
+																<ul class="menu-container">
+																	<li class="menu-item-text menu-item-depth-1  ">
+																		<ul class="em-catalog-navigation vertical">
+																			<li class="level0 nav-1 first parent">
+																				<a href="#"> <span>Furniture</span> </a>
+																				<ul class="level0">
+																					<li class="level1 nav-1-1 first">
+																						<a href="#"> <span>Living Room</span> </a>
+																					</li>
+																					<li class="level1 nav-1-2 last">
+																						<a href="#"> <span>Bedroom</span> </a>
+																					</li>
+																				</ul>
+																			</li><!-- /.nav-1 -->
+																			<li class="level0 nav-2 parent">
+																				<a href="#"> <span>Electronics</span> </a>
+																				<ul class="level0">
+																					<li class="level1 nav-2-1 first">
+																						<a href="#"> <span>Cell Phones</span> </a>
+																					</li>
+																					<li class="level1 nav-2-2 parent">
+																						<a href="#"> <span>Cameras</span> </a>
+																						<ul class="level1">
+																							<li class="level2 nav-2-2-1 first">
+																								<a href="#"> <span>Accessories</span> </a>
+																							</li>
+																							<li class="level2 nav-2-2-2 last">
+																								<a href="#"> <span>Digital Cameras</span> </a>
+																							</li>
+																						</ul>
+																					</li>
+																					<li class="level1 nav-2-3 last parent">
+																						<a href="#"> <span>Computers</span> </a>
+																						<ul class="level1">
+																							<li class="level2 nav-2-3-3 first">
+																								<a href="#"> <span>Build Your Own</span> </a>
+																							</li>
+																							<li class="level2 nav-2-3-4">
+																								<a href="#"> <span>Laptops</span> </a>
+																							</li>
+																							<li class="level2 nav-2-3-5">
+																								<a href="#"> <span>Hard Drives</span> </a>
+																							</li>
+																							<li class="level2 nav-2-3-6">
+																								<a href="#"> <span>Monitors</span> </a>
+																							</li>
+																							<li class="level2 nav-2-3-7">
+																								<a href="#"> <span>RAM / Memory</span> </a>
+																							</li>
+																							<li class="level2 nav-2-3-8">
+																								<a href="#"> <span>Cases</span> </a>
+																							</li>
+																							<li class="level2 nav-2-3-9">
+																								<a href="#"> <span>Processors</span> </a>
+																							</li>
+																							<li class="level2 nav-2-3-10 last">
+																								<a href="#"> <span>Peripherals</span> </a>
+																							</li>
+																						</ul>
+																					</li>
+																				</ul>
+																			</li><!-- /.nav-2 -->
+																			<li class="level0 nav-3 parent">
+																				<a href="#"> <span>Apparel</span> </a>
+																				<ul class="level0">
+																					<li class="level1 nav-3-1 first">
+																						<a href="#"> <span>Shirts</span> </a>
+																					</li>
+																					<li class="level1 nav-3-2 parent">
+																						<a href="#"> <span>Shoes</span> </a>
+																						<ul class="level1">
+																							<li class="level2 nav-3-2-1 first">
+																								<a href="#"> <span>Mens</span> </a>
+																							</li>
+																							<li class="level2 nav-3-2-2 last">
+																								<a href="#"> <span>Womens</span> </a>
+																							</li>
+																						</ul>
+																					</li>
+																					<li class="level1 nav-3-3 last">
+																						<a href="#"> <span>Hoodies</span> </a>
+																					</li>
+																				</ul>
+																			</li><!-- /.nav-3 -->
+																			<li class="level0 nav-4">
+																				<a href="#"> <span>Clothing</span> </a>
+																			</li><!-- /.nav-4 -->
+																			<li class="level0 nav-5">
+																				<a href="#"> <span>Shoes</span> </a>
+																			</li><!-- /.nav-5 -->
+																			<li class="level0 nav-6">
+																				<a href="#"> <span>Glasses</span> </a>
+																			</li><!-- /.nav-6 -->
+																			<li class="level0 nav-7">
+																				<a href="#"> <span>Baby</span> </a>
+																			</li><!-- /.nav-7 -->
+																			<li class="level0 nav-8">
+																				<a href="#"> <span>Sport &amp; Outdoor</span> </a>
+																			</li><!-- /.nav-8 -->
+																			<li class="level0 nav-9">
+																				<a href="#"> <span>Swatch</span> </a>
+																			</li><!-- /.nav-9 -->
+																			<li class="level0 nav-10">
+																				<a href="#"> <span>Jewelry</span> </a>
+																			</li><!-- /.nav-10 -->
+																			<li class="level0 nav-11">
+																				<a href="#"> <span>Home Garden</span> </a>
+																			</li><!-- /.nav-11 -->
+																			<li class="level0 nav-12">
+																				<a href="#"> <span>Lingerie</span> </a>
+																			</li><!-- /.nav-12 -->
+																			<li class="level0 nav-13">
+																				<a href="#"> <span>Beauty</span> </a>
+																			</li><!-- /.nav-13 -->
+																			<li class="level0 nav-14 last">
+																				<a href="#"> <span>Game &amp; Movies</span> </a>
+																			</li><!-- /.nav-14 -->
+																		</ul><!-- /.em-catalog-navigation -->
+																	</li>
+																</ul>
+															</li><!-- /.menu-item-link -->
+															<li class="menu-item-link menu-item-depth-0 fa fa-file menu-item-parent">
+																<a class="em-menu-link" href="#"> <span> Products </span> </a>
+																<ul class="menu-container">
+																	<li class="menu-item-hbox menu-item-depth-1 col-menu menu_col16 grid_16 menu-item-parent" style="">
+																		<ul class="menu-container">
+																			<li class="menu-item-vbox menu-item-depth-2 col-sm-8 grid_8 alpha menu-item-parent" style="">
+																				<ul class="menu-container">
+																					<li class="menu-item-text menu-item-depth-3  ">
+																						<div class="em-line-01">
+																							<h5 class="text-uppercase">Product Types</h5>
+																							<div>
+																								<ul class="menu-container">
+																									<li class="menu-item-link menu-item-depth-1 first label-hot-menu"><a class="em-menu-link" href="../product-simple.html">Simple product</a>
+																									</li>
+																									<li class="menu-item-link menu-item-depth-1"><a class="em-menu-link" href="product-virtual.html">Virtual Product</a>
+																									</li>
+																									<li class="menu-item-link menu-item-depth-1"><a class="em-menu-link" href="product-downloadable.html">Downloadable Product</a>
+																									</li>
+																									<li class="menu-item-link menu-item-depth-1"><a class="em-menu-link" href="../product-configurable.html">Configurable Product</a>
+																									</li>
+																									<li class="menu-item-link menu-item-depth-1"><a class="em-menu-link" href="product-grouped.html">Grouped Product</a>
+																									</li>
+																									<li class="menu-item-link menu-item-depth-1 last"><a class="em-menu-link" href="product-bundle.html">Bundle Product</a>
+																									</li>
+																								</ul>
+																							</div>
+																						</div>
+																					</li>
+																				</ul>
+																			</li><!-- /.menu-item-vboxc -->
+																			<li class="menu-item-vbox menu-item-depth-2 col-sm-8 grid_8 omega menu-item-parent" style="">
+																				<ul class="menu-container">
+																					<li class="menu-item-text menu-item-depth-3  ">
+																						<div class="em-line-01">
+																							<h5 class="text-uppercase">PRODUCT COLUMNS</h5>
+																							<div>
+																								<ul class="menu-container">
+																									<li class="menu-item-link menu-item-depth-1 first"><a class="em-menu-link" href="../product-1-column.html">1 Column</a>
+																									</li>
+																									<li class="menu-item-link menu-item-depth-1 "><a class="em-menu-link" href="product-2-columns-left.html">2 Columns Left</a>
+																									</li>
+																									<li class="menu-item-link menu-item-depth-1 "><a class="em-menu-link" href="product-2-columns-right.html">2 Columns Right</a>
+																									</li>
+																									<li class="menu-item-link menu-item-depth-1 "><a class="em-menu-link" href="product-3-columns.html">3 Columns</a>
+																									</li>
+																									<li class="menu-item-link menu-item-depth-1 "><a class="em-menu-link" href="../product-upsell.html">Upsell</a>
+																									</li>
+																									<li class="menu-item-link menu-item-depth-1 last"><a class="em-menu-link" href="../product-related.html">Related Product</a>
+																									</li>
+																								</ul>
+																							</div>
+																						</div>
+																					</li>
+																				</ul>
+																			</li><!-- /.menu-item-vboxc -->
+																		</ul>
+																	</li>
+																</ul>
+															</li><!-- /.menu-item-link -->
+														</ul>
+													</div>
+												</div><!-- /.megamenu-wrapper -->
+											</div>
+										</div><!-- /.em-top-menu -->
+									</div>
+								</div><!-- /.mobile-main-menu -->
+								<div class="row mobile-block">
+									<div class="col-sm-24">
+										<ul class="em-mobile-help">
+											<li><a href="#" target="_blank"><span class="fa fa-download">&nbsp;</span>Download App</a>
+											</li>
+											<li><a href="#"><span class="fa fa-question-circle">&nbsp;</span>Help Center</a>
+											</li>
+											<li><a href="#"><span class="fa fa-star">&nbsp;</span>Feedback</a>
+											</li>
+											<li><a href="#"><span class="fa fa-comment-o">&nbsp;</span>Blog</a>
+											</li>
+										</ul>
+									</div>
+								</div><!-- /.mobile-block -->
 							</div>
-
-							<div class="ace-settings-item">
-								<input type="checkbox" class="ace ace-checkbox-2 ace-save-state"
-									   id="ace-settings-sidebar" autocomplete="off"/>
-								<label class="lbl" for="ace-settings-sidebar"> Fixed Sidebar</label>
+						</div><!-- /.em-mheader-wrapper-menu -->
+					</div>
+				</div><!-- /#em-mheader-top -->
+			</div><!-- /#em-mheader -->
+			<div class="hidden-xs em-header-style08">
+				<div class="em-header-top">
+					<div class="container">
+						<div class="row">
+							<div class="col-sm-24">
+								<div class="f-left">
+									<div class="em-language-currency">
+										<div class="form-language toolbar-switch em-language-style01">
+											<div class="toolbar-title">
+												<select id="em-hoverUl-language" title="Your Language">
+													<option value="English" selected="selected">English</option>
+													<option value="French">French</option>
+													<option value="German">German</option>
+												</select>
+											</div>
+										</div><!-- /.em-language-style01 -->
+										<div class="toolbar-switch em-currency-style01">
+											<div class="toolbar-title">
+												<select id="em-hoverUl-currency" name="currency" title="Select Your Currency" onchange="setLocation(this.value)">
+													<option value="AUD"> AUD</option>
+													<option value="EUR"> EUR</option>
+													<option value="USD" selected="selected"> USD</option>
+												</select>
+											</div>
+										</div><!-- /.em-currency-style01 -->
+									</div><!-- /.em-language-currency -->
+								</div><!-- /.f-left -->
+								<div class="">
+									<div class="em-search f-right">
+										<div class="em-top-search">
+											<div class="em-wrapper-js-search em-search-style01">
+												<div class="em-wrapper-search em-no-category-search"> <a class="em-search-icon" title="Search" href="javascript:void(0);"><span>Search</span></a>
+													<div class="em-container-js-search" style="display: none;">
+														<form id="search_mini_form" method="get">
+															<div class="form-search no_cate_search">
+																<div class="text-search">
+																	<label for="search">Search:</label>
+																	<input id="search" type="text" name="q" value="" class="input-text" maxlength="128" placeholder="Search entire store here..." />
+																	<button type="submit" title="Search" class="button"><span><span>Search</span></span>
+																	</button>
+																</div>
+															</div>
+														</form><!-- /#search_mini_form -->
+													</div>
+												</div>
+											</div><!-- /.em-wrapper-js-search -->
+										</div>
+									</div><!-- /.em-search -->
+									<div class="em-top-links">
+										<div class="f-right"></div>
+										<div class="f-right">
+											<ul class="em-links-wishlist">
+												<li class="first last"><a href="../wishlist.html" title="Wishlist">Wishlist</a></li>
+											</ul>
+										</div>
+										<ul class="list-inline f-right">
+											<li><a class="em-register-link" href="../register.html" title="Register">Register</a></li>
+										</ul>
+										<div id="em-login-link" class="account-link f-right em-non-login">
+											<a href="../login.html" class="link-account" id="link-login" title="Login">Login</a>
+											<div class="em-account" id="em-account-login-form" style="display: none;">
+												<form method="post" id="top-login-form">
+													<input name="form_key" type="hidden" value="LqnwQyvcDpOju7G3" />
+													<div class="block-content">
+														<p class="login-title h6 primary">Login</p>
+														<p class="login-desc">If you have an account with us, please log in.</p>
+														<ul class="form-list">
+															<li>
+																<label for="mini-login">Email Address<em>*</em>
+																</label>
+																<input type="text" name="login[username]" id="mini-login" class="input-text required-entry validate-email" />
+															</li>
+															<li>
+																<label for="mini-password">Password<em>*</em>
+																</label>
+																<input type="password" name="login[password]" id="mini-password" class="input-text required-entry validate-password" />
+															</li>
+															<li><span class="required">* Required Fields</span>
+															</li>
+														</ul>
+														<div class="action-forgot">
+															<div class="login_forgotpassword">
+																<p><a href="#">Forgot Your Password?</a>
+																</p>
+																<p><span>Don't have an account?</span><a class="create-account-link-wishlist" href="h.html#" title="Sign Up">Sign Up</a>
+																</p>
+															</div>
+															<div class="actions">
+																<button type="submit" class="button"><span><span>Login</span></span>
+																</button>
+															</div>
+														</div>
+													</div>
+												</form><!-- /#top-login-form -->
+											</div><!-- /#em-account-login-form -->
+										</div><!-- /#em-login-link -->
+									</div><!-- /.em-top-links -->
+								</div>
 							</div>
-
-							<div class="ace-settings-item">
-								<input type="checkbox" class="ace ace-checkbox-2 ace-save-state"
-									   id="ace-settings-breadcrumbs" autocomplete="off"/>
-								<label class="lbl" for="ace-settings-breadcrumbs"> Fixed Breadcrumbs</label>
+						</div>
+					</div>
+				</div><!-- /.em-header-top -->
+				<div id="em-fixed-top"></div>
+				<div class="em-header-bottom em-fixed-top">
+					<div class="container em-menu-fix-pos">
+						<div class="row">
+							<div class="col-sm-24">
+								<div class="em-logo f-left"><a href="../index.html" title="Clothing Commerce" class="logo"><strong>Clothing Commerce</strong><img class="retina-img" src="images/logo.png" alt="Clothing Commerce" /></a>
+								</div>
+								<div class="em-logo-sticky f-left">
+									<a href="../index.html" title="Clothing Commerce" class="logo"><img src="images/logo_small.png" alt="Clothing Commerce" />
+									</a>
+								</div>
+								<div class="em-search em-search-sticky f-right">
+									<div class="em-top-search">
+										<div class="em-wrapper-js-search em-search-style01">
+											<div class="em-wrapper-search"> <a class="em-search-icon" title="Search" href="javascript:void(0);"><span>Search</span></a>
+												<div class="em-container-js-search" style="display: none;">
+													<form id="search_mini_form_fixed_top" method="get">
+														<div class="form-search">
+															<label for="search">Search:</label>
+															<input id="search-fixed-top" type="text" name="q" value="" class="input-text" maxlength="128" placeholder="Search entire store here..." />
+															<button type="submit" title="Search" class="button"><span><span>Search</span></span>
+															</button>
+														</div>
+													</form>
+												</div>
+											</div>
+										</div><!-- /.em-wrapper-js-search -->
+									</div>
+								</div><!-- /.em-search -->
+								<div class="em-top-cart-sticky em-top-cart f-right">
+									<div class="em-wrapper-js-topcart em-wrapper-topcart em-no-quickshop">
+										<div class="em-container-topcart">
+											<div class="em-summary-topcart">
+												<a class="em-amount-js-topcart em-amount-topcart" title="Shopping Cart" href="../cart.html"> <span class="em-topcart-text">My Cart:</span> <span class="em-topcart-qty">0</span> </a>
+											</div>
+											<div class="em-container-js-topcart topcart-popup" style="display:none">
+												<div class="topcart-popup-content">
+													<p class="em-block-subtitle">Shopping Cart</p>
+													<div class="topcart-content">
+														<p class="amount-content "> You have no items in your shopping cart.</p>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div><!-- /.em-wrapper-js-topcart -->
+								</div><!-- /.em-top-cart -->
+								<div class="em-menu-hoz f-right">
+									<div id="em-main-megamenu">
+										<div class="em-menu">
+											<div class="megamenu-wrapper wrapper-4_7164">
+												<div class="em_nav" id="toogle_menu_4_7164">
+													<ul class="hnav em_hoz_menu effect-menu">
+														<li class="menu-item-link menu-item-depth-0  menu-item-parent">
+															<a class="em-menu-link" href="#"> <span> Home </span> </a>
+															<ul class="menu-container">
+																<li class="menu-item-hbox menu-item-depth-1 col-menu menu_col24 grid_24 menu-item-parent" style="">
+																	<ul class="menu-container">
+																		<li class="menu-item-vbox menu-item-depth-2 col-sm-24 menu-item-parent" style="">
+																			<ul class="menu-container">
+																				<li class="menu-item-text menu-item-depth-3  ">
+																					<div class="store-view">
+																						<div class="col-sm-4">
+																							<div class="effect03">
+																								<div>
+																									<a title="Clothing Store" href="#"><img class="img-responsive" src="images/storeview/main_fashion_store.jpg" alt="Clothing Store" />
+																									</a>
+																								</div>
+																							</div>
+																							<p class="h5"><a href="#">Clothing Store</a>
+																							</p>
+																						</div>
+																						<div class="col-sm-4">
+																							<div class="effect03">
+																								<div>
+																									<a title="#/index.php/?___store=furniture_eng"><img class="img-responsive" src="images/storeview/furniture_store.jpg" alt="Furniture Store" />
+																									</a>
+																								</div>
+																							</div>
+																							<p class="h5"><a href="#">Furniture Store</a>
+																							</p>
+																						</div>
+																						<div class="col-sm-4">
+																							<div class="effect03">
+																								<div>
+																									<a title="Baby Store" href="#"><img class="img-responsive" src="images/storeview/baby_store.jpg" alt="Baby Store" />
+																									</a>
+																								</div>
+																							</div>
+																							<p class="h5"><a href="#">Baby Store</a>
+																							</p>
+																						</div>
+																						<div class="col-sm-4">
+																							<div class="effect03">
+																								<div>
+																									<a title="Beauty Store" href="#"><img class="img-responsive" src="images/storeview/beauty_store.jpg" alt="Beauty Store" />
+																									</a>
+																								</div>
+																							</div>
+																							<p class="h5"><a href="#">Beauty Store</a>
+																							</p>
+																						</div>
+																						<div class="col-sm-4">
+																							<div class="effect03">
+																								<div>
+																									<a title="Clothing Store" href="#"><img class="img-responsive" src="images/storeview/clothing_store.jpg" alt="Clothing Store" />
+																									</a>
+																								</div>
+																							</div>
+																							<p class="h5"><a href="#">Clothing Store</a>
+																							</p>
+																						</div>
+																						<div class="col-sm-4">
+																							<div class="effect03">
+																								<div>
+																									<a title="Garden Store" href="#"><img class="img-responsive" src="images/storeview/garden_store.jpg" alt="Garden Store" />
+																									</a>
+																								</div>
+																							</div>
+																							<p class="h5"><a href="#">Garden Store</a>
+																							</p>
+																						</div>
+																					</div><!-- /.store-view -->
+																					<div class="store-view" style="padding-top:15px">
+																						<div class="col-sm-4">
+																							<div class="effect03">
+																								<div>
+																									<a title="Computer Store" href="#"><img class="img-responsive" src="images/storeview/computer_store.jpg" alt="Computer Store" />
+																									</a>
+																								</div>
+																							</div>
+																							<p class="h5"><a href="#">Computer Store</a>
+																							</p>
+																						</div>
+																						<div class="col-sm-4">
+																							<div class="effect03">
+																								<div>
+																									<a title="Jewelry Store" href="#"><img class="img-responsive" src="images/storeview/jewelry_store.jpg" alt="Jewelry Store" />
+																									</a>
+																								</div>
+																							</div>
+																							<p class="h5"><a href="#">Jewelry Store</a>
+																							</p>
+																						</div>
+																						<div class="col-sm-4">
+																							<div class="effect03">
+																								<div>
+																									<a title="Shoes Store" href="#"><img class="img-responsive" src="images/storeview/shoes_store.jpg" alt="Shoes Store" />
+																									</a>
+																								</div>
+																							</div>
+																							<p class="h5"><a href="#">Shoes Store</a>
+																							</p>
+																						</div>
+																						<div class="col-sm-4">
+																							<div class="effect03">
+																								<div>
+																									<a title="Lingerie Store" href="#"><img class="img-responsive" src="images/storeview/lingerie_store.jpg" alt="Lingerie Store" />
+																									</a>
+																								</div>
+																							</div>
+																							<p class="h5"><a href="#">Lingerie Store</a>
+																							</p>
+																						</div>
+																						<div class="col-sm-4">
+																							<div class="effect03">
+																								<div>
+																									<a title="Sport Store" href="#"><img class="img-responsive" src="images/storeview/sport_store.jpg" alt="Sport Store" />
+																									</a>
+																								</div>
+																							</div>
+																							<p class="h5"><a href="#">Sport Store</a>
+																							</p>
+																						</div>
+																						<div class="col-sm-4">
+																							<div class="effect03">
+																								<div>
+																									<a title="Swatch Store" href="#"><img class="img-responsive" src="images/storeview/swatch_store.jpg" alt="Swatch Store" />
+																									</a>
+																								</div>
+																							</div>
+																							<p class="h5"><a href="#">Swatch Store</a>
+																							</p>
+																						</div>
+																					</div><!-- /.store-view -->
+																					<div class="store-view" style="padding-top:15px">
+																						<div class="col-sm-4">
+																							<div class="effect03">
+																								<div>
+																									<a title="Supermarket Store" href="#"><img class="img-responsive" src="images/storeview/supermarket_store.jpg" alt="Supermarket Store" />
+																									</a>
+																								</div>
+																							</div>
+																							<p class="h5"><a href="#">Supermarket Store</a>
+																							</p>
+																						</div>
+																						<div class="col-sm-4">
+																							<div class="effect03">
+																								<div>
+																									<a title="Smartphone Store" href="#"><img class="img-responsive" src="images/storeview/smartphone_store.jpg" alt="Smartphone Store" />
+																									</a>
+																								</div>
+																							</div>
+																							<p class="h5"><a href="#">Smartphone Store</a>
+																							</p>
+																						</div>
+																						<div class="col-sm-4">
+																							<div class="effect03">
+																								<div>
+																									<a title="Glass Store" href="#"><img class="img-responsive" src="images/storeview/glass_store.jpg" alt="Glass Store" />
+																									</a>
+																								</div>
+																							</div>
+																							<p class="h5"><a href="#">Glass Store</a>
+																							</p>
+																						</div>
+																						<div class="col-sm-4">
+																							<div class="effect03">
+																								<div>
+																									<a title="Glass Store" href="#"><img class="img-responsive" src="images/storeview/fashionnova_store.jpg" alt="Glass Store" />
+																									</a>
+																								</div>
+																							</div>
+																							<p class="h5"><a href="#">ClothingNova Store</a>
+																							</p>
+																						</div>
+																					</div><!-- /.store-view -->
+																				</li><!-- /.menu-item-text -->
+																			</ul>
+																		</li>
+																	</ul>
+																</li>
+															</ul><!-- /.menu-container -->
+														</li><!-- /.menu-item-link -->
+														<li class="menu-item-link menu-item-depth-0  menu-item-parent">
+															<a class="em-menu-link" href="#"> <span> Pages </span> </a>
+															<ul class="menu-container" style="dropdown-menu">
+																<li class="menu-item-vbox menu-item-depth-1 col-menu menu_col5 grid_6 menu-item-parent" style="">
+																	<ul class="menu-container">
+																		<li class="menu-item-text menu-item-depth-2  col-md-24 ">
+																			<div class="em-line-01">
+																				<h5 class="text-uppercasse">AJAXCART</h5>
+																				<div>
+																					<ul class="menu-container" style="">
+																						<li class="menu-item-link menu-item-depth-1 first"> <a class="em-menu-link" href="#"><span>Landing Page</span> </a>
+																						</li>
+																						<li class="menu-item-link menu-item-depth-1 "> <a class="em-menu-link" href="typography.html"><span>Typography Page</span> </a>
+																						</li>
+																						<li class="menu-item-link menu-item-depth-1 "> <a class="em-menu-link" href="#"><span>Widgets Page</span> </a>
+																						</li>
+																						<li class="menu-item-link menu-item-depth-1 label-new-menu "> <a class="em-menu-link" href="../contact.html"><span>Contact Page</span> </a>
+																						</li>
+																						<li class="menu-item-link menu-item-depth-1 last "> <a class="em-menu-link" href="404.html"><span>404 Page</span> </a>
+																						</li>
+																					</ul><!-- /.menu-container -->
+																				</div>
+																			</div>
+																		</li>
+																	</ul>
+																</li>
+															</ul><!-- /.menu-container -->
+														</li><!-- /.menu-item-link -->
+														<li class="menu-item-link menu-item-depth-0  menu-item-parent">
+															<a class="em-menu-link" href="#"> <span> Category </span> </a>
+															<ul class="menu-container">
+																<li class="menu-item-hbox menu-item-depth-1 col-menu menu_col24 grid_24 menu-item-parent" style="">
+																	<ul class="menu-container">
+																		<li class="menu-item-vbox menu-item-depth-2 col-sm-6 menu-item-parent" style="">
+																			<ul class="menu-container">
+																				<li class="menu-item-text menu-item-depth-3  ">
+																					<div class="menu-cate effect03 zoom-img">
+																						<div>
+																							<a title="em-sample-title" href="category-one-column.html"><img class="img-responsive" src="images/menu/img-cate1.jpg" alt="em-sample-alt" />
+																							</a>
+																						</div>
+																						<p class="h5"><a href="http://demo.emthemes.com/everything/index.php/shoe.html">One Column</a>
+																						</p>
+																					</div>
+																				</li>
+																			</ul>
+																		</li><!-- /.menu-item-vbox -->
+																		<li class="menu-item-vbox menu-item-depth-2 col-sm-6 menu-item-parent" style="">
+																			<ul class="menu-container">
+																				<li class="menu-item-text menu-item-depth-3  ">
+																					<div class="menu-cate effect03 zoom-img">
+																						<div>
+																							<a title="em-sample-title" href="../category-two-columns-left.html"><img class="img-responsive" src="images/menu/img-cate2.jpg" alt="em-sample-alt" />
+																							</a>
+																						</div>
+																						<p class="h5"><a href="http://demo.emthemes.com/everything/index.php/fashion.html">Two Columns Left</a>
+																						</p>
+																					</div>
+																				</li>
+																			</ul>
+																		</li><!-- /.menu-item-vbox -->
+																		<li class="menu-item-vbox menu-item-depth-2 col-sm-6 menu-item-parent" style="">
+																			<ul class="menu-container">
+																				<li class="menu-item-text menu-item-depth-3  ">
+																					<div class="menu-cate effect03 zoom-img">
+																						<div>
+																							<a title="em-sample-title" href="category-two-columns-right.html"><img class="img-responsive" src="images/menu/img-cate3.jpg" alt="em-sample-alt" />
+																							</a>
+																						</div>
+																						<p class="h5"><a href="http://demo.emthemes.com/everything/index.php/glass.html">Two Columns Right</a>
+																						</p>
+																					</div>
+																				</li>
+																			</ul>
+																		</li><!-- /.menu-item-vbox -->
+																		<li class="menu-item-vbox menu-item-depth-2 col-sm-6 menu-item-parent" style="">
+																			<ul class="menu-container">
+																				<li class="menu-item-text menu-item-depth-3  ">
+																					<div class="menu-cate effect03 zoom-img">
+																						<div>
+																							<a title="em-sample-title" href="category-three-columns.html"><img class="img-responsive" src="images/menu/img-cate4.jpg" alt="em-sample-alt" />
+																							</a>
+																						</div>
+																						<p class="h5"><a href="http://demo.emthemes.com/everything/index.php/baby.html">Three Columns</a>
+																						</p>
+																					</div>
+																				</li>
+																			</ul>
+																		</li><!-- /.menu-item-vbox -->
+																	</ul><!-- /.menu-container -->
+																</li>
+															</ul><!-- /.menu-container -->
+														</li><!-- /.menu-item-link -->
+														<li class="menu-item-link menu-item-depth-0  menu-item-parent">
+															<a class="em-menu-link" href="#"> <span> Products </span> </a>
+															<ul class="menu-container">
+																<li class="menu-item-hbox menu-item-depth-1 col-menu menu_col24 grid_24 menu-item-parent" style="">
+																	<ul class="menu-container" style="padding:0 10px">
+																		<li class="menu-item-vbox menu-item-depth-2 col-sm-6 grid_6 alpha menu-item-parent" style="">
+																			<ul class="menu-container">
+																				<li class="menu-item-text menu-item-depth-3  ">
+																					<div class="em-line-01">
+																						<h5 class="text-uppercase">Product Types</h5>
+																						<div>
+																							<ul class="menu-container">
+																								<li class="menu-item-link menu-item-depth-1 first label-hot-menu"><a class="em-menu-link" href="#-fringe-dress.html">Simple product</a>
+																								</li>
+																								<li class="menu-item-link menu-item-depth-1"><a class="em-menu-link" href="product-virtual.html">Virtual Product</a>
+																								</li>
+																								<li class="menu-item-link menu-item-depth-1"><a class="em-menu-link" href="product-downloadable.html">Downloadable Product</a>
+																								</li>
+																								<li class="menu-item-link menu-item-depth-1"><a class="em-menu-link" href="../product-configurable.html">Configurable Product</a>
+																								</li>
+																								<li class="menu-item-link menu-item-depth-1"><a class="em-menu-link" href="product-grouped.html">Grouped Product</a>
+																								</li>
+																								<li class="menu-item-link menu-item-depth-1 last"><a class="em-menu-link" href="product-bundle.html">Bundle Product</a>
+																								</li>
+																							</ul><!-- /.menu-container -->
+																						</div>
+																					</div>
+																				</li>
+																			</ul>
+																		</li><!-- /.menu-item-vbox -->
+																		<li class="menu-item-vbox menu-item-depth-2 col-sm-6 grid_6  menu-item-parent" style="">
+																			<ul class="menu-container">
+																				<li class="menu-item-text menu-item-depth-3  ">
+																					<div class="em-line-01">
+																						<h5 class="text-uppercase">PRODUCT COLUMNS</h5>
+																						<div>
+																							<ul class="menu-container">
+																								<li class="menu-item-link menu-item-depth-1 first"><a class="em-menu-link" href="../product-1-column.html">1 Column</a>
+																								</li>
+																								<li class="menu-item-link menu-item-depth-1 "><a class="em-menu-link" href="product-2-columns-left.html">2 Columns Left</a>
+																								</li>
+																								<li class="menu-item-link menu-item-depth-1 "><a class="em-menu-link" href="product-2-columns-right.html">2 Columns Right</a>
+																								</li>
+																								<li class="menu-item-link menu-item-depth-1 "><a class="em-menu-link" href="product-3-columns.html">3 Columns</a>
+																								</li>
+																								<li class="menu-item-link menu-item-depth-1 "><a class="em-menu-link" href="../product-upsell.html">Upsell</a>
+																								</li>
+																								<li class="menu-item-link menu-item-depth-1 last"><a class="em-menu-link" href="../product-related.html">Related Product</a>
+																								</li>
+																							</ul><!-- /.menu-container -->
+																						</div>
+																					</div>
+																				</li>
+																			</ul>
+																		</li><!-- /.menu-item-vbox -->
+																		<li class="menu-item-vbox menu-item-depth-2 col-sm-12 grid_12 omega menu-item-parent" style="">
+																			<ul class="menu-container">
+																				<li class="menu-item-text menu-item-depth-3  ">
+																					<p class="img-banner-menu pull-right"><img class="img-responsive" src="images/wysiwyg/em_ads01.jpg" alt="menu_adv" />
+																					</p>
+																				</li>
+																			</ul>
+																		</li><!-- /.menu-item-vbox -->
+																	</ul>
+																</li>
+															</ul><!-- /.menu-container -->
+														</li><!-- /.menu-item-link -->
+														<li class="menu-item-link menu-item-depth-0 hidden-sm hidden-md menu-item-parent">
+															<a class="em-menu-link" href="#"> <span> Clothing </span> </a>
+															<ul class="menu-container" style="padding-bottom:130px;background-image:url(images/menu/bkg-menu.jpg); background-repeat:no-repeat; background-position: right bottom">
+																<li class="menu-item-hbox menu-item-depth-1 col-menu menu_col24 grid_24 menu-item-parent" style="">
+																	<ul class="menu-container" style="padding:0 10px">
+																		<li class="menu-item-vbox menu-item-depth-2 col-sm-9 menu-item-parent" style="">
+																			<ul class="menu-container">
+																				<li class="menu-item-text menu-item-depth-3  ">
+																					<p class="img-center">
+																						<a href="#" title="em-sample-title"><img class="img-responsive" src="images/menu/em_menu11.png" alt="em-sample-alt" />
+																						</a>
+																					</p>
+																					<p>A friendly responsive design, adaptive screen with the new Bootstrap 3 is already very impressive. Besides that, Visual Content Editor allows you to edit content directly on front-end. Key features for an online market, such as Featured products, Promotions, Deals with Timing, are absolutely ready. It’s no doubt that Titanshop will get traffic for your site, and also help boosting sales.</p>
+																					<p>You can change visual appearance of almost every element of this HTML theme. You can set your favorite colors and generate css file from the admin.</p>
+																					<p>No coding needed, all can be edited directly in admin panel. Select colors of dozens of elements using color pickers, set hundreds of options, apply textures for header, footer and for the entire page, upload background image and configure its properties (position, repeating, attachment), change font and font-size, and many many more…</p>
+																				</li>
+																			</ul>
+																		</li><!-- /.menu-item-vbox -->
+																		<li class="menu-item-vbox menu-item-depth-2 col-sm-5 menu-item-parent" style="">
+																			<ul class="menu-container">
+																				<li class="menu-item-text menu-item-depth-3  ">
+																					<div class="em-line-01">
+																						<h5 class="text-uppercase">Duis porttitor</h5>
+																						<div>
+																							<ul class="em-catalog-navigation ">
+																								<li class="first">
+																									<a class="em-menu-link" href="#"> <span>Furniture</span> </a>
+																								</li>
+																								<li class="label-new-menu">
+																									<a class="em-menu-link" href="#"> <span>Cell Phones</span> </a>
+																								</li>
+																								<li>
+																									<a class="em-menu-link" href="#"> <span>Computers</span> </a>
+																								</li>
+																								<li>
+																									<a class="em-menu-link" href="#"> <span>Shirts</span> </a>
+																								</li>
+																								<li>
+																									<a class="em-menu-link" href="#"> <span>Shoes</span> </a>
+																								</li>
+																								<li class="label-sale-menu">
+																									<a class="em-menu-link" href="#"><span>Sport</span> </a>
+																								</li>
+																								<li>
+																									<a class="em-menu-link" href="#"><span>Shop Men</span> </a>
+																								</li>
+																								<li class="last">
+																									<a class="em-menu-link" href="#"><span>Shop Women</span> </a>
+																								</li>
+																							</ul><!-- /.em-catalog-navigation -->
+																						</div>
+																					</div>
+																				</li>
+																			</ul>
+																		</li><!-- /.menu-item-vbox -->
+																		<li class="menu-item-vbox menu-item-depth-2 col-sm-5 menu-item-parent" style="">
+																			<ul class="menu-container">
+																				<li class="menu-item-text menu-item-depth-3  ">
+																					<div class="em-line-01">
+																						<h5 class="text-uppercase">Fusce ligulani</h5>
+																						<div>
+																							<ul class="em-catalog-navigation ">
+																								<li class="level0 nav-1 first">
+																									<a href="#"> <span>Build Your Own</span> </a>
+																								</li>
+																								<li class="level0 nav-2">
+																									<a href="#"> <span>Laptops</span> </a>
+																								</li>
+																								<li class="level0 nav-3">
+																									<a href="#"> <span>Hard Drives</span> </a>
+																								</li>
+																								<li class="level0 nav-4">
+																									<a href="#"> <span>Monitors</span> </a>
+																								</li>
+																								<li class="level0 nav-5">
+																									<a href="#"> <span>RAM / Memory</span> </a>
+																								</li>
+																								<li class="level0 nav-6">
+																									<a href="#"> <span>Cases</span> </a>
+																								</li>
+																								<li class="level0 nav-7">
+																									<a href="#"> <span>Processors</span> </a>
+																								</li>
+																								<li class="level0 nav-8 last">
+																									<a href="#"> <span>Peripherals</span> </a>
+																								</li>
+																							</ul><!-- /.em-catalog-navigation -->
+																						</div>
+																					</div>
+																				</li>
+																			</ul>
+																		</li><!-- /.menu-item-vbox -->
+																		<li class="menu-item-vbox menu-item-depth-2 col-sm-5 menu-item-parent" style="">
+																			<ul class="menu-container">
+																				<li class="menu-item-text menu-item-depth-3  ">
+																					<div class="em-line-01">
+																						<h5 class="text-uppercase">Fusce ligulani</h5>
+																						<div>
+																							<ul class="em-catalog-navigation ">
+																								<li class="level0 nav-1 first">
+																									<a href="#"> <span>Build Your Own</span> </a>
+																								</li>
+																								<li class="level0 nav-2">
+																									<a href="#"> <span>Laptops</span> </a>
+																								</li>
+																								<li class="level0 nav-3">
+																									<a href="#"> <span>Hard Drives</span> </a>
+																								</li>
+																								<li class="level0 nav-4">
+																									<a href="#"> <span>Monitors</span> </a>
+																								</li>
+																								<li class="level0 nav-5">
+																									<a href="#"> <span>RAM / Memory</span> </a>
+																								</li>
+																								<li class="level0 nav-6">
+																									<a href="#"> <span>Cases</span> </a>
+																								</li>
+																								<li class="level0 nav-7">
+																									<a href="#"> <span>Processors</span> </a>
+																								</li>
+																								<li class="level0 nav-8 last">
+																									<a href="#"> <span>Peripherals</span> </a>
+																								</li>
+																							</ul><!-- /.em-catalog-navigation -->
+																						</div>
+																					</div>
+																				</li>
+																			</ul>
+																		</li><!-- /.menu-item-vbox -->
+																	</ul>
+																</li>
+															</ul><!-- /.menu-container -->
+														</li><!-- /.menu-item-link -->
+														<li class="menu-item-link menu-item-depth-0  menu-item-parent">
+															<a class="em-menu-link" href="#"> <span> Shoes </span> </a>
+															<ul class="menu-container" style="background-image:url(images/menu/bkg-menu.jpg); background-repeat:no-repeat; background-position: right bottom">
+																<li class="menu-item-hbox menu-item-depth-1 col-menu menu_col24 grid_24 menu-item-parent" style="">
+																	<ul class="menu-container" style="padding:0 10px">
+																		<li class="menu-item-vbox menu-item-depth-2 col-sm-8 menu-item-parent" style="">
+																			<ul class="menu-container">
+																				<li class="menu-item-text menu-item-depth-3  ">
+																					<p class="img-center">
+																						<a href="#" title="em-sample-title"><img class="img-responsive" src="images/menu/em_menu11.png" alt="em-sample-alt" />
+																						</a>
+																					</p>
+																					<p>This theme looks great not only on desktops but also on devices. What means that there are no special requirements for your clients to browse your website. With EM Oswad, you can easily change the overall appearance of your site by editing your site’s layout, themes, colors, and fonts. Make your webstore look special! You can create as many custom color schemes as you need and easily apply to your webstore</p>
+																					<p>EM Oswad is optimized for all screen resolutions. If you resize web browser window, theme elements will be transformed smoothly on each breakpoint (from 320 to 1280 pixels) in order to adapt to the current screen size.</p>
+																				</li>
+																			</ul>
+																		</li><!-- /.menu-item-vbox -->
+																		<li class="menu-item-vbox menu-item-depth-2 col-sm-4 menu-item-parent" style="">
+																			<ul class="menu-container">
+																				<li class="menu-item-text menu-item-depth-3  ">
+																					<div class="em-line-01">
+																						<h5 class="text-uppercase">Unlimited Colors</h5>
+																						<div>
+																							<ul class="em-catalog-navigation ">
+																								<li class="level0 nav-1 first">
+																									<a href="#"> <span>Build Your Own</span> </a>
+																								</li>
+																								<li class="level0 nav-2">
+																									<a href="#"> <span>Laptops</span> </a>
+																								</li>
+																								<li class="level0 nav-3">
+																									<a href="#"> <span>Hard Drives</span> </a>
+																								</li>
+																								<li class="level0 nav-4">
+																									<a href="#"> <span>Monitors</span> </a>
+																								</li>
+																								<li class="level0 nav-5">
+																									<a href="#"> <span>RAM / Memory</span> </a>
+																								</li>
+																								<li class="level0 nav-6">
+																									<a href="#"> <span>Cases</span> </a>
+																								</li>
+																								<li class="level0 nav-7">
+																									<a href="#"> <span>Processors</span> </a>
+																								</li>
+																								<li class="level0 nav-8 last">
+																									<a href="#"> <span>Peripherals</span> </a>
+																								</li>
+																							</ul><!-- /.em-catalog-navigation -->
+																						</div>
+																					</div>
+																				</li>
+																			</ul>
+																		</li><!-- /.menu-item-vbox -->
+																		<li class="menu-item-vbox menu-item-depth-2 col-sm-4 menu-item-parent" style="">
+																			<ul class="menu-container">
+																				<li class="menu-item-text menu-item-depth-3  ">
+																					<div class="em-line-01">
+																						<h5 class="text-uppercase">Custom widgets</h5>
+																						<div>
+																							<ul class="em-catalog-navigation ">
+																								<li class="level0 nav-1 first">
+																									<a href="#"> <span>Build Your Own</span> </a>
+																								</li>
+																								<li class="level0 nav-2">
+																									<a href="#"> <span>Laptops</span> </a>
+																								</li>
+																								<li class="level0 nav-3">
+																									<a href="#"> <span>Hard Drives</span> </a>
+																								</li>
+																								<li class="level0 nav-4">
+																									<a href="#"> <span>Monitors</span> </a>
+																								</li>
+																								<li class="level0 nav-5">
+																									<a href="#"> <span>RAM / Memory</span> </a>
+																								</li>
+																								<li class="level0 nav-6">
+																									<a href="#"> <span>Cases</span> </a>
+																								</li>
+																								<li class="level0 nav-7">
+																									<a href="#"> <span>Processors</span> </a>
+																								</li>
+																								<li class="level0 nav-8 last">
+																									<a href="#"> <span>Peripherals</span> </a>
+																								</li>
+																							</ul><!-- /.em-catalog-navigation -->
+																						</div>
+																					</div>
+																				</li>
+																			</ul>
+																		</li><!-- /.menu-item-vbox -->
+																		<li class="menu-item-vbox menu-item-depth-2 col-sm-4 menu-item-parent" style="">
+																			<ul class="menu-container">
+																				<li class="menu-item-text menu-item-depth-3  ">
+																					<div class="em-line-01">
+																						<h5 class="text-uppercase">Powerful admin</h5>
+																						<div>
+																							<ul class="em-catalog-navigation ">
+																								<li class="level0 nav-1 first">
+																									<a href="#"> <span>Build Your Own</span> </a>
+																								</li>
+																								<li class="level0 nav-2">
+																									<a href="#"> <span>Laptops</span> </a>
+																								</li>
+																								<li class="level0 nav-3">
+																									<a href="#"> <span>Hard Drives</span> </a>
+																								</li>
+																								<li class="level0 nav-4">
+																									<a href="#"> <span>Monitors</span> </a>
+																								</li>
+																								<li class="level0 nav-5">
+																									<a href="#"> <span>RAM / Memory</span> </a>
+																								</li>
+																								<li class="level0 nav-6">
+																									<a href="#"> <span>Cases</span> </a>
+																								</li>
+																								<li class="level0 nav-7">
+																									<a href="#"> <span>Processors</span> </a>
+																								</li>
+																								<li class="level0 nav-8 last">
+																									<a href="#"> <span>Peripherals</span> </a>
+																								</li>
+																							</ul><!-- /.em-catalog-navigation -->
+																						</div>
+																					</div>
+																				</li>
+																			</ul>
+																		</li><!-- /.menu-item-vbox -->
+																	</ul>
+																</li>
+															</ul><!-- /.menu-container -->
+														</li><!-- /.menu-item-link -->
+														<li class="menu-item-link menu-item-depth-0  menu-item-parent">
+															<a class="em-menu-link" href="blog.html"> <span> Blog </span> </a>
+															<ul class="menu-container" style="background-image:url(images/menu/banner-menu01.jpg); background-repeat:no-repeat; background-position: right bottom">
+																<li class="menu-item-hbox menu-item-depth-1 col-menu menu_col24 grid_24 menu-item-parent" style="">
+																	<ul class="menu-container" style="padding:0 10px">
+																		<li class="menu-item-vbox menu-item-depth-2 col-sm-4 grid_4 alpha menu-item-parent" style="">
+																			<ul class="menu-container">
+																				<li class="menu-item-text menu-item-depth-3  ">
+																					<div class="em-line-01">
+																						<h5 class="text-uppercase">Retina Ready</h5>
+																						<div>
+																							<ul class="em-catalog-navigation ">
+																								<li class="level0 nav-1 first">
+																									<a href="#"> <span>Build Your Own</span> </a>
+																								</li>
+																								<li class="level0 nav-2">
+																									<a href="#"> <span>Laptops</span> </a>
+																								</li>
+																								<li class="level0 nav-3">
+																									<a href="#"> <span>Hard Drives</span> </a>
+																								</li>
+																								<li class="level0 nav-4">
+																									<a href="#"> <span>Monitors</span> </a>
+																								</li>
+																								<li class="level0 nav-5">
+																									<a href="#"> <span>RAM / Memory</span> </a>
+																								</li>
+																								<li class="level0 nav-6">
+																									<a href="#"> <span>Cases</span> </a>
+																								</li>
+																								<li class="level0 nav-7">
+																									<a href="#"> <span>Processors</span> </a>
+																								</li>
+																								<li class="level0 nav-8 last">
+																									<a href="#"> <span>Peripherals</span> </a>
+																								</li>
+																							</ul><!-- /.em-catalog-navigation -->
+																						</div>
+																					</div>
+																				</li>
+																			</ul>
+																		</li><!-- /.menu-item-vbox -->
+																		<li class="menu-item-vbox menu-item-depth-2 col-sm-4 grid_4 menu-item-parent" style="">
+																			<ul class="menu-container">
+																				<li class="menu-item-text menu-item-depth-3  ">
+																					<div class="em-line-01">
+																						<h5 class="text-uppercase">Fully Responsive</h5>
+																						<div>
+																							<ul class="em-catalog-navigation vertical">
+																								<li class="level0 nav-1 first">
+																									<a href="#"> <span>Build Your Own</span> </a>
+																								</li>
+																								<li class="level0 nav-2">
+																									<a href="#"> <span>Laptops</span> </a>
+																								</li>
+																								<li class="level0 nav-3">
+																									<a href="#"> <span>Hard Drives</span> </a>
+																								</li>
+																								<li class="level0 nav-4">
+																									<a href="#"> <span>Monitors</span> </a>
+																								</li>
+																								<li class="level0 nav-5">
+																									<a href="#"> <span>RAM / Memory</span> </a>
+																								</li>
+																								<li class="level0 nav-6">
+																									<a href="#"> <span>Cases</span> </a>
+																								</li>
+																								<li class="level0 nav-7">
+																									<a href="#"> <span>Processors</span> </a>
+																								</li>
+																								<li class="level0 nav-8 last">
+																									<a href="#"> <span>Peripherals</span> </a>
+																								</li>
+																							</ul><!-- /.em-catalog-navigation -->
+																						</div>
+																					</div>
+																				</li>
+																			</ul>
+																		</li><!-- /.menu-item-vbox -->
+																		<li class="menu-item-vbox menu-item-depth-2 col-sm-4 grid_4 menu-item-parent" style="">
+																			<ul class="menu-container">
+																				<li class="menu-item-text menu-item-depth-3  ">
+																					<div class="em-line-01">
+																						<h5 class="text-uppercase">Unlimited Colors</h5>
+																						<div>
+																							<ul class="em-catalog-navigation ">
+																								<li class="level0 nav-1 first">
+																									<a href="#"> <span>Build Your Own</span> </a>
+																								</li>
+																								<li class="level0 nav-2">
+																									<a href="#"> <span>Laptops</span> </a>
+																								</li>
+																								<li class="level0 nav-3">
+																									<a href="#"> <span>Hard Drives</span> </a>
+																								</li>
+																								<li class="level0 nav-4">
+																									<a href="#"> <span>Monitors</span> </a>
+																								</li>
+																								<li class="level0 nav-5">
+																									<a href="#"> <span>RAM / Memory</span> </a>
+																								</li>
+																								<li class="level0 nav-6">
+																									<a href="#"> <span>Cases</span> </a>
+																								</li>
+																								<li class="level0 nav-7">
+																									<a href="#"> <span>Processors</span> </a>
+																								</li>
+																								<li class="level0 nav-8 last">
+																									<a href="#"> <span>Peripherals</span> </a>
+																								</li>
+																							</ul><!-- /.em-catalog-navigation -->
+																						</div>
+																					</div>
+																				</li>
+																			</ul>
+																		</li><!-- /.menu-item-vbox -->
+																		<li class="menu-item-vbox menu-item-depth-2 col-sm-4 grid_4 omega menu-item-parent" style="">
+																			<ul class="menu-container">
+																				<li class="menu-item-text menu-item-depth-3  ">
+																					<div class="em-line-01">
+																						<h5 class="text-uppercase">Custom widgets</h5>
+																						<div>
+																							<ul class="em-catalog-navigation ">
+																								<li class="level0 nav-1 first">
+																									<a href="#"> <span>Build Your Own</span> </a>
+																								</li>
+																								<li class="level0 nav-2">
+																									<a href="#"> <span>Laptops</span> </a>
+																								</li>
+																								<li class="level0 nav-3">
+																									<a href="#"> <span>Hard Drives</span> </a>
+																								</li>
+																								<li class="level0 nav-4">
+																									<a href="#"> <span>Monitors</span> </a>
+																								</li>
+																								<li class="level0 nav-5">
+																									<a href="#"> <span>RAM / Memory</span> </a>
+																								</li>
+																								<li class="level0 nav-6">
+																									<a href="#"> <span>Cases</span> </a>
+																								</li>
+																								<li class="level0 nav-7">
+																									<a href="#"> <span>Processors</span> </a>
+																								</li>
+																								<li class="level0 nav-8 last">
+																									<a href="#"> <span>Peripherals</span> </a>
+																								</li>
+																							</ul><!-- /.em-catalog-navigation -->
+																						</div>
+																					</div>
+																				</li>
+																			</ul>
+																		</li><!-- /.menu-item-vbox -->
+																		<li class="menu-item-vbox menu-item-depth-2 col-sm-24 " style=""></li><!-- /.menu-item-vbox -->
+																	</ul>
+																</li>
+															</ul><!-- /.menu-container -->
+														</li><!-- /.menu-item-link -->
+													</ul><!-- /.hnav em_hoz_menu -->
+												</div><!-- /.em_nav -->
+											</div><!-- /.megamenu-wrapper -->
+										</div><!-- /.em-menu -->
+									</div><!-- /#em-main-megamenu -->
+								</div><!-- /.em-menu-hoz -->
 							</div>
+						</div>
+					</div><!-- /.container -->
+				</div><!-- /.em-header-bottom -->
+			</div>
+		</div><!-- /.em-wrapper-header -->
 
-							<div class="ace-settings-item">
-								<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-rtl"
-									   autocomplete="off"/>
-								<label class="lbl" for="ace-settings-rtl"> Right To Left (rtl)</label>
+		<div class="em-wrapper-main">
+			<div class="container-fluid container-main">
+				<div class="em-inner-main">
+					<div class="em-wrapper-area02"></div>
+					<div class="em-wrapper-area03"></div>
+					<div class="em-wrapper-area04"></div>
+					<div class="em-main-container em-col1-layout">
+						<div class="row">
+							<div class="em-col-main col-sm-24">
+								<div class="std">
+									<div class="text-center">
+										<div class="not-pound-content">
+											<p><img class="img-responsive" alt="" src="images/img-404.png" />
+											</p>
+											<div>
+												<p>Whoops, our bad...The page you requested was not found, and we have a fine guess why:</p>
+												<ul class="none-style">
+													<li>If you typed the URL directly, please make sure the spelling is correct.</li>
+													<li>If you clicked on a link to get here, the link is outdated.</li>
+												</ul>
+												<p>What can you do?Have no fear, help is near!</p>
+												<ul class="none-style group-button">
+													<li><a class="button-link" onclick="history.go(-1);" href="#"><span><span>Go back</span></span></a>
+													</li>
+													<li><a class="button-link" href="../index.html"><span><span>go to homepage</span></span></a>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
 							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><!-- /.em-wrapper-main -->
 
-							<div class="ace-settings-item">
-								<input type="checkbox" class="ace ace-checkbox-2 ace-save-state"
-									   id="ace-settings-add-container" autocomplete="off"/>
-								<label class="lbl" for="ace-settings-add-container">
-									Inside
-									<b>.container</b>
-								</label>
+		<div class="em-wrapper-footer">
+			<div class="em-footer-style09">
+				<div class="em-footer-top">
+					<div class="container">
+						<div class="row">
+							<div class="col-sm-24">
+								<div class="em-footer-info">
+									<div class="row">
+										<div class="col-sm-4 first text-center">
+											<div class="em-block-title" data-collapse-target="#collapse01">
+												<p class="h4 em-text-upercase"><span>What's hot</span>
+												</p>
+											</div>
+											<ul id="collapse01" class="em-links em-block-content block-info">
+												<li class="em-links-item"><a title="em-sample-title" href="#"><span>Discount Voucher</span></a>
+												</li>
+												<li class="em-links-item"><a title="em-sample-title" href="#"><span>Spring Collection</span></a>
+												</li>
+												<li class="em-links-item"><a title="em-sample-title" href="#"><span>Trending</span></a>
+												</li>
+												<li class="em-links-item"><a title="em-sample-title" href="#"><span>Best Sellers</span></a>
+												</li>
+											</ul>
+										</div><!-- /.col-sm-4 -->
+										<div class="col-sm-4 text-center">
+											<div class="em-block-title" data-collapse-target="#collapse02">
+												<p class="h4 em-text-upercase"><span>Brands</span>
+												</p>
+											</div>
+											<ul id="collapse02" class="em-links em-block-content block-info">
+												<li class="em-links-item"><a title="em-sample-title" href="#"><span>Jack &amp; Jones</span></a>
+												</li>
+												<li class="em-links-item"><a title="em-sample-title" href="#"><span>Calvin Klein</span></a>
+												</li>
+												<li class="em-links-item"><a title="em-sample-title" href="#"><span>Ray Ban</span></a>
+												</li>
+												<li class="em-links-item"><a title="em-sample-title" href="#"><span>River Island</span></a>
+												</li>
+											</ul>
+										</div><!-- /.col-sm-4 -->
+										<div class="col-sm-4 text-center">
+											<div class="em-block-title" data-collapse-target="#collapse03">
+												<p class="h4 em-text-upercase"><span>Men shop</span>
+												</p>
+											</div>
+											<ul id="collapse03" class="em-links em-block-content block-info">
+												<li class="em-links-item"><a title="em-sample-title" href="#"><span>Top</span></a>
+												</li>
+												<li class="em-links-item"><a title="em-sample-title" href="#"><span>Bottoms</span></a>
+												</li>
+												<li class="em-links-item"><a title="em-sample-title" href="#"><span>Accessories</span></a>
+												</li>
+												<li class="em-links-item"><a title="em-sample-title" href="#"><span>Shoes</span></a>
+												</li>
+											</ul>
+										</div><!-- /.col-sm-4 -->
+										<div class="col-sm-4 text-center">
+											<div class="em-block-title" data-collapse-target="#collapse04">
+												<p class="h4 em-text-upercase"><span>Women shop</span>
+												</p>
+											</div>
+											<ul id="collapse04" class="em-links em-block-content block-info">
+												<li class="em-links-item"><a title="em-sample-title" href="#"><span>Jeans</span></a>
+												</li>
+												<li class="em-links-item"><a title="em-sample-title" href="#"><span>Dresses</span></a>
+												</li>
+												<li class="em-links-item"><a title="em-sample-title" href="#"><span>Other</span></a>
+												</li>
+												<li class="em-links-item"><a title="em-sample-title" href="#"><span>Shoes</span></a>
+												</li>
+											</ul>
+										</div><!-- /.col-sm-4 -->
+										<div class="col-sm-4 text-center">
+											<div class="em-block-title" data-collapse-target="#collapse05">
+												<p class="h4 em-text-upercase"><span>Help</span>
+												</p>
+											</div>
+											<ul id="collapse05" class="em-links em-block-content block-info">
+												<li class="em-links-item"><a title="em-sample-title" href="#"><span>F.A.Q.</span></a>
+												</li>
+												<li class="em-links-item"><a title="em-sample-title" href="#"><span>Shipping</span></a>
+												</li>
+												<li class="em-links-item"><a title="em-sample-title" href="http://demo.emthemes.com/everything/index.php/contacts"><span>Contact Us</span></a>
+												</li>
+												<li class="em-links-item"><a title="em-sample-title" href="#"><span>Privacy Policy</span></a>
+												</li>
+											</ul>
+										</div><!-- /.col-sm-4 -->
+										<div class="col-sm-4 last text-center">
+											<div class="em-block-title" data-collapse-target="#collapse06">
+												<p class="h4 em-text-upercase"><span>Nation Apps</span>
+												</p>
+											</div>
+											<ul id="collapse06" class="em-links em-block-content block-info">
+												<li class="em-links-item"><a title="em-sample-title" href="#"><span>iPhone</span></a>
+												</li>
+												<li class="em-links-item"><a title="em-sample-title" href="#"><span>iPad</span></a>
+												</li>
+												<li class="em-links-item"><a title="em-sample-title" href="#"><span>Android</span></a>
+												</li>
+											</ul>
+										</div><!-- /.col-sm-4 -->
+									</div><!-- /.row -->
+									<div class="em-footer-info-bottom">
+										<div class="row">
+											<div class="col-sm-15 first">
+												<div class="em-wrapper-newsletter">
+													<div class="em-block-title" data-collapse-target="#collapse07">
+														<p class="h4 em-text-upercase"><span>Sign Up For Newsletter</span>
+														</p>
+													</div>
+													<div id="collapse07" class="em-block-content em-newsletter">
+														<div class="em-newsletter-style05">
+															<div class="block block-subscribe">
+																<form method="post" id="em-newsletter-validate-detail-style03">
+																	<div class="block-content">
+																		<div class="form-subscribe-content">
+																			<div class="input-box">
+																				<input type="text" name="email" id="em-newsletter-style03" title="Sign up for our newsletter" class="input-text required-entry validate-email" placeholder="Sign up for your email ..." />
+																			</div>
+																			<div class="actions">
+																				<button type="submit" title="Subscribe" class="button"><span><span>Subscribe</span></span>
+																				</button>
+																			</div>
+																		</div>
+																	</div>
+																</form>
+															</div>
+														</div>
+													</div><!-- /#collapse07 -->
+												</div>
+											</div>
+											<div class="col-sm-9 last">
+												<div class="em-wrapper-social f-right">
+													<div class="em-block-title" data-collapse-target="#collapse08">
+														<p class="h4 em-text-upercase"><span>Follow Us</span>
+														</p>
+													</div>
+													<div id="collapse08" class="em-block-content">
+														<p class="em-social"><a class="em-social-icon em-facebook f-left" title="em-sample-title" href="#"><span class="fa fa-fw"></span></a> <a class="em-social-icon em-twitter f-left" title="em-sample-title" href="#"><span class="fa fa-fw"></span></a> <a class="em-social-icon em-pinterest  f-left" title="em-sample-title" href="#"><span class="fa fa-fw"></span></a> <a class="em-social-icon em-google f-left" title="em-sample-title" href="#"><span class="fa fa-fw"></span></a> <a class="em-social-icon em-rss  f-left" title="em-sample-title" href="#"><span class="fa fa-fw"></span></a>
+														</p>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div><!-- /.em-footer-info-bottom -->
+								</div><!-- /.em-footer-info -->
 							</div>
-						</div><!-- /.pull-left -->
-
-						<div class="pull-left width-50">
-							<div class="ace-settings-item">
-								<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-hover"
-									   autocomplete="off"/>
-								<label class="lbl" for="ace-settings-hover"> Submenu on Hover</label>
+						</div>
+					</div>
+				</div><!-- /.em-footer-top -->
+				<div class="em-footer-bottom">
+					<div class="container">
+						<div class="row">
+							<div class="col-sm-24">
+								<div class="em-area-footer02">
+									<div class="em-payment f-right"><a class="em-payment-icon em-visa" title="em-sample-title" href="#">visa</a> <a class="em-payment-icon em-master" title="em-sample-title" href="#">master</a> <a class="em-payment-icon em-express " title="em-sample-title" href="#">express</a><a class="em-payment-icon em-paypal" title="em-sample-title" href="#">paypal</a> <a class="em-payment-icon em-other " title="em-sample-title" href="#">other</a>
+									</div>
+								</div>
+								<div class="em-footer-address"> <address class="f-left">&copy; 2015 EM0131 Everything Demo Store. All Rights Reserved.<span>HTML Templates by <a href="#" title="Responsive HTML Themes &amp; Responsive HTML Templates">htmlcooker.com</a></span></address>
+								</div>
 							</div>
+						</div>
+					</div>
+				</div><!-- /.em-footer-bottom -->
+			</div><!-- /.em-footer-style09 -->
+		</div><!-- /.em-wrapper-footer -->
 
-							<div class="ace-settings-item">
-								<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-compact"
-									   autocomplete="off"/>
-								<label class="lbl" for="ace-settings-compact"> Compact Sidebar</label>
-							</div>
+		<p id="back-top" style="display: none;"><a title="Top" href="#top">Top</a></p>
 
-							<div class="ace-settings-item">
-								<input type="checkbox" class="ace ace-checkbox-2" id="ace-settings-highlight"
-									   autocomplete="off"/>
-								<label class="lbl" for="ace-settings-highlight"> Alt. Active Item</label>
-							</div>
-						</div><!-- /.pull-left -->
-					</div><!-- /.ace-settings-box -->
-				</div><!-- /.ace-settings-container -->
+	</div><!-- /.page -->
 
-				<div class="page-header">
-					<h1>
-						Bảng Điều Khiển
-						<small>
-							<i class="ace-icon fa fa-angle-double-right"></i>
-							overview &amp; stats
-						</small>
-					</h1>
-				</div><!-- /.page-header -->
+</div><!-- /.wrapper -->
 
-				<div class="row">
-					<!-- PAGE CONTENT ENDS -->
-				</div><!-- /.col -->
-			</div><!-- /.row -->
-		</div><!-- /.page-content -->
-	</div>
-</div><!-- /.main-content -->
-
-<div class="footer">
-	<div class="footer-inner">
-		<div class="footer-content">
-						<span class="bigger-120">
-							<span class="blue bolder">BookStore</span>
-							Application &copy; 2018
-						</span>
-
-			&nbsp; &nbsp;
-			<span class="action-buttons">
-							<a href="#">
-								<i class="ace-icon fa fa-twitter-square light-blue bigger-150"></i>
-							</a>
-
-							<a href="#">
-								<i class="ace-icon fa fa-facebook-square text-primary bigger-150"></i>
-							</a>
-
-							<a href="#">
-								<i class="ace-icon fa fa-rss-square orange bigger-150"></i>
-							</a>
-						</span>
-		</div>
-	</div>
-</div>
-
-<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
-	<i class="ace-icon fa fa-angle-double-up icon-only bigger-110"></i>
-</a>
-</div><!-- /.main-container -->
-
-<!-- basic scripts -->
-
-<!--[if !IE]> -->
-<script src="/js/jquery-2.1.4.min.js"></script>
-
-<!-- <![endif]-->
-
-<!--[if IE]>
-<script src="/js/jquery-1.11.3.min.js"></script>
-<![endif]-->
-<script type="text/javascript">
-    if ('ontouchstart' in document.documentElement) document.write("<script src='/js/jquery.mobile.custom.min.js'>" + "<" + "/script>");
-</script>
-<script src="/js/bootstrap.min.js"></script>
-
-<!-- page specific plugin scripts -->
-
-<!--[if lte IE 8]>
-<script src="/js/excanvas.min.js"></script>
-<![endif]-->
-<script src="/js/jquery-ui.custom.min.js"></script>
-<script src="/js/jquery.ui.touch-punch.min.js"></script>
-<script src="/js/jquery.easypiechart.min.js"></script>
-<script src="/js/jquery.sparkline.index.min.js"></script>
-<script src="/js/jquery.flot.min.js"></script>
-<script src="/js/jquery.flot.pie.min.js"></script>
-<script src="/js/jquery.flot.resize.min.js"></script>
-
-<!-- ace scripts -->
-<script src="/js/ace-elements.min.js"></script>
-<script src="/js/ace.min.js"></script>
-
-<!-- inline scripts related to this page -->
-<script type="text/javascript">
-    jQuery(function ($) {
-        $('.easy-pie-chart.percentage').each(function () {
-            var $box = $(this).closest('.infobox');
-            var barColor = $(this).data('color') || (!$box.hasClass('infobox-dark') ? $box.css('color') : 'rgba(255,255,255,0.95)');
-            var trackColor = barColor == 'rgba(255,255,255,0.95)' ? 'rgba(255,255,255,0.25)' : '#E2E2E2';
-            var size = parseInt($(this).data('size')) || 50;
-            $(this).easyPieChart({
-                barColor: barColor,
-                trackColor: trackColor,
-                scaleColor: false,
-                lineCap: 'butt',
-                lineWidth: parseInt(size / 10),
-                animate: ace.vars['old_ie'] ? false : 1000,
-                size: size
-            });
-        })
-
-        $('.sparkline').each(function () {
-            var $box = $(this).closest('.infobox');
-            var barColor = !$box.hasClass('infobox-dark') ? $box.css('color') : '#FFF';
-            $(this).sparkline('html',
-                {
-                    tagValuesAttribute: 'data-values',
-                    type: 'bar',
-                    barColor: barColor,
-                    chartRangeMin: $(this).data('min') || 0
-                });
-        });
-
-
-        //flot chart resize plugin, somehow manipulates default browser resize event to optimize it!
-        //but sometimes it brings up errors with normal resize event handlers
-        $.resize.throttleWindow = false;
-
-        var placeholder = $('#piechart-placeholder').css({'width': '90%', 'min-height': '150px'});
-        var data = [
-            {label: "social networks", data: 38.7, color: "#68BC31"},
-            {label: "search engines", data: 24.5, color: "#2091CF"},
-            {label: "ad campaigns", data: 8.2, color: "#AF4E96"},
-            {label: "direct traffic", data: 18.6, color: "#DA5430"},
-            {label: "other", data: 10, color: "#FEE074"}
-        ]
-
-
-        /**
-         we saved the drawing function and the data to redraw with different position later when switching to RTL mode dynamically
-         so that's not needed actually.
-         */
-
-            //pie chart tooltip example
-        var $tooltip = $("<div class='tooltip top in'><div class='tooltip-inner'></div></div>").hide().appendTo('body');
-        var previousPoint = null;
-
-        placeholder.on('plothover', function (event, pos, item) {
-            if (item) {
-                if (previousPoint != item.seriesIndex) {
-                    previousPoint = item.seriesIndex;
-                    var tip = item.series['label'] + " : " + item.series['percent'] + '%';
-                    $tooltip.show().children(0).text(tip);
-                }
-                $tooltip.css({top: pos.pageY + 10, left: pos.pageX + 10});
-            } else {
-                $tooltip.hide();
-                previousPoint = null;
-            }
-
-        });
-
-        /////////////////////////////////////
-        $(document).one('ajaxloadstart.page', function (e) {
-            $tooltip.remove();
-        });
-
-
-        var d1 = [];
-        for (var i = 0; i < Math.PI * 2; i += 0.5) {
-            d1.push([i, Math.sin(i)]);
-        }
-
-        var d2 = [];
-        for (var i = 0; i < Math.PI * 2; i += 0.5) {
-            d2.push([i, Math.cos(i)]);
-        }
-
-        var d3 = [];
-        for (var i = 0; i < Math.PI * 2; i += 0.2) {
-            d3.push([i, Math.tan(i)]);
-        }
-
-
-        var sales_charts = $('#sales-charts').css({'width': '100%', 'height': '220px'});
-        $.plot("#sales-charts", [
-            {label: "Domains", data: d1},
-            {label: "Hosting", data: d2},
-            {label: "Services", data: d3}
-        ], {
-            hoverable: true,
-            shadowSize: 0,
-            series: {
-                lines: {show: true},
-                points: {show: true}
-            },
-            xaxis: {
-                tickLength: 0
-            },
-            yaxis: {
-                ticks: 10,
-                min: -2,
-                max: 2,
-                tickDecimals: 3
-            },
-            grid: {
-                backgroundColor: {colors: ["#fff", "#fff"]},
-                borderWidth: 1,
-                borderColor: '#555'
-            }
-        });
-
-
-        $('#recent-box [data-rel="tooltip"]').tooltip({placement: tooltip_placement});
-
-        function tooltip_placement(context, source) {
-            var $source = $(source);
-            var $parent = $source.closest('.tab-content')
-            var off1 = $parent.offset();
-            var w1 = $parent.width();
-
-            var off2 = $source.offset();
-            //var w2 = $source.width();
-
-            if (parseInt(off2.left) < parseInt(off1.left) + parseInt(w1 / 2)) return 'right';
-            return 'left';
-        }
-
-
-        $('.dialogs,.comments').ace_scroll({
-            size: 300
-        });
-
-
-        //Android's default browser somehow is confused when tapping on label which will lead to dragging the task
-        //so disable dragging when clicking on label
-        var agent = navigator.userAgent.toLowerCase();
-        if (ace.vars['touch'] && ace.vars['android']) {
-            $('#tasks').on('touchstart', function (e) {
-                var li = $(e.target).closest('#tasks li');
-                if (li.length == 0) return;
-                var label = li.find('label.inline').get(0);
-                if (label == e.target || $.contains(label, e.target)) e.stopImmediatePropagation();
-            });
-        }
-
-        $('#tasks').sortable({
-                opacity: 0.8,
-                revert: true,
-                forceHelperSize: true,
-                placeholder: 'draggable-placeholder',
-                forcePlaceholderSize: true,
-                tolerance: 'pointer',
-                stop: function (event, ui) {
-                    //just for Chrome!!!! so that dropdowns on items don't appear below other items after being moved
-                    $(ui.item).css('z-index', 'auto');
-                }
-            }
-        );
-        $('#tasks').disableSelection();
-        $('#tasks input:checkbox').removeAttr('checked').on('click', function () {
-            if (this.checked) $(this).closest('li').addClass('selected');
-            else $(this).closest('li').removeClass('selected');
-        });
-
-
-        //show the dropdowns on top or bottom depending on window height and menu position
-        $('#task-tab .dropdown-hover').on('mouseenter', function (e) {
-            var offset = $(this).offset();
-
-            var $w = $(window)
-            if (offset.top > $w.scrollTop() + $w.innerHeight() - 100)
-                $(this).addClass('dropup');
-            else $(this).removeClass('dropup');
-        });
-
-    })
-</script>
 </body>
+
+<!-- Mirrored from htmlcooker.com/tvlgiao/everything/assets/everything/fashion/404.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 19 Oct 2015 02:43:37 GMT -->
 </html>

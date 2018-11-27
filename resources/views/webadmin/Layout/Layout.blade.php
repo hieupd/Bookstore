@@ -30,7 +30,7 @@
             <a href="/admin/dashboard" class="navbar-brand">
                 <small>
                     <i class="fa fa-leaf"></i>
-                    BookStore
+                    MotSach
                 </small>
             </a>
         </div>
@@ -39,11 +39,9 @@
             <ul class="nav ace-nav">
                 <li class="light-blue dropdown-modal">
                     <a data-toggle="dropdown" href="#" class="dropdown-toggle">
-                        <img class="nav-user-photo" src="/images/avatars/user.jpg"
-                             alt="Jason's Photo"/>
                         <span class="user-info">
-									<small>Welcome,</small>
-									Jason
+									<small>Xin chào,</small>
+									{{Auth::user()->user_fname}}
 								</span>
 
                         <i class="ace-icon fa fa-caret-down"></i>
@@ -51,25 +49,17 @@
 
                     <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
                         <li>
-                            <a href="#">
+                            <a href="/">
                                 <i class="ace-icon fa fa-cog"></i>
-                                Settings
+                                Quay lại trang chủ
                             </a>
                         </li>
-
-                        <li>
-                            <a href="../profile.blade.php">
-                                <i class="ace-icon fa fa-user"></i>
-                                Profile
-                            </a>
-                        </li>
-
                         <li class="divider"></li>
 
                         <li>
-                            <a href="/admin/login">
+                            <a href="/logout">
                                 <i class="ace-icon fa fa-power-off"></i>
-                                Logout
+                                Đăng xuất
                             </a>
                         </li>
                     </ul>
@@ -144,7 +134,6 @@
                             <i class="menu-icon fa fa-caret-right"></i>
                             Quản Lý Tài Khoản
                         </a>
-
                         <b class="arrow"></b>
                     </li>
                     <li class="">
@@ -169,6 +158,14 @@
                                 <a href="/admin/dashboard/bookmanager">
                                     <i class="menu-icon fa fa-caret-right"></i>
                                     Danh sách
+                                </a>
+
+                                <b class="arrow"></b>
+                            </li>
+                            <li class="">
+                                <a href="/admin/dashboard/nonacceptbook">
+                                    <i class="menu-icon fa fa-caret-right"></i>
+                                    Duyệt Sách
                                 </a>
 
                                 <b class="arrow"></b>
@@ -212,27 +209,23 @@
                         </ul>
                     </li>
                     <li class="">
+                        <a href="/admin/dashboard/billmanager">
+                            <i class="menu-icon fa fa-caret-right"></i>
+                            Quản Lý hóa đơn
+                        </a>
+                        <b class="arrow"></b>
+                    </li>
+                    <li class="">
                         <a href="#" class="dropdown-toggle">
-                            <span class="menu-text"> Quản Lý Bán Hàng </span>
-
+                            <span class="menu-text"> Khác </span>
                             <b class="arrow fa fa-angle-down"></b>
                         </a>
-
                         <b class="arrow"></b>
-
                         <ul class="submenu">
                             <li class="">
-                                <a href="/admin/dashboard/billmanager">
+                                <a href="/admin/dashboard/slidemanager">
                                     <i class="menu-icon fa fa-caret-right"></i>
-                                    Hóa Đơn
-                                </a>
-
-                                <b class="arrow"></b>
-                            </li>
-                            <li class="">
-                                <a href="/admin/dashboard/viewManager">
-                                    <i class="menu-icon fa fa-caret-right"></i>
-                                    Thống kê
+                                    Quản lý slide
                                 </a>
 
                                 <b class="arrow"></b>
@@ -339,7 +332,7 @@
         <div class="footer-inner">
             <div class="footer-content">
 						<span class="bigger-120">
-							<span class="blue bolder">BookStore</span>
+							<span class="blue bolder">MotSach</span>
 							Application &copy; 2018
 						</span>
 

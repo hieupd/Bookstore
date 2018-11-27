@@ -24,7 +24,7 @@ class LoginController extends Controller
             'password' => $request->password,
         ];
         if (Auth::attempt($data)) {
-            return redirect(route('home'));
+            return redirect('/');
 //            if(Auth::user()->role_id == 1)
 //                return redirect(route('home'));
 //            else

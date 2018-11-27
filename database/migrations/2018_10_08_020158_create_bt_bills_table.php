@@ -17,6 +17,7 @@ class CreateBtBillsTable extends Migration
             $table->increments('bill_id');
             $table->integer('member_id');
             $table->integer('bill_tprice');
+            $table->string('ship_address')->nullable();
             $table->string('bill_status');
             $table->timestamps();
         });

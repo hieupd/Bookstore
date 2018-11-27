@@ -28,6 +28,10 @@ class bt_book extends Model
      * @var array
      */
 
+    public function getSalePriceAttributes()
+    {
+        return $this->book_price-($this->book_sale*$this->book_price)/100;
+    }
     protected $hidden = [
 
     ];

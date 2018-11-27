@@ -3,7 +3,7 @@
     {{$BookDetail->book_name}}
 @endsection
 @section('css')
-    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/dist/bootstrap.min.css" />
 
     <!-- page specific plugin styles -->
     <link rel="stylesheet" href="/css/jquery-ui.min.css" />
@@ -57,7 +57,7 @@
         <ul class="breadcrumb">
             <li>
                 <i class="ace-icon fa fa-home home-icon"></i>
-                <a href="#">Trang Chủ</a>
+                <a href="/admin/dashboard/">Trang Chủ</a>
             </li>
 
             <li>
@@ -87,7 +87,7 @@
 @endsection
 @section('Content')
     <div class="row" style="font-family: Helvetica, Arial, sans-serif ; font-weight: bold ">
-        <div class="col-md-3">
+        <div class="col-md-4">
             <img style="width: 301px; height: 401px" src="/upload/book_image/{{$BookDetail->book_image}}">
         </div>
         <div class="col-md-6">

@@ -8,6 +8,12 @@ use phpDocumentor\Reflection\Types\Array_;
 
 class MLController extends Controller
 {
+    function itemratequntity($itemid) // kiểm tra xem số lượng rating của 1 item có lớn hơn 1 k . Nếu số lượng  = 1 thì k tính đc độ tương đồng dẫn đến lỗi
+    {
+        $temp =  bt_rate::where('book_id',$itemid)->count();
+        if($temp > 1) return false;
+        return true;
+    }
     function Check($rating,$ratequantity,$x,$y ) // kiem tra xem rate da co trong mang hay chua
     {
             for ($j = 0; $j < $ratequantity; $j++) {
@@ -18,7 +24,7 @@ class MLController extends Controller
             }
         return false;
     }
-    function GetVector(array $ratmatrix,$totalrate,$itemid) // lay vector
+    function GetVector(array $ratmatrix,$totalrate,$itemid) // Lấy 1 vector của item từ mảng ratmatrix
     {
         $vector =array();
         for ($i = 0 ; $i < $totalrate; $i++)
@@ -38,10 +44,14 @@ class MLController extends Controller
         $Scalarofanb = 0;
         for ($i = 1 ; $i <= $userquantity; $i++ )
         {
+            //echo " a thứ : ".$i. ": ".pow($a[$i],2)." b th:" .$i."".pow($b[$i],2)."\n";
+
             $LengthOfVtora += pow($a[$i],2);
             $LengthOfVtorb += pow($b[$i],2);
             $Scalarofanb += ($a[$i]*$b[$i]);
         }
+       // echo $LengthOfVtora."\n";
+       // echo $LengthOfVtorb."\n";
         if($LengthOfVtora!=0 && $LengthOfVtorb!=0)
             $Cosin = $Scalarofanb/(sqrt($LengthOfVtora)*sqrt($LengthOfVtorb));
         return $Cosin;
@@ -75,19 +85,19 @@ class MLController extends Controller
         }
         return $avgrating;
     }
-//    public function Normaliziedmatrix( $avgrating,$ratequantity,$ratmatrix)
-//    {
-//        foreach ($avgrating as $key=>$val)
-//        {
-//            for($i = 0;$i < $ratequantity;$i++) {
-//                if($ratmatrix[$i][1] == $key)
-//                {
-//                    (float)$ratmatrix[$i][2] = (float)($ratmatrix[$i][2]) - (float)$val;
-//                }
-//            }
-//        }
-//
-//    }
+    public function Normaliziedmatrix( $avgrating,$ratequantity,$ratmatrix)
+    {
+        foreach ($avgrating as $key=>$val)
+        {
+            for($i = 0;$i < $ratequantity;$i++) {
+                if($ratmatrix[$i][1] == $key)
+                {
+                    (float)$ratmatrix[$i][2] = (float)($ratmatrix[$i][2]) - (float)$val;
+                }
+            }
+        }
+
+    }
     public function Similarmatrix($itemquantity,$Litem,$itemid,$ratmatrix,$totalrate,$userquantity) // ma tran tuong dong
     {
         $Vectorofitemid = $this->GetVector($ratmatrix,$totalrate,$itemid);
@@ -95,10 +105,12 @@ class MLController extends Controller
         $Arrofsimilarity = array();
         for ($i = 0;$i < $itemquantity;$i++)
         {
-            if($Litem[$i]->book_id != $itemid)
+            if(($Litem[$i]->book_id != $itemid) && ($this->itemratequntity($Litem[$i]->book_id)== false))
             {
                 $Vectorofitemcompared = $this->GetVector($ratmatrix,$totalrate,$Litem[$i]->book_id);
                 ksort($Vectorofitemcompared);
+               // echo "sách so sanhs " .$itemid ."\n";
+              //  echo "sách " .$Litem[$i]->book_id ."\n";
                 $Arrofsimilarity[$Litem[$i]->book_id] = $this->Cosin($Vectorofitemid,$Vectorofitemcompared,$userquantity);
             }
         }
@@ -194,7 +206,7 @@ class MLController extends Controller
         $arrRecommended = array();
         for($i = 0 ; $i < $totalrate;$i++)
         {
-            if(($userid == $ratmatrix[$i][0])&&($ratmatrix[$i][2]==0))
+            if(($userid == $ratmatrix[$i][0])&&($ratmatrix[$i][2]==0)&&($this->itemratequntity($ratmatrix[$i][1]) == false))
             {
                 if($this->Recommend($itemquantity,$Litem,$ratmatrix[$i][1],$ratmatrix,$totalrate,$userquantity,$rating,$userid))
                 {

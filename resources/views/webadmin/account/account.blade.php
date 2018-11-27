@@ -3,7 +3,7 @@
     Quản Lý Tài Khoản
 @endsection
 @section('css')
-    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/dist/bootstrap.min.css" />
 
     <!-- page specific plugin styles -->
     <link rel="stylesheet" href="/css/jquery-ui.min.css" />
@@ -56,7 +56,7 @@
         <ul class="breadcrumb">
             <li>
                 <i class="ace-icon fa fa-home home-icon"></i>
-                <a href="#">Trang Chủ</a>
+                <a href="/admin/dashboard">Trang Chủ</a>
             </li>
 
             <li>
@@ -86,6 +86,14 @@
                     {{session('Thongbao')}} </br>
                 </div>
             @endif
+            @if(session('Loi'))
+                <div class="alert alert-danger">
+                    {{session('Loi')}} </br>
+                </div>
+            @endif
+            <div id="Error">
+
+            </div>
     <table class="table table-striped table-bordered table-hover" id="dataTables-example">
         <thead>
         <tr align="center">
@@ -94,8 +102,8 @@
             <th>Tài khoản</th>
             <th style="width: 250px">Mật Khẩu</th>
             <th>Quyền</th>
-            <th>Delete</th>
-            <th style="width: 100px">Edit</th>
+            <th>Xóa</th>
+            <th style="width: 100px">Sửa</th>
         </tr>
         </thead>
         <tbody>
@@ -110,17 +118,21 @@
             <td>
                 <select class="form-control" style="display:none" id="select1{{$account->id}}">
                     @foreach($Roles as $role)
-                        <option value="{{$role->role_id}}">
+                        <option
+                                @if($account->role_id == $role->role_id)
+                                        {{"selected"}}
+                                @endif
+                                value="{{$role->role_id}}">
                             {{$role->role_name}}
                         </option>
                     @endforeach
                 </select>
                 <span class="role{{$account->id}}">{{$account->role_name}}</span>
             </td>
-            <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="/admin/dashboard/accountmanager/delete/{{$account->id}}"> Delete</a></td>
-            <td class="center"><i class="fa fa-pencil fa-fw" id="icon1{{$account->id}}"></i> <a href="#" id="{{$account->id}}" class="Edit_r">Edit</a>
-                <i class="fa fa-trash-o  fa-fw" style="display: none"></i><a href="#" id="Save{{$account->id}}" style="display: none"> Save</a>&nbsp
-                <i class="fa fa-pencil fa-fw" style="display: none"></i> <a href="#" id="Cancel{{$account->id}}" style="display: none">Cancel</a>
+            <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="/admin/dashboard/accountmanager/delete/{{$account->id}}"> Xóa</a></td>
+            <td class="center"><i class="fa fa-pencil fa-fw" id="icon1{{$account->id}}"></i> <a href="#" id="{{$account->id}}" class="Edit_r">Sửa</a>
+                <i class="fa fa-trash-o  fa-fw" style="display: none"></i><a href="#" id="Save{{$account->id}}" style="display: none"> Lưu</a>&nbsp&nbsp
+                <i class="fa fa-pencil fa-fw" style="display: none"></i> <a href="#" id="Cancel{{$account->id}}" style="display: none">Hủy</a>
             </td>
             </form>
         </tr>
@@ -157,7 +169,7 @@
     <script src="/dist/js/sb-admin-2.js"></script>
 
     <!-- DataTables JavaScript -->
-    <script src="/bower_components/DataTables/media/js/jquery.dataTables.min.js"></script>
+    <script src="/bower_components/jquery.dataTables.min.js"></script>
     <script src="/bower_components/datatables-plugins/integration/bootstrap/3/dataTables.bootstrap.min.js"></script>
     <script>
         $(document).ready(function() {
@@ -184,6 +196,7 @@
                     $("#"+id).show();
                 });
                 $("#Save"+id).click(function () {
+                    var usercurrRole = $(".role"+id).text();
                     var role = $("#select1"+id).val();
                     $.ajaxSetup({
                         headers: {
@@ -199,24 +212,58 @@
                                 "role_id":role
                             },
                         success: function (data) {
-                            if(data == "Success")
+                            if(data == "Error1")
                             {
+                                $(".role"+id).text(usercurrRole);
                                 $("#select1"+id).hide();
                                 $(".role"+id).show();
                                 $("#Save"+id).hide();
                                 $("#Cancel"+id).hide();
                                 $("#icon1"+id).show();
                                 $("#"+id).show();
+                                $("#Error").html("   <div class=\"alert alert-danger\">\n" +
+                                    "                    <p> Bạn không thể cấp quyền cho người dùng ngang hoặc hơn quyền bản thân ! </p>\n" +
+                                    "                </div>");
+
+                            }
+                            else if (data == "Error2")
+                            {
+                                $(".role"+id).text(usercurrRole);
+                                $("#select1"+id).hide();
+                                $(".role"+id).show();
+                                $("#Save"+id).hide();
+                                $("#Cancel"+id).hide();
+                                $("#icon1"+id).show();
+                                $("#"+id).show();
+                                $("#Error").html("   <div class=\"alert alert-danger\">\n" +
+                                    "                    <p> Bạn không thể thay đổi quyền của người dùng có quyền bằng hoặc cao hơn bạn ! </p>\n" +
+                                    "                </div>");
+
+                            }
+                            else if (data == "Error3")
+                            {
+                                $(".role"+id).text(usercurrRole);
+                                $("#select1"+id).hide();
+                                $(".role"+id).show();
+                                $("#Save"+id).hide();
+                                $("#Cancel"+id).hide();
+                                $("#icon1"+id).show();
+                                $("#"+id).show();
+                                $("#Error").html("   <div class=\"alert alert-danger\">\n" +
+                                    "                    <p> Bạn không thể thay đổi quyền của bản thân ! </p>\n" +
+                                    "                </div>");
+
                             }
                             else
                             {
-                                alert("đã có lỗi xảy ra !");
+                                $(".role"+id).text(data);
                                 $("#select1"+id).hide();
                                 $(".role"+id).show();
                                 $("#Save"+id).hide();
                                 $("#Cancel"+id).hide();
                                 $("#icon1"+id).show();
                                 $("#"+id).show();
+                                $("#Error").html("");
                             }
 
                         }

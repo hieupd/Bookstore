@@ -3,7 +3,7 @@
     Thêm Sản Phẩm
 @endsection
 @section('css')
-    <link href="/css/bootstrap.css" rel="stylesheet" type="text/css" media="all"/>
+    <link href="/dist/bootstrap.min.css" rel="stylesheet" type="text/css" media="all"/>
     <link href="/css/style.css" rel="stylesheet" type="text/css" media="all"/>
     <!-- page specific plugin styles -->
     <link rel="stylesheet" href="/css/jquery-ui.min.css" />
@@ -57,14 +57,14 @@
         <ul class="breadcrumb">
             <li>
                 <i class="ace-icon fa fa-home home-icon"></i>
-                <a href="#">Trang Chủ</a>
+                <a href="/admin/dashboard/">Trang Chủ</a>
             </li>
 
             <li>
                 <a href="#">Quản Lý</a>
             </li>
             <li>
-                <a href="#">Quản Lý Sản Phẩm</a>
+                <a href="/admin/dashboard/bookmanager">Quản Lý Sản Phẩm</a>
             </li>
             <li class="active">Thêm sản phẩm</li>
         </ul><!-- /.breadcrumb -->
@@ -79,7 +79,6 @@
                 Thêm sản phẩm
             </small>
             <!-- /.nav-search -->
-            <button type="submit" class="btn btn-default" onclick="Redirect();" style="float: right;"> << Quay lại trang quản lý</button>
         </h1>
     </div>
 @endsection
@@ -87,6 +86,19 @@
 
                     <form action="/admin/dashboard/bookmanager/addbook" method="POST" enctype="multipart/form-data">
                         {{csrf_field()}}
+                        @if(count($errors) > 0)
+                            <div class="alert alert-danger">
+                                @foreach($errors -> all() as $err)
+                                {{$err}}
+                                </br>
+                                @endforeach
+                            </div>
+                        @endif
+                        @if(session('Thongbao'))
+                            <div class="alert alert-success">
+                                {{session('Thongbao')}} </br>
+                            </div>
+                        @endif
                         <div class="row">
                             <div class="col-md-5">
                                 <div class="form-group">
@@ -150,7 +162,7 @@
                                 <div class="form-group">
                                     <div class="form-group">
                                         <label>Nhà cung cấp</label>
-                                        <input class="form-control" style="width: 450px" name="txtbook_provider" placeholder="Nhập nhà cung cấp" />
+                                        <input class="form-control" value="{{Auth::user()->user_fname}}" style="width: 450px" name="txtbook_provider" placeholder="Nhập nhà cung cấp" />
                                     </div>
                                 </div>
                             </div>
@@ -227,19 +239,7 @@
                             <label>Mô tả Sách</label>
                             <textarea id="demo" class="ckeditor" name="txtbook_dsc"></textarea>
                         </div>
-                        @if(count($errors) > 0)
-                            <div class="alert alert-danger">
-                                @foreach($errors -> all() as $err)
-                                {{$err}}
-                                </br>
-                                @endforeach
-                            </div>
-                        @endif
-                        @if(session('Thongbao'))
-                            <div class="alert alert-success">
-                                {{session('Thongbao')}} </br>
-                            </div>
-                        @endif
+
                         <button type="submit" class="btn btn-default">Thêm sản phẩm</button>
                         <button type="reset" class="btn btn-default" onclick="Redirect();">Hủy</button>
                     </form>

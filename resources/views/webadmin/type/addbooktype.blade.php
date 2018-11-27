@@ -3,7 +3,7 @@
     Thêm danh mục
 @endsection
 @section('css')
-    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/dist/bootstrap.min.css" />
 
     <!-- page specific plugin styles -->
     <link rel="stylesheet" href="/css/jquery-ui.min.css" />
@@ -56,9 +56,8 @@
         <ul class="breadcrumb">
             <li>
                 <i class="ace-icon fa fa-home home-icon"></i>
-                <a href="#">Trang Chủ</a>
+                <a href="/admin/dashboard">Trang Chủ</a>
             </li>
-
             <li>
                 <a href="#">Quản Lý</a>
             </li>
