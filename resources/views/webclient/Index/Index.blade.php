@@ -299,22 +299,23 @@
                                             <div class="widget-products em-widget-products">
                                                 <div class="products-list ">
                                                     @for($i = 0 ; $i <3;$i++)
+                                                        @if($topSale[$i] != null)
                                                     <div class="item" style="  ">
                                                         <a href="#" title="Cross Back Dress" class="product-image">
-                                                            <img style="" class="em-alt-hover img-responsive em-lazy-loaded" src="/upload/book_image/{{$LNewsBook[$i]->book_image}}" data-original="/upload/book_image/{{$LNewsBook[$i]->book_image}}" alt="Cross Back Dress" height="110" width="110">
-                                                            <img class="img-responsive em-alt-org em-lazy-loaded" src="/upload/book_image/{{$LNewsBook[$i]->book_image}}" data-original="/upload/book_image/{{$LNewsBook[$i]->book_image}}" alt="Cross Back Dress" height="110" width="110">
+                                                            <img style="" class="em-alt-hover img-responsive em-lazy-loaded" src="/upload/book_image/{{$topSale[$i]->book_image}}" data-original="/upload/book_image/{{$topSale[$i]->book_image}}" alt="Cross Back Dress" height="110" width="110">
+                                                            <img class="img-responsive em-alt-org em-lazy-loaded" src="/upload/book_image/{{$topSale[$i]->book_image}}" data-original="/upload/book_image/{{$topSale[$i]->book_image}}" alt="Cross Back Dress" height="110" width="110">
                                                         </a>
                                                         <div class="product-shop">
                                                             <div class="f-fix">
                                                                 <!--product name-->
 
-                                                                <h3 class="product-name"><a href="/Product/singleproduct/{{$LNewsBook[$i]->book_id}}" title="Cross Back Dress">{{$LNewsBook[$i]->book_name}}</a></h3>
+                                                                <h3 class="product-name"><a href="/Product/singleproduct/{{$topSale[$i]->book_id}}" title="Cross Back Dress">{{$topSale[$i]->book_name}}</a></h3>
                                                                 <!--product description-->
                                                                 <!--product reviews-->
                                                                 <div class="ratings">
                                                                     <div class="rating-box">
                                                                         @foreach($Rating as $rating)
-                                                                            @if($rating->book_id == $LNewsBook[$i]->book_id)
+                                                                            @if($rating->book_id == $topSale[$i]->book_id)
                                                                                 <div class="rating" style="width:{{$rating->rating/5*100}}%"></div> <!-- chỉnh rating bằng cách sử dụng %-->
                                                                             @endif
                                                                         @endforeach
@@ -323,20 +324,20 @@
                                                                 <!--product price-->
                                                                 <div class="price-box">
                                                                     <span class="regular-price" id="product-price-166-emprice-420d7edd38e60d3ae400966629e226d2">
-                                                                        <span class="price">{{number_format(($LNewsBook[$i]->book_price - ($LNewsBook[$i]->book_price * $LNewsBook[$i]->book_sale)/100),0,',','.') }} đ</span>
+                                                                        <span class="price">{{number_format(($topSale[$i]->book_price - ($topSale[$i]->book_price * $topSale[$i]->book_sale)/100),0,',','.') }} đ</span>
                                                                     </span>
 
                                                                 </div>
                                                                 <div class="em-element-display-hover bottom">
                                                                     <div class="em-btn-addto">
-                                                                    @if($LNewsBook[$i]->book_quantity)
+                                                                    @if($topSale[$i]->book_quantity)
                                                                         <!--product add to cart-->
-                                                                        <a href="/Addtocart/{{$LNewsBook[$i]->book_id}}/{{$LNewsBook[$i]->book_name}}"> <button type="button" title="Add to Cart" class="button btn-cart" onclick="217">
+                                                                        <a href="/Addtocart/{{$topSale[$i]->book_id}}/{{$topSale[$i]->book_name}}"> <button type="button" title="Add to Cart" class="button btn-cart" onclick="217">
                                                                             </button></a>
                                                                     @endif
                                                                         <!--product add to compare-wishlist-->
                                                                         <div class="quickshop-link-container">
-                                                                            <a href="/Product/singleproduct/{{$LNewsBook[$i]->book_id}}" class="quickshop-link" title="Quickshop">Xem nhanh</a>
+                                                                            <a href="/Product/singleproduct/{{$topSale[$i]->book_id}}" class="quickshop-link" title="Quickshop">Xem nhanh</a>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -344,25 +345,27 @@
                                                             </div>
                                                         </div>
                                                     </div><!-- /.item -->
+                                                        @endif
                                                     @endfor
                                                 </div><!-- /.products-list -->
                                                 <div class="products-list ">
                                                     @for($i = 3 ; $i <6;$i++)
+                                                        @if($topSale[$i] != null)
                                                         <div class="item" style="  ">
                                                             <a href="#" title="Cross Back Dress" class="product-image">
-                                                                <img style="" class="em-alt-hover img-responsive em-lazy-loaded" src="/upload/book_image/{{$LNewsBook[$i]->book_image}}" data-original="/upload/book_image/{{$LNewsBook[$i]->book_image}}" alt="Cross Back Dress" height="110" width="110">
-                                                                <img class="img-responsive em-alt-org em-lazy-loaded" src="/upload/book_image/{{$LNewsBook[$i]->book_image}}" data-original="/upload/book_image/{{$LNewsBook[$i]->book_image}}" alt="Cross Back Dress" height="110" width="110">
+                                                                <img style="" class="em-alt-hover img-responsive em-lazy-loaded" src="/upload/book_image/{{$topSale[$i]->book_image}}" data-original="/upload/book_image/{{$topSale[$i]->book_image}}" alt="Cross Back Dress" height="110" width="110">
+                                                                <img class="img-responsive em-alt-org em-lazy-loaded" src="/upload/book_image/{{$topSale[$i]->book_image}}" data-original="/upload/book_image/{{$topSale[$i]->book_image}}" alt="Cross Back Dress" height="110" width="110">
                                                             </a>
                                                             <div class="product-shop">
                                                                 <div class="f-fix">
                                                                     <!--product name-->
-                                                                    <h3 class="product-name"><a href="/Product/singleproduct/{{$LNewsBook[$i]->book_id}}" title="Cross Back Dress">{{$LNewsBook[$i]->book_name}}</a></h3>
+                                                                    <h3 class="product-name"><a href="/Product/singleproduct/{{$topSale[$i]->book_id}}" title="Cross Back Dress">{{$topSale[$i]->book_name}}</a></h3>
                                                                     <!--product description-->
                                                                     <!--product reviews-->
                                                                     <div class="ratings">
                                                                         <div class="rating-box">
                                                                             @foreach($Rating as $rating)
-                                                                                @if($rating->book_id == $LNewsBook[$i]->book_id)
+                                                                                @if($rating->book_id == $topSale[$i]->book_id)
                                                                                     <div class="rating" style="width:{{$rating->rating/5*100}}%"></div> <!-- chỉnh rating bằng cách sử dụng %-->
                                                                                 @endif
                                                                             @endforeach
@@ -371,20 +374,20 @@
                                                                     <!--product price-->
                                                                     <div class="price-box">
                                                                     <span class="regular-price" id="product-price-166-emprice-420d7edd38e60d3ae400966629e226d2">
-                                                                        <span class="price">{{number_format(($LNewsBook[$i]->book_price - ($LNewsBook[$i]->book_price * $LNewsBook[$i]->book_sale)/100),0,',','.') }} đ</span>
+                                                                        <span class="price">{{number_format(($topSale[$i]->book_price - ($topSale[$i]->book_price * $topSale[$i]->book_sale)/100),0,',','.') }} đ</span>
                                                                     </span>
 
                                                                     </div>
                                                                     <div class="em-element-display-hover bottom">
                                                                         <div class="em-btn-addto">
-                                                                        @if($LNewsBook[$i]->book_quantity)
+                                                                        @if($topSale[$i]->book_quantity)
                                                                             <!--product add to cart-->
-                                                                            <a href="/Addtocart/{{$LNewsBook[$i]->book_id}}/{{$LNewsBook[$i]->book_name}}"> <button type="button" title="Add to Cart" class="button btn-cart" onclick="217">
+                                                                            <a href="/Addtocart/{{$topSale[$i]->book_id}}/{{$topSale[$i]->book_name}}"> <button type="button" title="Add to Cart" class="button btn-cart" onclick="217">
                                                                                 </button></a>
                                                                         @endif
                                                                             <!--product add to compare-wishlist-->
                                                                             <div class="quickshop-link-container">
-                                                                                <a href="/Product/singleproduct/{{$LNewsBook[$i]->book_id}}" class="quickshop-link" title="Quickshop">Xem nhanh</a>
+                                                                                <a href="/Product/singleproduct/{{$topSale[$i]->book_id}}" class="quickshop-link" title="Quickshop">Xem nhanh</a>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -392,6 +395,7 @@
                                                                 </div>
                                                             </div>
                                                         </div><!-- /.item -->
+                                                        @endif
                                                     @endfor
                                                 </div><!-- /.products-list -->
                                             </div>
