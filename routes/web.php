@@ -31,7 +31,7 @@ Route::get('/Product/Type/{type_id}?order=price', 'BookController@getLbookbyType
 Route::get('/Checkout/Cart', 'CartController@getCart');
 Route::get('/Checkout', 'CartController@getPCheckout');
 // add product to cart
-Route::get('/Addtocart/{id}/{name}', 'CartController@AddtoCart');
+Route::get('/Addtocart/{id}', 'CartController@AddtoCart');
 //Clear cart
 Route::get('/ClearCart', 'CartController@ClearCart');
 // Remove cart
