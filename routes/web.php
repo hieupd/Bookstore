@@ -131,6 +131,7 @@ Route::middleware(['permison', 'auth'])->group(function () {
     Route::get('/CrawlCate','CrawlController@CrawlCate');
     Route::get('/CrawlAllBook','CrawlController@Crawlallbook');
     Route::get('/CrawlBook/{Typeid}','CrawlController@getBook');
+    Route::get('/CrawType','CrawlController@getType');
 });
 // test
 Route::get('/ML/{userid}', 'MLController@recomemded');
