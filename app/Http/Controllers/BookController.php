@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\bt_billinfo;
 use App\bt_category;
 use App\bt_comment;
 use App\bt_rate;
@@ -88,6 +89,7 @@ class BookController extends Controller
         $book->book_size = $request->slcbook_size;
         $book->book_jackettype = $request->txtbook_jackettype;
         $book->book_page = $request->txtbook_page;
+
         if($request->txtbook_quantity == '')
         {
             $book->book_quantity = 0;
@@ -98,6 +100,7 @@ class BookController extends Controller
         }
         $book->book_sale = $request->slcbook_sale;
         $book->book_price = $request->txtbook_price;
+        $book->book_tprice = $request->txtbook_price - ($request->txtbook_price * $request->slcbook_sale /100 );
         if($request->hasFile('Image'))
         {
             $file = $request->file('Image');
@@ -126,6 +129,18 @@ class BookController extends Controller
         $category = bt_category::all();
         $var = ['Book'=>$book,'Type'=>$type,'Category'=>$category];
         return view('webadmin.book.updatebook')->with($var);
+    }
+    public function updatef()
+    {
+        $book = bt_book::all();
+        foreach ($book as $item)
+        {
+            $x = $item->book_price - ($item->book_price * $item->book_sale/100);
+            echo $x;
+            echo "<br>";
+            $item->book_tprice = $x;
+            $item->save();
+        }
     }
     public function postUpdateBook(Request $request, $id)
     {
@@ -187,6 +202,7 @@ class BookController extends Controller
         }
         $book_sale = $request->slcbook_sale;
         $book_price = $request->txtbook_price;
+        $book_tprice = $request->txtbook_price - ($request->txtbook_price * $request->slcbook_sale /100 );
         if($request->hasFile('Image'))
         {
             $file = $request->file('Image');
@@ -221,7 +237,8 @@ class BookController extends Controller
             'book_sale' => $book_sale,
             'book_price' => $book_price,
             'book_dsc' => $book_dsc,
-            'book_image' => $book_image
+            'book_image' => $book_image,
+            'book_tprice' => $book_tprice,
         ]);
         if(!Cart::isEmpty())
         {
@@ -269,13 +286,17 @@ class BookController extends Controller
         $book =bt_book::where('book_status',1)->orderby('book_id','desc')->take(10)->get();
         if($book->count() < 8 )
             $book = null;
-        $LNewsbooks = bt_book::where('book_status',1)->orderBy('book_id','desc')->take(6)->get();
-        if($LNewsbooks->count() < 6)
-            $LNewsbooks = null;
+//        join('bt_books','bt_books.book_id','=','bt_billinfos.book_id')
+        $topBooksale = DB::table('bt_billsinfo')
+            ->join('bt_books','bt_books.book_id','=','bt_billsinfo.book_id')
+            ->select(DB::raw('bt_billsinfo.book_id,bt_books.book_name,bt_books.book_image,bt_books.book_sale,bt_books.book_price,bt_books.book_quantity,SUM(bt_billsinfo.book_quantity) as sum'))
+            ->orderBy('sum','desc')->groupBy('bt_billsinfo.book_id','bt_books.book_name','bt_books.book_image','bt_books.book_sale','bt_books.book_price','bt_books.book_quantity')
+            ->take(6)->get();
+
         $category = bt_category::all()->take(9);
         $type = bt_type::all();
         $rating = DB::table('bt_rates')->select(DB::raw('book_id,AVG(book_rating) as rating'))->groupBy('book_id')->get();
-        $var = ['Lslide'=> $Lslide,'Books'=>$book,'LNewsBook'=>$LNewsbooks,'Rating'=>$rating,'Categorys'=>$category,'Types'=>$type];
+        $var = ['Lslide'=> $Lslide,'Books'=>$book,'topSale'=>$topBooksale,'Rating'=>$rating,'Categorys'=>$category,'Types'=>$type];
         return view('webclient.Index.Index')->with($var);
     }
     public function getLbookbyCategory($category_id,Request $request)
@@ -286,7 +307,7 @@ class BookController extends Controller
         if($category != null) {
             $from = $request->get('from','0');
             $to = $request->get('to','500000');
-            $bookraw = DB::table('bt_books')->select(DB::raw('*,(book_price-(book_sale * book_price)/100) as book_tprice'))->where('category_id', $category_id)->where('book_status', 1);
+            $bookraw = bt_book::where('category_id', $category_id)->where('book_status', 1);
             if ($request->get('order') == 'price') {
                 $bookraw->orderBy('book_tprice', $request->get('sort', 'asc'));
                 $sort = $request->get('sort', 'asc');
@@ -302,7 +323,7 @@ class BookController extends Controller
             }
             if($from > 0 || $to < 500000)
             {
-                $bookraw->where('book_price','>',$from)->where('book_price','<',$to);
+                $bookraw->where('book_tprice','>',$from)->where('book_tprice','<',$to);
             }
             $books = $bookraw->paginate(12)->appends(['order'=>$Order,'sort'=>$sort,'from'=>$from,'to'=>$to]);
             $LbooksRecommend = bt_book::all();
@@ -322,7 +343,7 @@ class BookController extends Controller
         {
             $from = $request->get('from','0');
             $to = $request->get('to','500000');
-            $bookraw = DB::table('bt_books')->select(DB::raw('*,(book_price-(book_sale * book_price)/100) as book_tprice'))->where('type_id', $type_id)->where('book_status', 1);
+            $bookraw = bt_book::where('type_id', $type_id)->where('book_status', 1);
             if ($request->get('order') == 'price') {
                 $bookraw->orderBy('book_tprice', $request->get('sort', 'asc'));
                 $sort = $request->get('sort', 'asc');
@@ -338,7 +359,7 @@ class BookController extends Controller
             }
             if($from > 0 || $to < 500000)
             {
-                $bookraw->where('book_price','>',$from)->where('book_price','<',$to);
+                $bookraw->where('book_tprice','>',$from)->where('book_tprice','<',$to);
             }
             $books = $bookraw->paginate(12)->appends(['order'=>$Order,'sort'=>$sort,'from'=>$from,'to'=>$to]);
             $rating = DB::table('bt_rates')->select(DB::raw('book_id,AVG(book_rating) as rating'))->groupBy('book_id')->get();
@@ -484,11 +505,12 @@ class BookController extends Controller
 //        $keyword = $keywords;
         $from = $request->get('from','0');
         $to = $request->get('to','500000');
-        $bookraw = DB::table('bt_books')->select(DB::raw('*,(book_price-(book_sale * book_price)/100) as book_tprice'))
-            ->where('book_name','like',"%".$keyword."%")
-            ->orWhere('book_author','like',"%".$keyword."%")
-            ->orWhere('book_publish','like',"%".$keyword."%")
-            ->orWhere('book_provider','like',"%".$keyword."%")
+        $bookraw = bt_book::where('book_tprice','>',$from)
+            ->where('book_tprice','<',$to)
+            ->where('book_name','like','%'.$keyword.'%')
+            ->orWhere('book_author','like','%'.$keyword.'%')
+            ->orWhere('book_publish','like','%'.$keyword.'%')
+            ->orWhere('book_provider','like','%'.$keyword.'%')
             ->orWhere('book_price',$keyword);
         $count = $bookraw->count();
         if ($request->get('order') == 'price') {
@@ -504,10 +526,7 @@ class BookController extends Controller
             $sort = $request->get('sort', 'asc');
             $Order = "";
         }
-        if($from > 0 || $to < 500000)
-        {
-            $bookraw->where('book_price','>',$from)->where('book_price','<',$to);
-        }
+
         $books = $bookraw->paginate(12)->appends(['order'=>$Order,'sort'=>$sort,'from'=>$from,'to'=>$to]);
         $keyword = str_replace(' ','%',$keywords);
         $rating = DB::table('bt_rates')->select(DB::raw('book_id,AVG(book_rating) as rating'))->groupBy('book_id')->get();

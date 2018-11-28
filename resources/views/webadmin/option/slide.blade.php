@@ -144,11 +144,11 @@
                                 </td>
                                 <td class="center">
                                     <i class="fa fa-trash-o  fa-fw"></i>
-                                    <a href="/admin/dashboard/slidemanager/deleteslide/{{$item->slide_id}}"> Delete</a>
+                                    <a href="/admin/dashboard/slidemanager/deleteslide/{{$item->slide_id}}"> Xóa</a>
                                 </td>
                                 <td class="center">
                                     <i class="fa fa-pencil fa-fw"></i>
-                                    <a href="/admin/dashboard/slidemanager/updateslide/{{$item->slide_id}}">Edit</a>
+                                    <a href="/admin/dashboard/slidemanager/updateslide/{{$item->slide_id}}">Sửa</a>
                                 </td>
                             </tr>
                         @endforeach

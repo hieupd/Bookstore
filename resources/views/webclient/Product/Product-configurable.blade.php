@@ -281,7 +281,7 @@
                                                         <div class="product-options-bottom">
                                                                 <div class="button_addto">
                                                                     @if($Book->book_quantity > 0)
-                                                                    <a href="/Addtocart/{{$Book->book_id}}/{{$Book->book_name}}">
+                                                                    <a href="/Addtocart/{{$Book->book_id}}">
                                                                         <button type="button" title="Add to Cart"
                                                                                 id="product-addtocart-button"
                                                                                 class="button btn-cart btn-cart-detail">
@@ -319,7 +319,7 @@
                                                     @foreach($Book_related as $book)
                                                         <div class="item">
                                                             <div class="product-item">
-                                                                <a href="#" title="All Over Embellished" class="product-image">
+                                                                <a href="#" title="{{$book->book_name}}" class="product-image">
                                                                     <img style="padding-left: 6.5%;padding-top: 5%;width: 200px;height: 264px;" class="em-img-lazy img-responsive" src="/upload/book_image/{{$book->book_image}}" width="180" height="180" alt="All Over Embellished"/> </a>
                                                                 <div class="product-details product-shop">
                                                                     <p class="product-name"><a
@@ -344,7 +344,7 @@
                                                                         <a href="/Product/singleproduct/{{$book->book_id}}" class="quickshop-link"
                                                                            title="Quickshop">Xem nhanh</a>
                                                                     </div>
-                                                                    <a href="/Addtocart/{{$book->book_id}}/{{$book->book_name}}"> <button type="button" title="Add to Cart" class="button btn-cart" onclick="217">
+                                                                    <a href="/Addtocart/{{$book->book_id}}"> <button type="button" title="Add to Cart" class="button btn-cart" onclick="217">
                                                                         </button></a>
                                                                 </div>
                                                             </div>
@@ -471,7 +471,7 @@
                                                                         @if($book->book_id == $item)
                                                                 <div class="item">
                                                                     <div class="product-item">
-                                                                        <a href="/Product/singleproduct/{{$book->book_id}}" title="All Over Embellished" class="product-image">
+                                                                        <a href="/Product/singleproduct/{{$book->book_id}}" title="{{$book->book_name}}" class="product-image">
                                                                             <img style="padding-left: 6.5%;padding-top: 5%;width: 200px;height: 264px;" class="em-img-lazy img-responsive" src="/upload/book_image/{{$book->book_image}}" width="180" height="180" alt="All Over Embellished"/> </a>
                                                                         <div class="product-details product-shop">
                                                                             <p class="product-name"><a
@@ -496,7 +496,7 @@
                                                                                 <a href="/Product/singleproduct/{{$book->book_id}}" class="quickshop-link"
                                                                                    title="Quickshop">Xem nhanh</a>
                                                                             </div>
-                                                                            <a href="/Addtocart/{{$book->book_id}}/{{$book->book_name}}"> <button type="button" title="Add to Cart" class="button btn-cart" onclick="217">
+                                                                            <a href="/Addtocart/{{$book->book_id}}"> <button type="button" title="Add to Cart" class="button btn-cart" onclick="217">
                                                                                 </button></a>
                                                                         </div>
                                                                     </div>
