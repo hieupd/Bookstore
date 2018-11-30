@@ -13,7 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Cart;
-use App\Http\Controllers\MLController as MLController;
+use App\Http\Controllers\Recommend as MLController;
 use Filter;
 
 class BookController extends Controller
@@ -47,9 +47,9 @@ class BookController extends Controller
                 'txtbook_author' => 'required|min:4|max:50',
                 'txtbook_publish' => 'required|min:4|max:50',
                 'txtbook_provider' => 'required|min:4|max:50',
-                'txtbook_page' => 'required|integer',
-                'txtbook_quantity' => 'integer',
-                'txtbook_price' => 'required|integer',
+                'txtbook_page' => 'required|integer|min:0',
+                'txtbook_quantity' => 'integer|min:0',
+                'txtbook_price' => 'required|integer|min:0',
                 'sl_CL'=>'required',
                 'sl_TL'=>'required',
             ],
@@ -68,13 +68,14 @@ class BookController extends Controller
                 'txtbook_provider.max' => 'Tên tên nhà xuất bản cần lớn hơn 4 và nhỏ hơn 50 kí tự !',
                 'txtbook_page.required' => 'Bạn chưa nhập số trang sách !',
                 'txtbook_page.integer' => 'Sô trang sách chỉ được nhập số !',
+                'txtbook_page.min' => 'Sô trang sách không âm !',
                 'txtbook_quantity.integer' => 'Sô lượng sách chỉ được nhập số !',
+                'txtbook_quantity.min' => 'Sô lượng sách không được âm !',
                 'txtbook_price.required' => 'Bạn chưa nhập số đơn giá!',
                 'txtbook_price.integer' => 'Đơn giá chỉ được nhập số !',
+                'txtbook_price.min' => 'Đơn giá không âm !',
                 'sl_CL.required'=>'Vui lòng chọn danh mục !',
                 'sl_TL.required'=>'Vui lòng chọn thể loại !',
-
-
             ]);
         $book = new bt_book;
         $type = bt_type::where('type_id','=',$request->sl_TL)->first();
@@ -151,9 +152,9 @@ class BookController extends Controller
                 'txtbook_author' => 'required|min:4|max:50',
                 'txtbook_publish' => 'required|min:4|max:50',
                 'txtbook_provider' => 'required|min:4|max:50',
-                'txtbook_page' => 'required|integer',
-                'txtbook_quantity' => 'integer',
-                'txtbook_price' => 'required|integer',
+                'txtbook_page' => 'required|integer|min:0',
+                'txtbook_quantity' => 'integer|min:0',
+                'txtbook_price' => 'required|integer|min:0',
                 'sl_CL'=>'required',
                 'sl_TL'=>'required',
             ],
@@ -172,9 +173,12 @@ class BookController extends Controller
                 'txtbook_provider.max' => 'Tên tên nhà xuất bản cần lớn hơn 4 và nhỏ hơn 50 kí tự !',
                 'txtbook_page.required' => 'Bạn chưa nhập số trang sách !',
                 'txtbook_page.integer' => 'Sô trang sách chỉ được nhập số !',
+                'txtbook_page.min' => 'Sô trang sách không âm !',
                 'txtbook_quantity.integer' => 'Sô lượng sách chỉ được nhập số !',
+                'txtbook_quantity.min' => 'Sô lượng sách không được âm !',
                 'txtbook_price.required' => 'Bạn chưa nhập số đơn giá!',
                 'txtbook_price.integer' => 'Đơn giá chỉ được nhập số !',
+                'txtbook_price.min' => 'Đơn giá không âm !',
                 'sl_CL.required'=>'Vui lòng chọn danh mục !',
                 'sl_TL.required'=>'Vui lòng chọn thể loại !',
 
@@ -284,8 +288,6 @@ class BookController extends Controller
     {
         $Lslide = bt_slide::where('slide_status',1)->get();
         $book =bt_book::where('book_status',1)->orderby('book_id','desc')->take(10)->get();
-        if($book->count() < 8 )
-            $book = null;
 //        join('bt_books','bt_books.book_id','=','bt_billinfos.book_id')
         $topBooksale = DB::table('bt_billsinfo')
             ->join('bt_books','bt_books.book_id','=','bt_billsinfo.book_id')
@@ -380,8 +382,8 @@ class BookController extends Controller
 //        $types = bt_type::all();
             $memberid = Auth::id();;
             if ($memberid != '') {
-                $x = new MLController();
-                $listRaw = $x->recomemded($memberid);
+                $x = new Recommend();
+                $listRaw = $x->recomemded($memberid,'bt_rates','member_id','book_id');
                 $list = array();
                 if ($count = count($list) > 3) {
                     sort($listRaw);
