@@ -294,11 +294,28 @@ class BookController extends Controller
             ->select(DB::raw('bt_billsinfo.book_id,bt_books.book_name,bt_books.book_image,bt_books.book_sale,bt_books.book_price,bt_books.book_quantity,SUM(bt_billsinfo.book_quantity) as sum'))
             ->orderBy('sum','desc')->groupBy('bt_billsinfo.book_id','bt_books.book_name','bt_books.book_image','bt_books.book_sale','bt_books.book_price','bt_books.book_quantity')
             ->take(6)->get();
-
+        $memberid = Auth::id();;
+        if ($memberid != '') {
+            $x = new Recommend();
+            $list = $x->recomemded($memberid,'bt_rates','member_id','book_id','book_rating');
+            if(count($list) == 0)
+                $list = null;
+            $bookRecomend = bt_book::where('book_id',$list[0])->get();
+            if(count($list) > 1)
+            {
+                for($i = 1 ; $i < count($list);$i++)
+                {
+                    $booktmp = bt_book::where('book_id',$list[$i])->first();
+                    $bookRecomend->push($booktmp);
+                }
+            }
+        } else {
+            $bookRecomend = null;
+        }
         $category = bt_category::all()->take(9);
         $type = bt_type::all();
         $rating = DB::table('bt_rates')->select(DB::raw('book_id,AVG(book_rating) as rating'))->groupBy('book_id')->get();
-        $var = ['Lslide'=> $Lslide,'Books'=>$book,'topSale'=>$topBooksale,'Rating'=>$rating,'Categorys'=>$category,'Types'=>$type];
+        $var = ['Lslide'=> $Lslide,'Books'=>$book,'topSale'=>$topBooksale,'Rating'=>$rating,'Categorys'=>$category,'Types'=>$type,'LbookRecomend'=>$bookRecomend];
         return view('webclient.Index.Index')->with($var);
     }
     public function getLbookbyCategory($category_id,Request $request)
@@ -383,16 +400,9 @@ class BookController extends Controller
             $memberid = Auth::id();;
             if ($memberid != '') {
                 $x = new Recommend();
-                $listRaw = $x->recomemded($memberid,'bt_rates','member_id','book_id');
+                $listRaw = $x->recomemded($memberid,'bt_rates','member_id','book_id','book_rating');
                 $list = array();
-                if ($count = count($list) > 3) {
-                    sort($listRaw);
-                    $list[] = $listRaw[0];
-                    $list[] = $listRaw[1];
-                    $list[] = $listRaw[2];
-                } else {
-                    $list = $listRaw;
-                }
+                $list = $listRaw;
             } else {
                 $list = null;
             }
