@@ -134,7 +134,7 @@
                                     <input name="form_key" type="hidden" value="W2ZAZqxDCT2TpZYs" />
                                     <div class="col2-set">
                                         <div class="col-1 new-users">
-                                            <div class="content" style="margin-right: 200%">
+                                            <div class="content" style="">
                                                 <h2>Thành viên mới</h2>
                                                 <p>Tạo tài khoản mang lại nhiều lợi ích cho các bạn.</p>
                                             </div>
