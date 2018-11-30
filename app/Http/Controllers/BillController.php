@@ -12,7 +12,7 @@ class BillController extends Controller
 {
     public function getBillmanager()
     {
-        $bills = bt_bill::join('users','bt_bills.member_id','=','users.id')->get();;
+        $bills = bt_bill::join('users','bt_bills.member_id','=','users.id')->orderBy('bill_id','desc')->get();;
         return view('webadmin.bill.bill',['Bills'=>$bills]);
     }
     public function getupdateBillmanager( $id)
