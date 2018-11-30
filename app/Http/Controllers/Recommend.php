@@ -21,7 +21,7 @@ class Recommend extends Controller
         if($temptb > 1 && $numr > 1) return -1;
         else if($temptb > 1 && $numr == 1)
         {
-            if($tbnum[0]->book_rating >= 3)
+            if($tbnum[0]->book_rating >= 4)
                 return $tbnum[0]->book_rating;
 
         }
@@ -48,6 +48,7 @@ class Recommend extends Controller
             }
 
         }
+
         return $vector;
     }
     function Cosin(array $a, array $b,$userquantity) // tinh cosin
@@ -113,19 +114,23 @@ class Recommend extends Controller
     }
     public function Similarmatrix($itemquantity,$Litem,$itemid,$ratmatrix,$totalrate,$userquantity) // ma tran tuong dong
     {
+
         $Vectorofitemid = $this->GetVector($ratmatrix,$totalrate,$itemid);
         ksort($Vectorofitemid);
         $Arrofsimilarity = array();
         for ($i = 0;$i < $itemquantity;$i++)
         {
-            if(($Litem[$i]->book_id != $itemid) && ($this->itemratequntity($Litem[$i]->book_id)== false))
+            if(($Litem[$i]->book_id != $itemid) && ($this->itemratequntity($Litem[$i]->book_id)== -1))
             {
                 $Vectorofitemcompared = $this->GetVector($ratmatrix,$totalrate,$Litem[$i]->book_id);
+
                 ksort($Vectorofitemcompared);
+
                // echo "sách so sanhs " .$itemid ."\n";
               //  echo "sách " .$Litem[$i]->book_id ."\n";
                 $Arrofsimilarity[$Litem[$i]->book_id] = $this->Cosin($Vectorofitemid,$Vectorofitemcompared,$userquantity);
             }
+
         }
         return $Arrofsimilarity;
     }
@@ -154,8 +159,8 @@ class Recommend extends Controller
     public function Recommend($itemquantity,$Litem,$itemid,$ratmatrix,$totalrate,$userquantity,$rating,$userid) // de xuat 1 san pham
     {
         $Arrofsimilarity = $this->Similarmatrix($itemquantity,$Litem,$itemid,$ratmatrix,$totalrate,$userquantity);//ma trận tương đồng giữ item id;
-        $arritemnavgrate = $this->arritemnaverage($rating,$userid,$totalrate,$ratmatrix);
 
+        $arritemnavgrate = $this->arritemnaverage($rating,$userid,$totalrate,$ratmatrix);
         $x = 0;
         $y = 0;
         foreach ($arritemnavgrate as $key=>$val)
@@ -172,11 +177,11 @@ class Recommend extends Controller
             }
         }
         if($y > 0)
-            $predictcommend = $x/$y;
+            $predictcommend = (float)$x/(float)$y;
         else
             $predictcommend = 0;
         if($predictcommend >= 0 )
-            return true;
+            return $predictcommend;
         return false;
     }
     public function recomemded($userid,$table,$memberidcolumn,$productidcolumn,$ratingcolum)
@@ -226,27 +231,33 @@ class Recommend extends Controller
                 $ratmatrix[] = $subarrtmp;
             }
         }
-        $arrRecommended = array();
+        $arrRecommendedraw = array();
         for($i = 0 ; $i < $totalrate;$i++)
         {
-            echo "item : ".$ratmatrix[$i][1].": ";
-            echo $this->itemratequntity($ratmatrix[$i][1],$table,$productidcolumn,$ratingcolum);
-            echo "<br>";
             if(($userid == $ratmatrix[$i][0])&&($ratmatrix[$i][2]==0))
             {
+
                 if(($this->itemratequntity($ratmatrix[$i][1],$table,$productidcolumn,$ratingcolum) == -1)) {
-                    if ($this->Recommend($itemquantity, $Litem, $ratmatrix[$i][1], $ratmatrix, $totalrate, $userquantity, $rating, $userid)) {
-                        $arrRecommended[] = $ratmatrix[$i][1];
+                    if ($this->Recommend($itemquantity, $Litem, $ratmatrix[$i][1], $ratmatrix, $totalrate, $userquantity, $rating, $userid)>=0) {
+                        $tmparr = array((float)$this->Recommend($itemquantity, $Litem, $ratmatrix[$i][1], $ratmatrix, $totalrate, $userquantity, $rating, $userid),$ratmatrix[$i][1]);
+                        //$tmparr = array($ratmatrix[$i][1],$this->Recommend($itemquantity, $Litem, $ratmatrix[$i][1], $ratmatrix, $totalrate, $userquantity, $rating, $userid));
+                        $arrRecommendedraw[] =$tmparr;
                     }
                 }
                 else if(($this->itemratequntity($ratmatrix[$i][1],$table,$productidcolumn,$ratingcolum) > 2) )
                 {
-                    $arrRecommended[] = $ratmatrix[$i][1];
+                    $tmparr = array($this->itemratequntity($ratmatrix[$i][1],$table,$productidcolumn,$ratingcolum),$ratmatrix[$i][1]);
+                    //$tmparr = array($ratmatrix[$i][1],$this->itemratequntity($ratmatrix[$i][1],$table,$productidcolumn,$ratingcolum));
+                    $arrRecommendedraw[] = $tmparr;
                 }
 
             }
 
         }
+        rsort($arrRecommendedraw);
+        $arrRecommended = array();
+        for ($i = 0 ; $i < count($arrRecommendedraw);$i++)
+            $arrRecommended[] = $arrRecommendedraw[$i][1];
         return $arrRecommended;
 
     }
