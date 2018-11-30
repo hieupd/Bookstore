@@ -135,11 +135,10 @@ Route::middleware(['permison', 'auth'])->group(function () {
     Route::get('/CrawType','CrawlController@getType');
 });
 // test
-Route::get('/ML/{userid}',function ()
-{
-    $x = new Recommend();
-    $listRaw = $x->recomemded(1,'bt_rates','member_id','book_id','book_rating');
-    dd($listRaw);
-});
-
-Route::get('/x','BookController@updatef');
+//Route::get('/ML/{userid}',function ()
+//{
+//    $x = new Recommend();
+//    $listRaw = $x->recomemded(1,'bt_rates','member_id','book_id','book_rating');
+//    dd($listRaw);
+//});
+//Route::get('/x','BookController@updatef');
