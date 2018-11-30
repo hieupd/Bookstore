@@ -229,7 +229,7 @@
                                                                                                     </li>
                                                                                                     @endif
                                                                                                 </ul>
-                                                                                                <a href="#" title=" {{$book->book_name}}" style="padding-left: 4.5%;padding-top: 5%" class="product-image">
+                                                                                                <a href="/Product/singleproduct/{{$book->book_id}}" title=" {{$book->book_name}}" style="padding-left: 4.5%;padding-top: 5%" class="product-image">
                                                                                                     <img style=" width: 210px;height: 264px;padding-left: 4.5%;padding-top: 5%" class="em-alt-hover img-responsive em-lazy-loaded" src="/upload/book_image/{{$book->book_image}}" height="300" width="300">
                                                                                                     <img style=" width: 200px;height: 264px;" class="img-responsive em-alt-org em-lazy-loaded" src="/upload/book_image/{{$book->book_image}}" data-original="/upload/book_image/{{$book->book_image}}" height="300" width="300">
                                                                                                 </a>
@@ -251,7 +251,7 @@
                                                                                             <div class="product-shop">
                                                                                                 <div class="f-fix">
                                                                                                     <!--product name-->
-                                                                                                    <h3 style="min-height: 55px;" class="product-name"><a  href="/Product/singleproduct/{{$book->book_id}}">{{$book->book_name}}</a></h3>
+                                                                                                    <h3 style="max-height: 55px;" title="{{$book->book_name}}" class="product-name"><a  href="/Product/singleproduct/{{$book->book_id}}">{{str_limit($book->book_name,40)}}</a></h3>
                                                                                                     <h3 style="min-height: 19px;"><a style="color: #434343;font: 500 14px/1.35 Raleway, Helvetica Neue, Helvetica, Arial, sans-serif;"> {{$book->book_author}}</a></h3>
                                                                                                     <!--product description-->
                                                                                                     <!--product reviews-->
@@ -297,25 +297,26 @@
                                         </div>
                                         <div class="widget em-filterproducts-list">
                                             <div class="widget-products em-widget-products">
+                                                @if($topSale->count()>0)
+                                                @foreach($topSale->chunk(3) as $chunk)
                                                 <div class="products-list ">
-                                                    @for($i = 0 ; $i <($topSale->count());$i++)
-                                                        @if($topSale[$i] != null)
+                                                    @foreach($chunk as $item)
                                                     <div class="item" style="  ">
-                                                        <a href="#" title="{{$topSale[$i]->book_name}}" class="product-image">
-                                                            <img style="" class="em-alt-hover img-responsive em-lazy-loaded" src="/upload/book_image/{{$topSale[$i]->book_image}}" data-original="/upload/book_image/{{$topSale[$i]->book_image}}" alt="Cross Back Dress" height="110" width="110">
-                                                            <img class="img-responsive em-alt-org em-lazy-loaded" src="/upload/book_image/{{$topSale[$i]->book_image}}" data-original="/upload/book_image/{{$topSale[$i]->book_image}}" alt="Cross Back Dress" height="110" width="110">
+                                                        <a href="/Product/singleproduct/{{$item->book_id}}"" title="{{$item->book_name}}" class="product-image">
+                                                            <img style="min-height: 166px;" class="em-alt-hover img-responsive em-lazy-loaded" src="/upload/book_image/{{$item->book_image}}" data-original="/upload/book_image/{{$item->book_image}}" alt="Cross Back Dress" height="110" width="110">
+                                                            <img style="min-height: 166px;" class="img-responsive em-alt-org em-lazy-loaded" src="/upload/book_image/{{$item->book_image}}" data-original="/upload/book_image/{{$item->book_image}}" alt="Cross Back Dress" height="110" width="110">
                                                         </a>
                                                         <div class="product-shop">
                                                             <div class="f-fix">
                                                                 <!--product name-->
 
-                                                                <h3 class="product-name"><a href="/Product/singleproduct/{{$topSale[$i]->book_id}}" title="Cross Back Dress">{{$topSale[$i]->book_name}}</a></h3>
+                                                                <h3 class="product-name"><a href="/Product/singleproduct/{{$item->book_id}}" title="Cross Back Dress">{{$item->book_name}}</a></h3>
                                                                 <!--product description-->
                                                                 <!--product reviews-->
                                                                 <div class="ratings">
                                                                     <div class="rating-box">
                                                                         @foreach($Rating as $rating)
-                                                                            @if($rating->book_id == $topSale[$i]->book_id)
+                                                                            @if($rating->book_id == $item->book_id)
                                                                                 <div class="rating" style="width:{{$rating->rating/5*100}}%"></div> <!-- chỉnh rating bằng cách sử dụng %-->
                                                                             @endif
                                                                         @endforeach
@@ -324,20 +325,20 @@
                                                                 <!--product price-->
                                                                 <div class="price-box">
                                                                     <span class="regular-price" id="product-price-166-emprice-420d7edd38e60d3ae400966629e226d2">
-                                                                        <span class="price">{{number_format(($topSale[$i]->book_price - ($topSale[$i]->book_price * $topSale[$i]->book_sale)/100),0,',','.') }} đ</span>
+                                                                        <span class="price">{{number_format(($item->book_price - ($item->book_price * $item->book_sale)/100),0,',','.') }} đ</span>
                                                                     </span>
 
                                                                 </div>
                                                                 <div class="em-element-display-hover bottom">
                                                                     <div class="em-btn-addto">
-                                                                    @if($topSale[$i]->book_quantity)
+                                                                    @if($item->book_quantity)
                                                                         <!--product add to cart-->
-                                                                        <a href="/Addtocart/{{$topSale[$i]->book_id}}"> <button type="button" title="Add to Cart" class="button btn-cart" onclick="217">
+                                                                        <a href="/Addtocart/{{$item->book_id}}"> <button type="button" title="Add to Cart" class="button btn-cart" onclick="217">
                                                                             </button></a>
                                                                     @endif
                                                                         <!--product add to compare-wishlist-->
                                                                         <div class="quickshop-link-container">
-                                                                            <a href="/Product/singleproduct/{{$topSale[$i]->book_id}}" class="quickshop-link" title="Quickshop">Xem nhanh</a>
+                                                                            <a href="/Product/singleproduct/{{$item->book_id}}" class="quickshop-link" title="Quickshop">Xem nhanh</a>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -345,178 +346,81 @@
                                                             </div>
                                                         </div>
                                                     </div><!-- /.item -->
-                                                        @endif
-                                                    @endfor
+                                                    @endforeach
                                                 </div><!-- /.products-list -->
-                                                <div class="products-list ">
-                                                    @for($i = 3 ; $i <($topSale->count());$i++)
-                                                        @if($topSale[$i] != null)
-                                                        <div class="item" style="  ">
-                                                            <a href="#" title="{{$topSale[$i]->book_name}}" class="product-image">
-                                                                <img style="" class="em-alt-hover img-responsive em-lazy-loaded" src="/upload/book_image/{{$topSale[$i]->book_image}}" data-original="/upload/book_image/{{$topSale[$i]->book_image}}" alt="Cross Back Dress" height="110" width="110">
-                                                                <img class="img-responsive em-alt-org em-lazy-loaded" src="/upload/book_image/{{$topSale[$i]->book_image}}" data-original="/upload/book_image/{{$topSale[$i]->book_image}}" alt="Cross Back Dress" height="110" width="110">
-                                                            </a>
-                                                            <div class="product-shop">
-                                                                <div class="f-fix">
-                                                                    <!--product name-->
-                                                                    <h3 class="product-name"><a href="/Product/singleproduct/{{$topSale[$i]->book_id}}" title="Cross Back Dress">{{$topSale[$i]->book_name}}</a></h3>
-                                                                    <!--product description-->
-                                                                    <!--product reviews-->
-                                                                    <div class="ratings">
-                                                                        <div class="rating-box">
-                                                                            @foreach($Rating as $rating)
-                                                                                @if($rating->book_id == $topSale[$i]->book_id)
-                                                                                    <div class="rating" style="width:{{$rating->rating/5*100}}%"></div> <!-- chỉnh rating bằng cách sử dụng %-->
+                                                @endforeach
+                                                @endif
+                                            </div>
+                                        </div><!-- /.widget -->
+                                    </div><!-- /.em-grid-15 -->
+                                </div>
+                            </div><!-- /.em-best-sales -->
+                            @if(Auth::check())
+                                <div class="em-best-sales em-wrapper-product-15">
+                                    <div class="emfilter-ajaxblock-loaded">
+                                        <div class="em-grid-15 custom-product-list">
+                                            <div class="widget-title em-widget-title">
+                                                <h3><span>Có thể bạn quan tâm</span></h3>
+                                            </div>
+                                            <div class="widget em-filterproducts-list">
+                                                <div class="widget-products em-widget-products">
+                                                    @foreach($LbookRecomend->chunk(3) as $chunk)
+                                                        <div class="products-list ">
+                                                            @foreach($chunk as $item)
+                                                                <div class="item" style="  ">
+                                                                    <a href="/Product/singleproduct/{{$item->book_id}}"" title="{{$item->book_name}}" class="product-image">
+                                                                        <img style="min-height: 166px;" class="em-alt-hover img-responsive em-lazy-loaded" src="/upload/book_image/{{$item->book_image}}" data-original="/upload/book_image/{{$item->book_image}}" alt="Cross Back Dress" height="110" width="110">
+                                                                        <img style="min-height: 166px;" class="img-responsive em-alt-org em-lazy-loaded" src="/upload/book_image/{{$item->book_image}}" data-original="/upload/book_image/{{$item->book_image}}" alt="Cross Back Dress" height="110" width="110">
+                                                                    </a>
+                                                                    <div class="product-shop">
+                                                                        <div class="f-fix">
+                                                                            <!--product name-->
+
+                                                                            <h3 class="product-name"><a href="/Product/singleproduct/{{$item->book_id}}" title="Cross Back Dress">{{$item->book_name}}</a></h3>
+                                                                            <!--product description-->
+                                                                            <!--product reviews-->
+                                                                            <div class="ratings">
+                                                                                <div class="rating-box">
+                                                                                    @foreach($Rating as $rating)
+                                                                                        @if($rating->book_id == $item->book_id)
+                                                                                            <div class="rating" style="width:{{$rating->rating/5*100}}%"></div> <!-- chỉnh rating bằng cách sử dụng %-->
+                                                                                        @endif
+                                                                                    @endforeach
+                                                                                </div>
+                                                                            </div>
+                                                                            <!--product price-->
+                                                                            <div class="price-box">
+                                                                    <span class="regular-price" id="product-price-166-emprice-420d7edd38e60d3ae400966629e226d2">
+                                                                        <span class="price">{{number_format(($item->book_price - ($item->book_price * $item->book_sale)/100),0,',','.') }} đ</span>
+                                                                    </span>
+
+                                                                            </div>
+                                                                            <div class="em-element-display-hover bottom">
+                                                                                <div class="em-btn-addto">
+                                                                                @if($item->book_quantity)
+                                                                                    <!--product add to cart-->
+                                                                                        <a href="/Addtocart/{{$item->book_id}}"> <button type="button" title="Add to Cart" class="button btn-cart" onclick="217">
+                                                                                            </button></a>
                                                                                 @endif
-                                                                            @endforeach
-                                                                        </div>
-                                                                    </div>
-                                                                    <!--product price-->
-                                                                    <div class="price-box">
-                                                                    <span class="regular-price" id="product-price-166-emprice-420d7edd38e60d3ae400966629e226d2">
-                                                                        <span class="price">{{number_format(($topSale[$i]->book_price - ($topSale[$i]->book_price * $topSale[$i]->book_sale)/100),0,',','.') }} đ</span>
-                                                                    </span>
-
-                                                                    </div>
-                                                                    <div class="em-element-display-hover bottom">
-                                                                        <div class="em-btn-addto">
-                                                                        @if($topSale[$i]->book_quantity)
-                                                                            <!--product add to cart-->
-                                                                            <a href="/Addtocart/{{$topSale[$i]->book_id}}"> <button type="button" title="Add to Cart" class="button btn-cart" onclick="217">
-                                                                                </button></a>
-                                                                        @endif
-                                                                            <!--product add to compare-wishlist-->
-                                                                            <div class="quickshop-link-container">
-                                                                                <a href="/Product/singleproduct/{{$topSale[$i]->book_id}}" class="quickshop-link" title="Quickshop">Xem nhanh</a>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-
-                                                                </div>
-                                                            </div>
-                                                        </div><!-- /.item -->
-                                                        @endif
-                                                    @endfor
-                                                </div><!-- /.products-list -->
-                                            </div>
-                                        </div><!-- /.widget -->
-                                    </div><!-- /.em-grid-15 -->
-                                </div>
-                            </div><!-- /.em-best-sales -->
-                            <div class="em-best-sales em-wrapper-product-15">
-                                <div class="emfilter-ajaxblock-loaded">
-                                    <div class="em-grid-15 custom-product-list">
-                                        <div class="widget-title em-widget-title">
-                                            <h3><span>Có thể bạn thấy thú vị</span></h3>
-                                        </div>
-                                        <div class="widget em-filterproducts-list">
-                                            <div class="widget-products em-widget-products">
-                                                <div class="products-list ">
-                                                    @for($i = 0 ; $i <($topSale->count());$i++)
-                                                        @if($topSale[$i] != null)
-                                                            <div class="item" style="  ">
-                                                                <a href="#" title="{{$topSale[$i]->book_name}}" class="product-image">
-                                                                    <img style="" class="em-alt-hover img-responsive em-lazy-loaded" src="/upload/book_image/{{$topSale[$i]->book_image}}" data-original="/upload/book_image/{{$topSale[$i]->book_image}}" alt="Cross Back Dress" height="110" width="110">
-                                                                    <img class="img-responsive em-alt-org em-lazy-loaded" src="/upload/book_image/{{$topSale[$i]->book_image}}" data-original="/upload/book_image/{{$topSale[$i]->book_image}}" alt="Cross Back Dress" height="110" width="110">
-                                                                </a>
-                                                                <div class="product-shop">
-                                                                    <div class="f-fix">
-                                                                        <!--product name-->
-
-                                                                        <h3 class="product-name"><a href="/Product/singleproduct/{{$topSale[$i]->book_id}}" title="Cross Back Dress">{{$topSale[$i]->book_name}}</a></h3>
-                                                                        <!--product description-->
-                                                                        <!--product reviews-->
-                                                                        <div class="ratings">
-                                                                            <div class="rating-box">
-                                                                                @foreach($Rating as $rating)
-                                                                                    @if($rating->book_id == $topSale[$i]->book_id)
-                                                                                        <div class="rating" style="width:{{$rating->rating/5*100}}%"></div> <!-- chỉnh rating bằng cách sử dụng %-->
-                                                                                    @endif
-                                                                                @endforeach
-                                                                            </div>
-                                                                        </div>
-                                                                        <!--product price-->
-                                                                        <div class="price-box">
-                                                                    <span class="regular-price" id="product-price-166-emprice-420d7edd38e60d3ae400966629e226d2">
-                                                                        <span class="price">{{number_format(($topSale[$i]->book_price - ($topSale[$i]->book_price * $topSale[$i]->book_sale)/100),0,',','.') }} đ</span>
-                                                                    </span>
-
-                                                                        </div>
-                                                                        <div class="em-element-display-hover bottom">
-                                                                            <div class="em-btn-addto">
-                                                                            @if($topSale[$i]->book_quantity)
-                                                                                <!--product add to cart-->
-                                                                                    <a href="/Addtocart/{{$topSale[$i]->book_id}}"> <button type="button" title="Add to Cart" class="button btn-cart" onclick="217">
-                                                                                        </button></a>
-                                                                            @endif
-                                                                            <!--product add to compare-wishlist-->
-                                                                                <div class="quickshop-link-container">
-                                                                                    <a href="/Product/singleproduct/{{$topSale[$i]->book_id}}" class="quickshop-link" title="Quickshop">Xem nhanh</a>
+                                                                                <!--product add to compare-wishlist-->
+                                                                                    <div class="quickshop-link-container">
+                                                                                        <a href="/Product/singleproduct/{{$item->book_id}}" class="quickshop-link" title="Quickshop">Xem nhanh</a>
+                                                                                    </div>
                                                                                 </div>
                                                                             </div>
-                                                                        </div>
 
+                                                                        </div>
                                                                     </div>
-                                                                </div>
-                                                            </div><!-- /.item -->
-                                                        @endif
-                                                    @endfor
-                                                </div><!-- /.products-list -->
-                                                <div class="products-list ">
-                                                    @for($i = 3 ; $i <($topSale->count());$i++)
-                                                        @if($topSale[$i] != null)
-                                                            <div class="item" style="  ">
-                                                                <a href="#" title="{{$topSale[$i]->book_name}}" class="product-image">
-                                                                    <img style="" class="em-alt-hover img-responsive em-lazy-loaded" src="/upload/book_image/{{$topSale[$i]->book_image}}" data-original="/upload/book_image/{{$topSale[$i]->book_image}}" alt="Cross Back Dress" height="110" width="110">
-                                                                    <img class="img-responsive em-alt-org em-lazy-loaded" src="/upload/book_image/{{$topSale[$i]->book_image}}" data-original="/upload/book_image/{{$topSale[$i]->book_image}}" alt="Cross Back Dress" height="110" width="110">
-                                                                </a>
-                                                                <div class="product-shop">
-                                                                    <div class="f-fix">
-                                                                        <!--product name-->
-                                                                        <h3 class="product-name"><a href="/Product/singleproduct/{{$topSale[$i]->book_id}}" title="Cross Back Dress">{{$topSale[$i]->book_name}}</a></h3>
-                                                                        <!--product description-->
-                                                                        <!--product reviews-->
-                                                                        <div class="ratings">
-                                                                            <div class="rating-box">
-                                                                                @foreach($Rating as $rating)
-                                                                                    @if($rating->book_id == $topSale[$i]->book_id)
-                                                                                        <div class="rating" style="width:{{$rating->rating/5*100}}%"></div> <!-- chỉnh rating bằng cách sử dụng %-->
-                                                                                    @endif
-                                                                                @endforeach
-                                                                            </div>
-                                                                        </div>
-                                                                        <!--product price-->
-                                                                        <div class="price-box">
-                                                                    <span class="regular-price" id="product-price-166-emprice-420d7edd38e60d3ae400966629e226d2">
-                                                                        <span class="price">{{number_format(($topSale[$i]->book_price - ($topSale[$i]->book_price * $topSale[$i]->book_sale)/100),0,',','.') }} đ</span>
-                                                                    </span>
-
-                                                                        </div>
-                                                                        <div class="em-element-display-hover bottom">
-                                                                            <div class="em-btn-addto">
-                                                                            @if($topSale[$i]->book_quantity)
-                                                                                <!--product add to cart-->
-                                                                                    <a href="/Addtocart/{{$topSale[$i]->book_id}}"> <button type="button" title="Add to Cart" class="button btn-cart" onclick="217">
-                                                                                        </button></a>
-                                                                            @endif
-                                                                            <!--product add to compare-wishlist-->
-                                                                                <div class="quickshop-link-container">
-                                                                                    <a href="/Product/singleproduct/{{$topSale[$i]->book_id}}" class="quickshop-link" title="Quickshop">Xem nhanh</a>
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-
-                                                                    </div>
-                                                                </div>
-                                                            </div><!-- /.item -->
-                                                        @endif
-                                                    @endfor
-                                                </div><!-- /.products-list -->
-                                            </div>
-                                        </div><!-- /.widget -->
-                                    </div><!-- /.em-grid-15 -->
-                                </div>
-                            </div><!-- /.em-best-sales -->
+                                                                </div><!-- /.item -->
+                                                            @endforeach
+                                                        </div><!-- /.products-list -->
+                                                    @endforeach
+                                                </div>
+                                            </div><!-- /.widget -->
+                                        </div><!-- /.em-grid-15 -->
+                                    </div>
+                                </div><!-- /.em-best-sales -->
+                            @endif
                         </div><!-- /.em-col-main -->
                     </div>
                 </div><!-- /.em-main-container -->
