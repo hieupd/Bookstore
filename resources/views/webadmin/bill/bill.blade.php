@@ -138,9 +138,9 @@
 							</div>
 
 					<td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="/admin/dashboard/billmanager/deletebill/{{$bl->bill_id}}" > Xóa</a></td>
-					<td class="center"><i class="fa fa-pencil fa-fw" id="icon1{{$bl->bill_id}}"></i> <a href="#" id="{{$bl->bill_id}}" class="Edit_r">Sửa</a>
-						<i class="fa fa-trash-o  fa-fw" style="display: none"></i><a href="#" id="Save{{$bl->bill_id}}" style="display: none"> Lưu</a>&nbsp&nbsp
-						<i class="fa fa-pencil fa-fw" style="display: none"></i> <a href="#" id="Cancel{{$bl->bill_id}}" style="display: none">Hủy</a>
+					<td class="center"><i class="fa fa-pencil fa-fw" id="icon1{{$bl->bill_id}}"></i> <a id="{{$bl->bill_id}}" class="Edit_r">Sửa</a>
+						<i class="fa fa-trash-o  fa-fw" style="display: none"></i><a  id="Save{{$bl->bill_id}}" style="display: none"> Lưu</a>&nbsp&nbsp
+						<i class="fa fa-pencil fa-fw" style="display: none"></i> <a id="Cancel{{$bl->bill_id}}" style="display: none">Hủy</a>
 					</td>
 						</form>
 
@@ -183,12 +183,13 @@
 	<script>
         $(document).ready(function() {
             $('#dataTables-example').DataTable({
-                responsive: true
+                responsive: true,
+                "order": [[ 0, "desc" ]]
             });
         });
         $(document).ready(function() {
             var id ;
-			$(".Edit_r").on("click",function () {
+			$("#dataTables-example").on("click",'.Edit_r',function () {
 			    id =$(this).attr('id');
 				$("#select1"+id).show();
 				$(".status"+id).hide();
