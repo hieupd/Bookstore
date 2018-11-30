@@ -181,6 +181,7 @@ class CrawlController extends Controller
                 $book->type_id = $type->type_id;
                 $book->book_quantity = 10;
                 $book->book_translator = 'Đang cập nhật';
+                $book->book_tprice = (int)$product_price - (int)$product_price*round($sale)/100;
                 $book->book_language = trim($product_language);
                 $book->book_yearpublish = trim($product_yearpublish);
                 $book->book_jackettype = trim($product_quanlity);
