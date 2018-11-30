@@ -10,6 +10,7 @@
 |
 */
 use App\bt_role;
+use App\Http\Controllers\Recommend;
 
 //Route::get('/', 'ClientController@index');
 
@@ -133,5 +134,11 @@ Route::middleware(['permison', 'auth'])->group(function () {
     Route::get('/CrawlBook/{Typeid}','CrawlController@getBook');
 });
 // test
-Route::get('/ML/{userid}', 'MLController@recomemded');
+Route::get('/ML/{userid}',function ()
+{
+    $x = new Recommend();
+    $listRaw = $x->recomemded(1,'bt_rates','member_id','book_id','book_rating');
+    dd($listRaw);
+});
+
 Route::get('/x','BookController@updatef');
