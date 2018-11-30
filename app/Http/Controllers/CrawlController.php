@@ -19,6 +19,14 @@ class CrawlController extends Controller
         $this->getType();
         return redirect()->back()->with('Thongbao','Cập nhập dữ liệu thành công !');
     }
+
+    public function CrawlType()
+    {
+        $this->getCate();
+        $this->getType();
+        return redirect()->back()->with('Thongbao','Cập nhập dữ liệu thành công !');
+    }
+
     public function Crawlallbook()
     {
         $listtype = bt_type::all();
