@@ -118,7 +118,7 @@
                              </td>
                             <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="/admin/dashboard/typemanager/deletebooklist/{{$ct->category_id}}"> Xóa</a></td>
 					         <td class="center">
-                                <i class="fa fa-pencil fa-fw" id="iconlist{{$ct->category_id}}"></i> <a id="{{$ct->category_id}}" class="Edit_rL">Sửa</a>
+                                <i class="fa fa-pencil fa-fw" id="iconlist{{$ct->category_id}}"></i> <button type="button" id="{{$ct->category_id}}" class="btn-link Edit_rL">Sửa</button>
                                 <button type="submit" id="Save{{$ct->category_id}}" class="btn btn-link" style="color: #337ab7; margin-top: -5px; font-size: 13px; display: none" >Lưu</button>
                                 <button type="button" id="Cancel{{$ct->category_id}}" class="btn btn-link " style="color: #337ab7; margin-top: -5px; font-size: 13px ;display: none">Hủy</button>
                             </td>
@@ -180,7 +180,7 @@
                         <td class="center"><i class="fa fa-upload  fa-fw"></i><a href="/CrawlBook/{{$tp->type_id}}"> Cập nhập</a></td>
                     <td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="/admin/dashboard/typemanager/deletebooktype/{{$tp->type_id}}"> Xóa</a></td>
                     <td class="center">
-                        <i class="fa fa-pencil fa-fw" id="icontype{{$tp->type_id}}"></i> <a id="{{$tp->type_id}}" class="Edit_rT">Sửa</a>
+                        <i class="fa fa-pencil fa-fw" id="icontype{{$tp->type_id}}"></i> <button type="button" id="{{$tp->type_id}}" class="btn-link Edit_rT">Sửa</button>
                         <button type="submit" id="SaveT{{$tp->type_id}}" class="btn btn-link " style="color: #337ab7; margin-top: -5px; font-size: 13px; display: none" >Lưu</button>
                         <button type="button" id="CancelT{{$tp->type_id}}" class="btn btn-link " style="color: #337ab7; margin-top: -5px; font-size: 13px ;display: none">Hủy</button>
                     </td>
@@ -241,7 +241,7 @@
 			</script>
             <script>
                 $(document).ready(function() {
-                    $(".Edit_rL").on("click",function () {
+                    $("#dataTables-example1").on("click",'.Edit_rL',function () {
                         var id =$(this).attr('id');
                         $("#txt_listname"+id).val($("#list_name"+id).text());
                         $("#txt_listname"+id).show();
@@ -259,7 +259,7 @@
                             $("#"+id).show();
                         });
                     });
-                    $(".Edit_rT").on("click",function () {
+                    $("#dataTables-example").on("click",'.Edit_rT',function () {
                         var idT = $(this).attr('id');
                         $("#slt_type"+idT).show();
                         $("#txt_typename"+idT).show();
