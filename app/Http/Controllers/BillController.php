@@ -13,7 +13,9 @@ class BillController extends Controller
     public function getBillmanager()
     {
         $bills = bt_bill::join('users','bt_bills.member_id','=','users.id')->orderBy('bill_id','desc')->get();;
-        return view('webadmin.bill.bill',['Bills'=>$bills]);
+        $billinfo = bt_billinfo::join('bt_books','bt_billsinfo.book_id','=','bt_books.book_id')->select('bt_billsinfo.bill_id','bt_billsinfo.book_quantity','bt_books.book_name')->get();
+        return view('webadmin.bill.bill',['Bills'=>$bills,'Billinfo'=>$billinfo]);
+
     }
     public function getupdateBillmanager( $id)
     {
