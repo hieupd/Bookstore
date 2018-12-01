@@ -105,6 +105,7 @@
 				<tr align="center">
 					<th>ID</th>
 					<th>Người mua</th>
+					<th>Danh sách sản phẩm</th>
 					<th>Địa chỉ nhận hàng</th>
 					<th>Tổng tiền</th>
 					<th>Trạng thái</th>
@@ -117,6 +118,14 @@
 				<tr class="odd gradeX" align="center ">
 					<td>{{$bl->bill_id}}</td>
 					<td>{{$bl->user_fname}}</td>
+					<td>
+						@foreach($Billinfo as $item)
+							@if($item->bill_id == $bl->bill_id)
+								{{$item->book_name}} x {{$item->book_quantity}}
+								<br>
+							@endif
+						@endforeach
+					</td>
 					<td>{{$bl->ship_address}}</td>
 					<td>{{$bl->bill_tprice}}</td>
 					<td>
@@ -138,9 +147,9 @@
 							</div>
 
 					<td class="center"><i class="fa fa-trash-o  fa-fw"></i><a href="/admin/dashboard/billmanager/deletebill/{{$bl->bill_id}}" > Xóa</a></td>
-					<td class="center"><i class="fa fa-pencil fa-fw" id="icon1{{$bl->bill_id}}"></i> <a id="{{$bl->bill_id}}" class="Edit_r">Sửa</a>
-						<i class="fa fa-trash-o  fa-fw" style="display: none"></i><a  id="Save{{$bl->bill_id}}" style="display: none"> Lưu</a>&nbsp&nbsp
-						<i class="fa fa-pencil fa-fw" style="display: none"></i> <a id="Cancel{{$bl->bill_id}}" style="display: none">Hủy</a>
+					<td class="center"><i class="fa fa-pencil fa-fw" id="icon1{{$bl->bill_id}}"></i> <button type="button" id="{{$bl->bill_id}}" class="Edit_r btn-link">Sửa</b>
+						<i class="fa fa-trash-o  fa-fw" style="display: none"></i><button type="button" class="btn-link"  id="Save{{$bl->bill_id}}" style="display: none"> Lưu</button>&nbsp&nbsp
+						<i class="fa fa-pencil fa-fw" style="display: none"></i> <button type="button" class="btn-link" id="Cancel{{$bl->bill_id}}" style="display: none">Hủy</button>
 					</td>
 						</form>
 
